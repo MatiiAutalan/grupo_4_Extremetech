@@ -1,22 +1,3 @@
-/*header*/
-.headerEdit {
-  background-color: var(--colorPrimary);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.logoAdmin {
-  width: 90px;
-}
-
-.userAdmin p {
-  color: white;
-  font-size: 13px;
-  text-align: end;
-}
-
-/*header*/
 
 /*title */
 
@@ -37,6 +18,7 @@
   justify-content: center;
   margin: 10px auto;
   max-width: 220px;
+  z-index: -1;
 }
 /* search-input */
 .searchContainer input {
@@ -127,10 +109,6 @@
 @media (min-width: 576px) {
   .titleSearch h1 {
     font-size: 22px;
-  }
-  .headerEdit {
-    justify-content: space-between;
-    padding: 0 25px;
   }
 
   .cardProduct {

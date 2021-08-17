@@ -1,0 +1,175 @@
+/*header*/
+.headerAdmin {
+  background-color: var(--colorPrimary);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.containerLogoAdmin {
+    width: 33%;
+}
+
+.logoAdmin {
+  width: 90px;
+
+}
+
+/*burger Admin*/
+.menuBurgerAdmin {
+  width: 33%;  
+  padding: 10px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.modalBurgerAdmin {
+  width: 75%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#btn-modal:checked ~ .modalBurgerAdmin {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contenedorBurgerAdmin {
+  height: 173px;
+  background: #fff;
+  box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.6);
+  transition: all 500ms ease;
+  transform: translateY(-100%);
+}
+
+#btn-modal:checked ~ .modalBurgerAdmin .contenedorBurgerAdmin {
+  transform: translateY(0%);
+}
+
+.contenedorBurgerAdmin h2 {
+  padding: 10px;
+  background-color: var(--colorPrimaryC);
+  color: white;
+  font-size: 18px;
+  text-align: right;
+}
+
+.contenedorBurgerAdmin label {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 20px;
+  height: 14px;
+  cursor: pointer;
+  color: white;
+}
+
+.lbl-modal {
+  background-color: var(--colorPrimary);
+  color: black;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#btn-modal {
+  display: none;
+}
+
+.lbl-modal i {
+  font-size: 25px;
+}
+
+.contenidoBurgerAdmin ul {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.contenidoBurgerAdmin ul a li {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  padding: 8px 5px;
+  border: solid 1.3px gray;
+}
+
+.contenidoBurgerAdmin ul a {
+  text-decoration: none;
+  background-color: white;
+  color: white;
+  font-weight: bold;
+}
+
+.contenidoBurgerAdmin ul a li:hover {
+  background-color: var(--colorSecundaryWhite);
+  color: white;
+  font-weight: bold;
+}
+/*burger Admin*/
+
+/*nav desktop*/
+.navAdmin {
+    width: 60%;
+    display: none;
+}
+
+.navAdmin ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navAdmin ul li {
+  display: inline-block;
+  color: white;
+  padding: 5px;
+  background-color: var(--colorSecundary);
+  border-radius: 7px;
+  border-bottom: solid 2px;
+  width: 125px;
+  text-align: center;
+}
+/*nav desktop*/
+.userAdmin {
+  width: 33%;
+  text-align: end;
+  padding-right: 10px;
+}
+
+.userAdmin p,
+.userAdmin a {
+  color: white;
+  font-size: 13px;
+  text-align: end;
+}
+
+.userAdmin a:hover {
+  color: var(--colorTertiary);
+}
+
+/*header*/
+
+@media (min-width: 768px) {
+  .menuBurgerAdmin {
+    display: none;
+  }
+
+  .navAdmin {
+      display: block;
+  }
+
+  .containerLogoAdmin {
+      width: 20%;
+  }
+
+  .userAdmin {
+      width: 20%;
+  }
+}

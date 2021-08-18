@@ -1,6 +1,6 @@
 module.exports = {
     index: (req,res) => {
-        res.render('userprofile', {
+        res.render('userProfile', {
             title:"Cuenta"
         })
     },

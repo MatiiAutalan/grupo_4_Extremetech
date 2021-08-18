@@ -5,14 +5,13 @@
     justify-content: center;
     align-items: center;
     max-width: 750px;
-    border: solid 3px rgb(99, 2, 138);
-    background-color: black;
-    color: white ;
+    border: solid 3px var(--colorTertiary);
+    background-color: var(--colorPrimary);
 }
 
 .containerUserProfile h1 {
     text-align: center;
-    color: chartreuse;
+    color: var(--colorWhite);
 }
 
 .containerUserProfile .imageProfile {
@@ -26,20 +25,20 @@
 .containerUserProfile .imageProfile .avatar { 
     width: 150px;
     height: 150px;
-    background-color: chartreuse;
+    background-color: var(--colorTertiary);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-    color: rgb(99, 2, 138);
+    color: var(--colorSecundary);
     font-weight: bold;
 }
 
 .containerUserProfile .imageProfile input {
     width: 90%;
-    color: rgb(99, 2, 138);
-    border: solid 3px chartreuse;
+    color: var(--colorWhite);
+    border: solid 3px var(--colorSecundary);
 }
 
 .containerUserProfile .data {
@@ -52,33 +51,45 @@
 .containerUserProfile .data div {
     display: flex;
     justify-content: space-between;
+    margin: 5px 0; 
 }
 
 .containerUserProfile .data h3 {
     width: 100%;
-    color: chartreuse;
+    color: var(--colorTertiary);
+}
+
+.containerUserProfile .data div input {
+    padding: 3px;
+    font-weight: 500;
+    width: 200px;
+    color: var(--colorPrimary);
 }
 
 .containerUserProfile .data div p {
-    padding: 5px;
-    font-weight: 500;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--colorSecundary);
 }
 
 .containerUserProfile .data div p:nth-child(1) {
-    font-weight: bold;
-    font-style: italic;
-    color: rgb(99, 2, 138);
+    color: var(--colorWhite);
 }
 
 .btnProfile { 
     width: 120px;
-    height: 40px;
-    color: black;
+    height: 45px;
+    color: var(--colorWhite);
     font-weight: bold;
-    background-color: chartreuse;
-    border: solid 2px rgb(134, 94, 150);
+    background-color: var(--colorSecundary);
     border-radius: 7px;
     margin: 10px;
+    text-align: center;
+}
+
+.btnProfile:hover {
+    background-color: var(--colorSecundaryWhite);
+    color: var(--colorTertiary);
 }
 
 

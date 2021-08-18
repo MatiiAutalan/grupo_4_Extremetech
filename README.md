@@ -26,12 +26,6 @@ EXPRESS
 
 ### INTEGRANTES:
 
-Soy Diaz Emiliano, tengo 21 años soy de bs as, florencio varela, soy una persona muy curiosa y siempre me gusta aprender algo nuevo cada día
-me gusta jugar videojuegos y estudiar inglés :), comenzé a interesarme en la programacion por grupos de pc gamers, ya que
-es uno de mis hobbys, también siempre tuve afinidad con la pc y me gustaría poder trabajar de esto en un futuro, gracias a la fundacion formar
-y a digital house que me dieron esta oportunidad de poder capacitarme constantemente en el area de la programacion, gracias a mis dos 
-compañeros por ponerle tantas ganas a este proyecto y tratar de hacer de hacer lo mejor posible por el equipo.
-
 Soy Matias Autalan, tengo 26 años, soy de San Justo, La Matanza, siempre me gusto la tecnología por ese motivo comence a interesarme en la programación, ya que mediante ella se pueden solucionar muchas problematicas de cualquier ámbito de la vida desde lo más simple hasta lo más complejo. Me gusta mucho trabajar en equipo y siempre afrontar nuevos desafios. Este proyecto es uno de ellos, ya que presenta diferentes desafios que nos obligan a seguir aprendiendo y esforzandonos para asi poder crecer individualmente pero siempre lo más importante como equipo.
 
 Me presento me llamo Jonathan 

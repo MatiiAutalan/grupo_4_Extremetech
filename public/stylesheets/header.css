@@ -223,16 +223,25 @@ header .navbar .container .login-cart button:hover {
         margin-bottom: 80px;
         height: 24px;
         border-bottom: 4px solid var(--colorSecundary);
+        padding-right: 25px;
     }
     /* search loupe */
     header .navbar .container .search-container i {
         display: flex;
         color: var(--colorTertiary);
         font-size: 14px;
-        position: relative;
-        right: 18px;
-        top: 4px;
     }
+
+    header .navbar .container .search-container button{
+        height: 10px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        right: 20px;
+        top: 5px;
+    }
+
     /* login and cart */
     header .navbar .container .login-cart {
         display: flex;

@@ -65,6 +65,13 @@ module.exports = {
     editProduct: (req,res) => {
       let {modelo, marca, precio , categorias , discount,descripcion} = req.body  // esto es un destructuring del objeto body , donde traemos toda la info de los campos que vamos a editar
        
+       let arrayImages = [];
+        if(req.files){
+            req.files.forEach(imagen => {
+                arrayImages.push(imagen.filename)
+            })
+        } 
+
         getProducts.forEach(producto => {
             if(producto.id === +req.params.id){   // aca le decimos que si el product.id que recibimos por parametro coincide con el producto que edite los campos con el objeto que recibimos por el form
                 producto.modelo = modelo.trim()
@@ -73,7 +80,7 @@ module.exports = {
                 producto.categorias = categorias.trim()
                 producto.discount = discount.trim()
                 producto.descripcion = descripcion.trim()
-                producto.image = arrayImages.length > 0 ? arrayImages : product.image
+                producto.image = arrayImages.length > 0 ? arrayImages : producto.image
           }
         })
         addProduct(getProducts)

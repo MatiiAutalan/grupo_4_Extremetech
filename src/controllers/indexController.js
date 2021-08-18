@@ -17,7 +17,7 @@ module.exports = {
     search: (req, res) => {
 		let result = []
 		getProducts.forEach(product => {
-			if (product.modelo.toLowerCase().includes(req.query.keywords.toLowerCase())){
+			if (product.modelo.toLowerCase().includes(req.query.keywords.toLowerCase())||product.marca.toLowerCase().includes(req.query.keywords.toLowerCase()) ){
 				result.push(product)
 			}
 		});

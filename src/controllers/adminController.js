@@ -1,4 +1,6 @@
-let {getProducts, addProduct} = require('../data/dataBase')
+let {getProducts, addProduct} = require('../data/dataBase');
+const { array } = require('../middlewares/uploadImage');
+const { product } = require('./productController');
 
 module.exports = {
     formAgregar:(req,res) =>{
@@ -15,6 +17,13 @@ module.exports = {
             }
         });
 
+        let arrayImages = [];
+        if(req.files){
+            req.files.forEach(imagen => {
+                arrayImages.push(imagen.filename)
+            })
+        }
+
         let nuevoProducto = {
             
 
@@ -25,7 +34,7 @@ module.exports = {
             categorias: req.body.categorias.trim(),
             discount: req.body.discount.trim(),
             descripcion: req.body.descripcion,
-            image: req.file.filename
+            image: arrayImages.length > 0 ? arrayImages : ['default.png']
         }
 
         
@@ -64,7 +73,7 @@ module.exports = {
                 producto.categorias = categorias.trim()
                 producto.discount = discount.trim()
                 producto.descripcion = descripcion.trim()
-                producto.image = req.file.filename
+                producto.image = arrayImages.length > 0 ? arrayImages : product.image
           }
         })
         addProduct(getProducts)

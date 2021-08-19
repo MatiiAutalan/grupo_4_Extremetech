@@ -131,7 +131,8 @@ module.exports = {
                   producto.documento = documento
                   producto.telefono = telefono
                   producto.admin = admin
-                  producto.image = req.file.filename
+                  producto.image = req.file ? req.file.filename : producto.image
+                  
             }
           })
           addUsers(getUsers)

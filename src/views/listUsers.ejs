@@ -15,7 +15,6 @@
       </div>
       <% users.forEach(producto => { %>
        
-      
       <div class="cardProduct">
         <div class="image">
           <img src="/images/<%= producto.image%> " alt=""/>
@@ -29,7 +28,7 @@
         </div>
 
         <div class="containerBtns">
-          <a href="/admin/edit/<%- producto.id %> ">Editar</a>
+          <a href="/admin/user/<%= producto.id %> ">Editar</a>
           <form action="/admin/delete/<%= producto.id %>?_method=DELETE" method="POST">
             <button type="submit">Eliminar</button>
           </form>

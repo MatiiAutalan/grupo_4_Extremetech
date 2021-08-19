@@ -31,6 +31,7 @@ module.exports = {
             email: req.body.email.trim(),
             password: req.body.password.trim(),
             repeatPassword: req.body.repeatPassword.trim(),
+            documento: "",
             admin: false,
             image:'user.jpg'
         }

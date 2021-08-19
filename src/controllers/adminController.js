@@ -107,5 +107,36 @@ module.exports = {
             users : getUsers
         })
     
-    }
+    },
+    vistaEdit:(req,res) =>{
+        let users = getUsers.find(user => {       // Creamos una variable de un producto donde nos guarde el objeto que recibimos por la url que coincida con el id de nuestra base de datos
+            return user.id === +req.params.id
+        })
+
+        res.render('edituser', {
+            title:"Edicion del usuario",
+            users
+        })
+    },
+    editUser: (req,res) => {
+        let {nombre, apellido, telefono , email ,password, documento, admin, image} = req.body  // esto es un destructuring del objeto body , donde traemos toda la info de los campos que vamos a editar
+         
+  
+          getUsers.forEach(producto => {
+              if(producto.id === +req.params.id){   // aca le decimos que si el product.id que recibimos por parametro coincide con el producto que edite los campos con el objeto que recibimos por el form
+                  producto.nombre = nombre
+                  producto.apellido = apellido
+                  producto.email = email
+                  producto.password = password
+                  producto.documento = documento
+                  producto.telefono = telefono
+                  producto.admin = admin
+                  producto.image = 'user.jpg'
+            }
+          })
+          addUsers(getUsers)
+        res.redirect('/admin/users')
+         
+        //res.send(req.file) 
+      }
 }

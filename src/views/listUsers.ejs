@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %> 
+  <body>
+    
+    <%- include('partials/header-admin') %> 
+
+    <div class="containerEdit">
+      <div class="titleSearch">
+        <h1>Editar o eliminar producto</h1>
+        <div class="searchContainer">
+          <input type="search" name="buscador" id="search" placeholder="Buscar" />
+          <a href="#"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+      <% users.forEach(producto => { %>
+       
+      
+      <div class="cardProduct">
+        <div class="image">
+          <img src="/images/<%= producto.image%> " alt=""/>
+        </div>
+
+        <div class="description">
+          <p>Nombre: <%= producto.nombre%></p>
+          <p>Apellido : <%= producto.apellido %></p>
+          <p>email: <%= producto.email %> </p>
+          <p>admin: <%= producto.admin %> </p>
+        </div>
+
+        <div class="containerBtns">
+          <a href="/admin/edit/<%- producto.id %> ">Editar</a>
+          <form action="/admin/delete/<%= producto.id %>?_method=DELETE" method="POST">
+            <button type="submit">Eliminar</button>
+          </form>
+         
+        </div>
+      </div>
+        <% }) %>
+      
+    </div>
+  </body>
+</html>

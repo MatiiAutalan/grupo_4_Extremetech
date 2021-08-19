@@ -1,102 +1,62 @@
 [
     {
       "id": 1,
-      "first_name": "Laurena",
-      "last_name": "MacGuiness",
-      "phone": "111-920-4441",
-      "mobile": "+46 356 405 6582",
-      "email": "lmacguiness0@clickbank.net",
+      "nombre": "Matias",
+      "apellido": "ElDeRiver",
+      "telefono": "1022557888",
+      "documento": "25.252.522",
+      "email": "mati@clickbank.net",
       "password": "uYoeM8R",
-      "reapeat-password": "uYoeM8R"
+      "reapeat-password": "uYoeM8R",
+      "admin" : true,
+      "image": "user.jpg"
     },
     {
       "id": 2,
-      "first_name": "Nikita",
-      "last_name": "Courtonne",
-      "phone": "865-552-4725",
-      "mobile": "+55 281 404 3350",
-      "email": "ncourtonne1@elegantthemes.com",
-      "password": "ci3gpfF93Ws",
-      "reapeat-password": "ci3gpfF93Ws"
+      "nombre": "Gere",
+      "apellido": "ElDelLol",
+      "telefono": "1035557888",
+      "documento": "27.252.522",
+      "email": "gere@clickbank.net",
+      "password": "uooeM8R",
+      "reapeat-password": "uooeM8R",
+      "admin" : true,
+      "image": "user.jpg"
     },
     {
       "id": 3,
-      "first_name": "Brenna",
-      "last_name": "Neat",
-      "phone": "643-728-3664",
-      "mobile": "+33 482 694 1229",
-      "email": "bneat2@cam.ac.uk",
-      "password": "hR28l9p",
-      "reapeat-password": "hR28l9p"
+      "nombre": "Jona",
+      "apellido": "ElDeRacing",
+      "telefono": "1010557888",
+      "documento": "28.252.522",
+      "email": "jona@clickbank.net",
+      "password": "upoeM8R",
+      "reapeat-password": "upoeM8R",
+      "admin" : true,
+      "image": "user.jpg"
     },
     {
       "id": 4,
-      "first_name": "Ailina",
-      "last_name": "Clausewitz",
-      "phone": "240-163-0678",
-      "mobile": "+66 473 473 2127",
-      "email": "aclausewitz3@gizmodo.com",
-      "password": "0QMi99S",
-      "reapeat-password": "0QMi99S"
+      "nombre": "Gonza",
+      "apellido": "ElMendocino",
+      "telefono": "1099557888",
+      "documento": "5.252.522",
+      "email": "gonza_mendoza@clickbank.net",
+      "password": "mendoza",
+      "reapeat-password": "mendoza",
+      "admin" : false,
+      "image": "user.jpg"
     },
     {
       "id": 5,
-      "first_name": "Ofelia",
-      "last_name": "MacDavitt",
-      "phone": "716-296-3558",
-      "mobile": "+86 123 935 0346",
-      "email": "omacdavitt4@alexa.com",
-      "password": "AZ0CmLbZFUHf",
-      "reapeat-password": "AZ0CmLbZFUHf"
-    },
-    {
-      "id": 6,
-      "first_name": "Olga",
-      "last_name": "Paulazzi",
-      "phone": "597-335-0574",
-      "mobile": "+63 837 379 0635",
-      "email": "opaulazzi5@psu.edu",
-      "password": "f1ZkeWwjQ",
-      "reapeat-password": "f1ZkeWwjQ"
-    },
-    {
-      "id": 7,
-      "first_name": "Chalmers",
-      "last_name": "Stranger",
-      "phone": "527-208-9978",
-      "mobile": "+33 664 151 7307",
-      "email": "cstranger6@harvard.edu",
-      "password": "71BBisj3LgyF",
-      "reapeat-password": "71BBisj3LgyF"
-    },
-    {
-      "id": 8,
-      "first_name": "Vi",
-      "last_name": "Scane",
-      "phone": "707-974-5707",
-      "mobile": "+57 510 999 9092",
-      "email": "vscane7@blogtalkradio.com",
-      "password": "QOytSRFTY",
-      "reapeat-password": "QOytSRFTY"
-    },
-    {
-      "id": 9,
-      "first_name": "Jory",
-      "last_name": "Gibling",
-      "phone": "282-567-3094",
-      "mobile": "+86 534 295 9443",
-      "email": "jgibling8@illinois.edu",
-      "password": "f0cQzO",
-      "reapeat-password": "f0cQzO"
-    },
-    {
-      "id": 10,
-      "first_name": "Bailie",
-      "last_name": "Le Bosse",
-      "phone": "744-523-5105",
-      "mobile": "+1 202 585 8063",
-      "email": "blebosse9@trellian.com",
-      "password": "EYik4kju",
-      "reapeat-password": "EYik4kju"
+      "nombre": "Kevin",
+      "apellido": "Kraven",
+      "telefono": "1099557888",
+      "documento": "41.252.522",
+      "email": "Kraven@clickbank.net",
+      "password": "kevin123",
+      "reapeat-password": "kevin123",
+      "admin" : false,
+      "image": "user.jpg"
     }
   ]

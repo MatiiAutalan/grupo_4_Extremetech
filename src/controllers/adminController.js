@@ -1,4 +1,4 @@
-let {getProducts, addProduct} = require('../data/dataBase');
+let {getProducts, addProduct, getUsers , addUsers } = require('../data/dataBase');
 const { array } = require('../middlewares/uploadImage');
 const { product } = require('./productController');
 
@@ -100,6 +100,12 @@ module.exports = {
         addProduct(getProducts);
 
         res.redirect('/admin/index')
-    }
+    },
+    listUsers:(req,res) =>{
+        res.render('listUsers',{
+            title: 'Lista de usuarios',
+            users : getUsers
+        })
     
+    }
 }

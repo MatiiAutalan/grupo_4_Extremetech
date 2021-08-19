@@ -139,5 +139,17 @@ module.exports = {
         res.redirect('/admin/users')
          
         //res.send(req.file) 
-      }
+      },
+      deleteUser : (req, res) => {
+        getUsers.forEach(user => {
+            if (user.id === +req.params.id) {
+                let userToDelete = getUsers.indexOf(user);
+                getUsers.splice(userToDelete, 1)
+            }
+        })
+        
+        addUsers(getUsers);
+
+        res.redirect('/admin/index')
+    },
 }

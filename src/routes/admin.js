@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let {formAgregar, listProducts, editForm , agregarProducto, deleteProduct,editProduct, listUsers, vistaEdit, editUser}= require('../controllers/adminController')
+let {formAgregar, listProducts, editForm , agregarProducto, deleteProduct,editProduct, listUsers, vistaEdit, editUser, deleteUser}= require('../controllers/adminController')
 
 let upload = require('../middlewares/uploadImage')
 
@@ -31,6 +31,9 @@ router.get('/user/:id',vistaEdit )
 router.put('/user/:id', upload.single('userImage'), editUser )
 
 router.delete('/delete/:id', deleteProduct )
+
+/* DELETE - Donde vamos a eliminar el usuario */
+router.delete('/deleteUser/:id', deleteUser)
 
 module.exports = router;
 

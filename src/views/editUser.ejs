@@ -4,13 +4,7 @@
     <%- include('partials/head') %> 
 </head>
 <body>
-    <header class="headerEdit">
-        <img class="logoAdmin" src="/images/logo-principal.png" alt="logo" />
-        <div class="userAdmin">
-            <p>Usuario: Nombre Usuario</p>
-            <p>Cerrar Sesión</p>
-        </div>
-    </header>
+    <%- include('partials/header-admin') %> 
     <main class="main-carga-productos-panel">
         <h2 class="carga-productos-panel-adm">Editando Usuario <%= users.id  %> </h1>
             <h4 class="nuevo-producto-panel-adm">Usuario</h3>
@@ -20,10 +14,11 @@
                         <input class="producto-individual-carga" type="text" placeholder="Nombre" name="nombre" value="<%= users.nombre %>" />
                         <input class="producto-individual-carga"type="text" placeholder="Apellido" name="apellido" value="<%= users.apellido %>">
                         <input type="email" class="producto-individual-carga" placeholder="Email" name="email" value="<%= users.email %>">
-                        <select name="admin" id="categorias" class="form-input">
+                        <label for="administrador">Admin: <select name="admin" id="administrador" class="form-input">
 							<option value="true" <%= users.admin === true ? "selected" : ""%> >Si</option>
 							<option value="false"<%= users.admin === false ? "selected" : ""%> >No</option>	
-						</select>
+						</select></label>
+                        
                         <input type="text" class="producto-individual-carga" placeholder="Password" name="password" value="<%= users.password %>">
                     </div>
                     <!-- <p id="desc-producto-carga-productos">Descripcion del producto</p>

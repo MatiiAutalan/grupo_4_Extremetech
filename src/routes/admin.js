@@ -28,7 +28,7 @@ router.get('/users',listUsers)
 router.get('/user/:id',vistaEdit )
 
 /* PUT - Donde vamos a editar el perfil del usuario desde el panel de administrador */ 
-router.put('/user/:id', editUser )
+router.put('/user/:id', upload.single('userImage'), editUser )
 
 router.delete('/delete/:id', deleteProduct )
 

@@ -131,7 +131,7 @@ module.exports = {
                   producto.documento = documento
                   producto.telefono = telefono
                   producto.admin = admin
-                  producto.image = 'user.jpg'
+                  producto.image = req.file.filename
             }
           })
           addUsers(getUsers)

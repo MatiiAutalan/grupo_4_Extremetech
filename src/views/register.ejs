@@ -20,15 +20,15 @@
 
         <!-- Form -->
         <div class="dataForm">
-          <form class="containerForm" action="">
+          <form class="containerForm" action="/user/register" method="POST">
             <div>
               <legend>Datos de cuenta</legend>
               <label for="email">E-mail</label>
               <input type="email" name="email" />
               <label for="contraseña">Contraseña</label>
-              <input type="password" name="contraseña"/>
+              <input type="password" name="password"/>
               <label for="repetir contraseña">Repetir contraseña</label>
-              <input type="password" name="repetir contraseña"/>
+              <input type="password" name="repeatPassword"/>
             </div>
             <hr />
             <div>
@@ -41,7 +41,7 @@
               <input type="tel"  name="telefono" />
             </div>
             <div class="containerBtn">
-              <button class="buttonForm" type="submit">Enviar datos</button>
+              <button class="buttonForm" type="submit">Registrarme</button>
             </div>
           </form>
         </div>

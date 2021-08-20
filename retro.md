@@ -60,4 +60,37 @@ Panel de administrador para agregar/quitar y o modificar productos.
 *Dejar de hacer:
 
 
+Retrospectiva Sprint 3 :
+
+*Seguir haciendo:
+
+
+- Distribucion de tarea equitativa.
+- Compañerismo 
+- Codear juntos
+- Adelantando cosas respecto al sprint
+-Poniendo fechas limites anteriores a las entregas para luego tener tiempo de 
+corregir lo que sea necesario
+
+
+
+*Hacer más:
+
+-Leer el siguiente sprint y analizarlo antes de empezar.
+- Mejorar el diseño(Analizar la posibilidad de cambio de colores)
+- Trabajar la comunicacion
+
+
+*Hacer menos:
+
+
+*Empezar a hacer:
+
+-Establecer un horario para una reunión semanal.
+- Terminar la vista sobre nosotros
+- Hacer mas reuniones
+
+*Dejar de hacer:
+- Trabajar en los detalles de la pagina.
+
 

@@ -113,7 +113,7 @@ module.exports = {
             return user.id === +req.params.id
         })
 
-        res.render('edituser', {
+        res.render('editUser', {
             title:"Edicion del usuario",
             users
         })

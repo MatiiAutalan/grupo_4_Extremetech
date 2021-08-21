@@ -281,7 +281,7 @@ header .navbar .container .login-cart button:hover {
     }
     /* hover ul */
     header .navbar ul li a:hover {
-        color: var(--colorPrimaryC);
+        color: var(--colorSecundary);
         border-bottom: 1px solid #fff;
         
     }
@@ -322,7 +322,7 @@ header .navbar .container .login-cart button:hover {
         height: 28px;
         background-color: #fff;
         border-radius: 4px;
-        border-bottom: 4px solid var(--colorPrimaryC);
+        border-bottom: 4px solid var(--colorSecundary);
     }
     /* search icon */
     header .navbar .container .search-container i {

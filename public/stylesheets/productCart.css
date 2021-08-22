@@ -13,7 +13,7 @@
   transition: all 500ms ease;
   opacity: 0;
   visibility: hidden;
-  box-shadow: 0 0 2px 1px var(--colorPrimaryC);
+  box-shadow: 0 0 3px 3px var(--colorSecundary);
   background-color: white;
   padding-bottom: 20px;
   z-index: 999;
@@ -58,7 +58,6 @@
 }
 
 .lbl-modalCart {
-  color: chartreuse;
   text-align: center;
   cursor: pointer;
   caret-color: transparent;
@@ -76,7 +75,7 @@
   background-color: var(--colorPrimary);
   color: white;
   font-size: 17px;
-  border-bottom: solid 4px var(--colorPrimaryC);
+  border-bottom: solid 4px var(--colorSecundary);
 }
 
 .containerCart .containerProduct h4 {
@@ -200,7 +199,7 @@
 }
 .containerCart .containerProduct .buy .buttonBuy:hover,
 .containerCart .containerProduct .buy a .moreProducts:hover {
-  background-color: #239df5
+  background-color: var(--colorPrimaryC);
 }
 
 

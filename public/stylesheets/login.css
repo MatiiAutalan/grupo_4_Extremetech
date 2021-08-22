@@ -20,6 +20,10 @@
     padding: 20px 0;
 }
 
+.inputs { 
+    padding: 5px;
+}
+
 .btn-style {
     width: 150px;
     height: 40px;
@@ -59,7 +63,7 @@
 
 .login-gmail a {
     display: flex;
-    background-color: var(--colorTertiary);
+    background-color: var(--colorPrimaryC);
     border-radius: 5px;
     padding: 2px;
     margin: 0 auto;

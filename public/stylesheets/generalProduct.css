@@ -15,12 +15,18 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .product-item {
   width: 300px;
   margin: 15px 20px;
   padding: 10px 5px;
   box-shadow: 2px 2px 2px 1px var(--colorPrimary);
 }
+
+.product-item:hover {
+  box-shadow: 2px 2px 2px 1px var(--colorSecundaryWhite);
+}
+
 .list-product {
   display: none;
 }
@@ -31,21 +37,22 @@
 }
 
 .btn-product {
-  background-color: var(--colorSecundary);
+  background-color: var(--colorPrimaryC);
+  color: #fff;
   border: none;
   padding: 7px;
-  border-radius: 30px;
+  border-radius: 5px;
   font-weight: bold;
   transform: scale(1.1);
   margin: 15px 0;
 }
 
 .btn-product:hover {
-  transform: scale(1);
+  background-color: var(--colorPrimary);
 }
 
 .simil-body {
-  background: var(--colorTertiary);
+  background-color: var(--colorPrimary);
   display: flex;
   justify-content: center;
   /* align-items: center; */
@@ -56,7 +63,7 @@
 
 /* Open button */
 .trigger {
-  background: var(--colorTertiary);
+  background: var(--colorPrimary);
   outline: 0;
   padding: 8px 15px;
   color: var(--colorSecundary);
@@ -68,6 +75,7 @@
   cursor: pointer;
   /*  border: 1px solid white; */
 }
+
 .trigger:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
@@ -102,9 +110,11 @@
   backdrop-filter: blur(2px);
   text-transform: uppercase;
 }
+
 .full-screen-nav ul li {
   line-height: 30px;
 }
+
 .full-screen-nav ul li a {
   color: var(--colorWhite);
 }
@@ -119,6 +129,7 @@
   cursor: pointer;
   animation: fadeIn 0.2s ease-in-out forwards;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -176,7 +187,7 @@
   }
   .list-product {
     display: block;
-    box-shadow: 2px 2px 2px 1px var(--colorPrimary);
+    box-shadow: 2px 2px 2px 1px var(--colorSecundary);
     margin-top: 15px;
     padding-right: 15px;
     text-align: center;
@@ -186,11 +197,12 @@
     top: 0;
     height: 420px;
     margin-left: 20px;
+    background-color: var(--colorPrimary);
   }
 
-  /* .list-product ul li a {
-        color: chartreuse;
-    } */
+  .list-product h4 {
+    color: var(--colorWhite);
+  }
 
   .product-item {
     width: 200px;
@@ -225,6 +237,10 @@
     padding: 8px;
   }
   .ul-product li a {
-    color: var(--colorPrimary);
+    color: var(--colorSecundary);
+  }
+
+  .ul-product li a:hover {
+    color: var(--colorWhite);
   }
 }

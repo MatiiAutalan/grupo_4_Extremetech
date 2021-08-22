@@ -5,13 +5,14 @@
     justify-content: center;
     align-items: center;
     max-width: 750px;
-    border: solid 3px var(--colorTertiary);
-    background-color: var(--colorPrimary);
+    border: solid 2px var(--colorTertiary);
+    background-color: var(--colorWhite);
+    color:solid 3px var(--colorTertiary) ;
 }
 
 .containerUserProfile h1 {
     text-align: center;
-    color: var(--colorWhite);
+    color: var(--colorTertiary);
 }
 
 .containerUserProfile .imageProfile {
@@ -73,7 +74,7 @@
 }
 
 .containerUserProfile .data div p:nth-child(1) {
-    color: var(--colorWhite);
+    color: var(--colorTertiary);
 }
 
 .btnProfile { 
@@ -81,15 +82,15 @@
     height: 45px;
     color: var(--colorWhite);
     font-weight: bold;
-    background-color: var(--colorSecundary);
-    border-radius: 7px;
+    background-color: var(--colorPrimaryC);
+    border-radius: 5px;
     margin: 10px;
     text-align: center;
+    cursor: pointer;
 }
 
 .btnProfile:hover {
-    background-color: var(--colorSecundaryWhite);
-    color: var(--colorTertiary);
+    background-color: var(--colorSecundary);
 }
 
 
@@ -97,7 +98,35 @@
     .containerUserProfile {
         margin: 20px auto;
         border-radius: 5px;
-    }
+        border: solid 3px var(--colorTertiary);
+        background-color: var(--colorPrimary);
+        color:solid 3px var(--colorWhite) ;
+        }
+
+        .containerUserProfile .data h3{
+            color: var(--colorWhite);
+        }
+        
+        .containerUserProfile .data div p:nth-child(1) {
+            color: var(--colorWhite);
+        }
+
+        .containerUserProfile h1 {
+            color: var(--colorWhite);
+        }
+
+        .containerUserProfile .imageProfile .avatar { 
+            width: 150px;
+            height: 150px;
+            background-color: var(--colorSecundary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            color: var(--colorTertiary);
+            font-weight: bold;
+        }
 }
 
 

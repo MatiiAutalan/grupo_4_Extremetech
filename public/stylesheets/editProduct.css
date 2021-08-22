@@ -76,33 +76,31 @@
 
 .cardProduct .containerBtns a,
 .cardProduct .containerBtns form button {
-  border: solid 2px;
-  border-radius: 25px;
+  border-radius: 5px;
   padding: 3px;
   margin: 10px 0;
   font-size: 13px;
 }
 
 .cardProduct .containerBtns a {
-  background-color: var(--colorSecundaryWhite);
-  color: var(--colorPrimaryC);
+  background-color: var(--colorPrimary);
+  color: var(--colorWhite);
   padding: 5px 10px;
   font-weight: bold;
 }
 
 .cardProduct .containerBtns a:hover {
-  background-color: var(--colorSecundary);
-  color: var(--colorPrimary);
+  background-color: var(--colorPrimaryC);
 }
 
 .cardProduct .containerBtns form button {
-  color: var(--colorSecundary);
-  font-weight: bold;
-  border: solid 2px;
+  background-color: var(--colorSecundary);
+  color: var(--colorTertiary);
+  font-weight: bold; 
+  border: 0;
 }
 
 .cardProduct .containerBtns form button:hover {
-  color: var(--colorSecundaryWhite);
   background-color: var(--colorPrimaryC);
 }
 

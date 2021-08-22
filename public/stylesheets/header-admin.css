@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  padding: 0 15px 20;
 }
 
 .containerLogoAdmin {
@@ -73,7 +74,6 @@
 
 .lbl-modal {
   background-color: var(--colorPrimary);
-  color: black;
   padding: 5px;
   text-align: center;
   cursor: pointer;
@@ -95,7 +95,6 @@
 
 .contenidoBurgerAdmin ul a li {
   text-decoration: none;
-  color: black;
   font-size: 18px;
   padding: 8px 5px;
   border: solid 1.3px gray;
@@ -131,10 +130,14 @@
   color: white;
   padding: 5px;
   background-color: var(--colorSecundary);
-  border-radius: 7px;
+  border-radius: 5px;
   border-bottom: solid 2px;
   width: 125px;
   text-align: center;
+}
+
+.navAdmin ul li:hover {
+  background-color: var(--colorSecundaryWhite);
 }
 /*nav desktop*/
 .userAdmin {

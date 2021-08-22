@@ -46,7 +46,7 @@
 .contentForm .dataForm input {
   background-color: rgba(213, 200, 200, 0.583);
   display: block;
-  border-radius: 15px;
+  border-radius: 5px;
   box-sizing: border-box;
   margin: 5px 0;
   padding-left: 10px;
@@ -57,8 +57,7 @@
 }
 
 input:focus {
-  border: solid 3px #F05454;
-  color: #F05454;
+  border: solid 3px var(--colorSecundary);
 }
 
 .contentForm .dataForm label {
@@ -77,16 +76,15 @@ input:focus {
   width: 150px;
   height: 40px;
   font-weight: bold;
-  background-color: #F05454;
-  color: #30475E;
-  border-radius: 10px;
-  border: 0;
+  background-color: var(--colorPrimary);
+  color: var(--colorWhite);
+  border-radius: 5px;
   margin: 10px 0 0 0;
 }
 
 .contentForm .dataForm .buttonForm:hover {
-  color: #F05454;
-  background-color: #30475E;
+  color: var(--colorWhite);
+  background-color: var(--colorPrimaryC);
 }
 
 /*Media Queries*/

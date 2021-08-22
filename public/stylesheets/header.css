@@ -172,7 +172,7 @@ header .navbar .container .login-cart button:hover {
 }
 
 .close-modal {
-    background: var(--colorTertiary);
+    background: var(--colorPrimaryC);
     width: 20px;
     height: 20px;
     display: flex;
@@ -223,7 +223,8 @@ header .navbar .container .login-cart button:hover {
         margin-bottom: 80px;
         height: 24px;
         border-bottom: 4px solid var(--colorSecundary);
-        padding-right: 25px;
+        padding: 0 25px 0 10px;
+        color: var(--colorTertiary);
     }
     /* search loupe */
     header .navbar .container .search-container i {

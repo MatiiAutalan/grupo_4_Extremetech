@@ -6,32 +6,29 @@
     
     <main class="main-content">
       <!-- CARROUSEL -->
-      <!-- Slideshow container -->
-      <div class="slideshow-container fade">
-        
-        <!-- Full images with numbers and message Info -->
-        <div class="Containers">
-          <img src="images/images-home/slider-photo1.jpg" >
+      <div class="containerCarrouselHome">
+        <!-- comienzo imagenes slider -->
+        <div class="slider" id="slider">
+          <div class="sliderSection">
+              <img src="../../images/images-home/img-home/carrousel01.png" alt="" class="sliderImg" />
+          </div>
+          <div class="sliderSection">
+              <img src="../../images/images-home/img-home/carrousel02.jpg" alt="" class="sliderImg" />
+          </div>
+          <div class="sliderSection">
+              <img src="../../images/images-home/img-home/carrousel03.jpg" alt="" class="sliderImg" />
+          </div>
+          <div class="sliderSection">
+              <img src="../../images/images-home/img-home/carrousel04.jpeg" alt="" class="sliderImg" />
+          </div>
         </div>
-        <div class="Containers">
-          
-          <img src="images/images-home/slider-photo4.jpg" >
-        </div>
-        <div class="Containers">
-          
-          <img src="/images/about-us/6.jpg">
-          
-        </div>
-        <div class="Containers">
-          
-          <img src="images/images-home/slider-photo4.jpg" >
-        </div>
-        <!-- Back and forward buttons -->
-        <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+        <!-- fin imagenes slider -->
+        <!-- botones slider -->
+          <div class="sliderBtn btnDer" id="btnDer"> > </div>
+          <div class="sliderBtn btnIzq" id="btnIzq"> < </div>
+        <!-- botones slider -->
       </div>
-      <br>
-    </div> 
+
     <!-- pc recommended -->
     <div class="pc-recommended">
       <h2>Pc Recomendadas</h2>
@@ -80,8 +77,6 @@
         </div>
       </article>
     </section>
-    
-      
     
     <!-- carrousel products -->
     <div class="productos-recomendados" id="Ofertas">
@@ -145,11 +140,13 @@
   </div>
   <div class="rgba"></div>
     <%- include('partials/footer') %> 
-</script>  
+
 <!-- carrousel-products-main -->
 <script src="javascript/carrousel-products-main.js"></script>
 <!-- app.js -->
 <script src="javascript/app.js"></script>
+<!-- carrousel principal home -->
+<script src="../../javascript/carrouselPrincipalHome.js"></script>
 </body>
 </html>
 

@@ -1,79 +1,61 @@
 
-/* mobile */
-/* Slideshow container */
-.slideshow-container {
-    width: 100%;
+/* carrousel home */
+.containerCarrouselHome {
+    overflow: hidden;
+    box-shadow: 0 0 30px #44b8fc,
+                0 15px 50px;
     position: relative;
-    margin: auto;
+    margin: 10px;
 }
-.main-content section article .img-product-main p {
-    text-align: center;
+
+.containerCarrouselHome .slider {
+    display: flex;
+    width: 400%;
+    height: 200px;
+    margin-left: -100%;
 }
-.main-content section article .img-product-main img {
-    border-radius: 15px;
-}
-.main-content section article .img-product-main .parrafo-products {
-    color: var(--colorWhite);
-    font-weight: bold;
-    background-color: var(--colorPrimary);
-}
-/* Make the images invisible by default */
-.Containers {
-    display: none;
-}
-.Containers img {
+
+.containerCarrouselHome .sliderSection {
     width: 100%;
 }
-/* forward & Back buttons */
-.Back,
-.forward {
-    cursor: pointer;
+
+.containerCarrouselHome .sliderImg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.containerCarrouselHome .sliderBtn {
     position: absolute;
-    top: 48%;
-    width: auto;
-    margin-top: -23px;
-    padding: 27px;
-    color: var(--colorSecundary);
-    background-color: var(--colorTertiary);
+    width: 35px;
+    height: 32px;
+    color: #44b8fc;
+    background-color: #252a2b;
+    opacity: 0.8;
+    top : 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
     font-weight: bold;
-    font-size: 19px;
-    transition: 0.1s ease;
-    border-radius: 0 5px 5px 0;
-    user-select: none;
+    font-family: monospace;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
 }
-/* Place the "forward button" to the right */
-.forward {
-    right: 0;
-    border-radius: 4px 0 0 4px;
+
+.containerCarrouselHome .sliderBtn:hover {
+    background-color: #045c6d;
 }
-/*when the user hovers,add a black background with some little opacity */
-.Back:hover,
-.forward:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+
+.containerCarrouselHome .btnDer {
+    right: 5px;
 }
-/* Faint animation */
-.fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.4s;
-    animation-name: fade;
-    animation-duration: 1.4s;
+
+.containerCarrouselHome .btnIzq {
+    left: 5px;
 }
-@-webkit-keyframes fade {
-    from {
-        opacity: 0.5;
-    }
-    to {
-        opacity: 2;
-    }
-}
-@keyframes fade {
-    from {
-        opacity: 0.5;
-    }
-    to {
-        opacity: 2;
-    }
-}
+
+/* carrousel home */
 
 /* main-product */
 .main-content section {
@@ -130,14 +112,13 @@
 }
 .pc-recommended {
     font-size: 12px;
-    margin-top: -26px;
     display: flex;
     justify-content: center;
     background-color: var(--colorPrimary);
     color: #fff;
     text-transform: uppercase;
     border-top: 4px solid var(--colorSecundary);
-    
+    margin-top: 25px
 }
 .productos-recomendados {
     font-size: 12px;
@@ -318,6 +299,19 @@ main .carrusel .product .price {
         align-items: flex-end;
     }
 }
+
+@media (min-width: 768px) {
+    .containerCarrouselHome .slider {
+        height: 300px;
+    }
+}
+
+@media (min-width: 992px) {
+    .containerCarrouselHome .slider {
+        height: 425px;
+    }
+}
+
 /* desktop */
 @media (min-width: 1120px) {
     .main-content {

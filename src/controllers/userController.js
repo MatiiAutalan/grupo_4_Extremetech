@@ -1,5 +1,5 @@
 const { getUsers, addUsers } = require("../data/dataBase");
-
+const bcrypt = require('bcryptjs')
 module.exports = {
     index: (req,res) => {
         res.render('userProfile', {
@@ -29,14 +29,11 @@ module.exports = {
             apellido: req.body.apellido.trim(),
             telefono: req.body.telefono.trim(),
             email: req.body.email.trim(),
-            password: req.body.password.trim(),
-            repeatPassword: req.body.repeatPassword.trim(),
+            password: bcrypt.hashSync(req.body.password.trim()),
             documento: "",
             admin: false,
             image:'user.jpg'
         }
-
-        
 
         getUsers.push(nuevoUsuario);   // le estamos metiendo a la variable getproducts que es la que tiene todos los productos el nuevo producto que estamos creando
         

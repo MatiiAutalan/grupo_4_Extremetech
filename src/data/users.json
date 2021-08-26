@@ -1,1 +1,74 @@
-[{"id":1,"nombre":"Matias","apellido":"ElDeRiver","email":"matipruebaedit@clickbank.net","password":"riverplate","reapeatPassword":"uYoeM8R","admin":"true","image":"1629402537228.jpg"},{"id":2,"nombre":"Gere","apellido":"deLeague","email":"gere@clickbank.net","password":"gere123","reapeatPassword":"uooeM8R","admin":"true","image":"1629401777365.jpg"},{"id":3,"nombre":"Jona","apellido":"ElDeRacing","email":"jona@clickbank.net","password":"upoeM8R","reapeatPassword":"upoeM8R","admin":"true","image":"1629401868950.jpg"},{"id":4,"nombre":"Gonza","apellido":"ElMendocino","email":"gonza_mendoza@clickbank.net","password":"mendoza","reapeatPassword":"mendoza","admin":"false","image":"1629685603374.jpg"},{"id":5,"nombre":"Kevin","apellido":"Kraven","telefono":"1099557888","documento":"41.252.522","email":"Kraven@clickbank.net","password":"kevin123","reapeatPassword":"kevin123","admin":false,"image":"user.jpg"},{"id":7,"nombre":"tobias","apellido":"racedo","email":"tobi@hotmail.com","password":"asd123","repeatPassword":"asd123","admin":"false","image":"user.jpg"},{"id":8,"nombre":"aime","apellido":"Pelozo","email":"aime@aaa.com","password":"asd123","repeatPassword":"asd123","admin":"true","image":"1629685536544.png"}]
+[
+  {
+    "id": 1,
+    "nombre": "Matias",
+    "apellido": "ElDeRiver",
+    "email": "matipruebaedit@clickbank.net",
+    "password": "riverplate",
+    "reapeatPassword": "uYoeM8R",
+    "admin": "true",
+    "image": "1629402537228.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Gere",
+    "apellido": "deLeague",
+    "email": "gere@clickbank.net",
+    "password": "gere123",
+    "reapeatPassword": "uooeM8R",
+    "admin": "true",
+    "image": "1629401777365.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Jona",
+    "apellido": "ElDeRacing",
+    "email": "jona@clickbank.net",
+    "password": "upoeM8R",
+    "reapeatPassword": "upoeM8R",
+    "admin": "true",
+    "image": "1629401868950.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Gonza",
+    "apellido": "ElMendocino",
+    "email": "gonza_mendoza@clickbank.net",
+    "password": "mendoza",
+    "reapeatPassword": "mendoza",
+    "admin": "false",
+    "image": "1629685603374.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Kevin",
+    "apellido": "Kraven",
+    "telefono": "1099557888",
+    "documento": "41.252.522",
+    "email": "Kraven@clickbank.net",
+    "password": "kevin123",
+    "reapeatPassword": "kevin123",
+    "admin": false,
+    "image": "user.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "tobias",
+    "apellido": "racedo",
+    "email": "tobi@hotmail.com",
+    "password": "asd123",
+    "repeatPassword": "asd123",
+    "admin": "false",
+    "image": "user.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "aime",
+    "apellido": "Pelozo",
+    "email": "aime@aaa.com",
+    "password": "asd123",
+    "repeatPassword": "asd123",
+    "admin": "true",
+    "image": "1629685536544.png"
+  }
+]

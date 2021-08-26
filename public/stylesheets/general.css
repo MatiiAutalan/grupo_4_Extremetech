@@ -18,3 +18,8 @@
     --colorGreen: #236d6159;
     --colorGreenC: #bbe7e0;
 }
+
+.error {
+    color: red;
+    display: block;
+}

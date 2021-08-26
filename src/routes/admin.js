@@ -4,6 +4,7 @@ var router = express.Router();
 let {formAgregar, listProducts, editForm , agregarProducto, deleteProduct,editProduct, listUsers, vistaEdit, editUser, deleteUser}= require('../controllers/adminController')
 
 let upload = require('../middlewares/uploadImage')
+let uploadAvatar = require('../middlewares/uploadAvatar')
 
 
 
@@ -28,7 +29,7 @@ router.get('/users',listUsers)
 router.get('/user/:id',vistaEdit )
 
 /* PUT - Donde vamos a editar el perfil del usuario desde el panel de administrador */ 
-router.put('/user/:id', upload.single('userImage'), editUser )
+router.put('/user/:id', uploadAvatar.single('userImage'), editUser )
 
 router.delete('/delete/:id', deleteProduct )
 

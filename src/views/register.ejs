@@ -24,21 +24,36 @@
             <div>
               <legend>Datos de cuenta</legend>
               <label for="email">E-mail</label>
-              <input type="email" name="email" />
+              <input type="email" name="email"  value="<%= locals.old && old.email %>"/>
+              <% if (locals.errors && errors.email) { %>
+                <small class="error"><%= errors.email.msg %> </small>
+              <% } %>
               <label for="contraseña">Contraseña</label>
               <input type="password" name="password"/>
               <label for="repetir contraseña">Repetir contraseña</label>
               <input type="password" name="repeatPassword"/>
+              <% if (locals.errors && errors.repeatPassword) { %>
+                <small class="error"><%= errors.repeatPassword.msg %> </small>
+              <% } %>
             </div>
             <hr />
             <div>
               <legend>Datos Personales</legend>
               <label for="nombre">Nombre</label>
-              <input type="text" name="nombre" />
+              <input type="text" name="nombre" value="<%= locals.old && old.nombre %> " />
+              <% if (locals.errors && errors.nombre) { %>
+                <small class="error"><%= errors.nombre.msg %> </small>
+              <% } %>
               <label for="apellido">Apellido</label>
-              <input type="text" name="apellido" />
+              <input type="text" name="apellido" value="<%= locals.old && old.apellido %>" />
+              <% if (locals.errors && errors.apellido) { %>
+                <small class="error"><%= errors.apellido.msg %> </small>
+              <% } %>
               <label for="telefono">Telefono</label>
-              <input type="tel"  name="telefono" />
+              <input type="tel"  name="telefono" value="<%= locals.old && old.telefono %>" />
+              <% if (locals.errors && errors.telefono) { %>
+                <small class="error"><%= errors.telefono.msg %> </small>
+              <% } %>
             </div>
             <div class="containerBtn">
               <button class="buttonForm" type="submit">Registrarme</button>

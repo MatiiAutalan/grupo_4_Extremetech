@@ -1,15 +1,18 @@
 const { getUsers, addUsers } = require("../data/dataBase");
 const bcrypt = require('bcrypt')
 const {validationResult} = require('express-validator');
+
 module.exports = {
     index: (req,res) => {
         res.render('userProfile', {
-            title:"Cuenta"
+            title:"Cuenta",
+            session: req.session
         })
     },
     register:(req,res) =>{
         res.render('register', {
-            title: "Registro"
+            title: "Registro",
+            session: req.session
         })
     },
     userRegister:(req,res) => {
@@ -48,7 +51,8 @@ module.exports = {
             res.render('register', {
                 title : "asd",
                 errors: errors.mapped(),
-                old : req.body
+                old : req.body,
+                session: req.session
             })
         }
 
@@ -56,9 +60,57 @@ module.exports = {
     },
     finishBuy:(req,res) =>{
         res.render('finishBuying', {
-            title:"Fin de transaccion"
+            title:"Fin de transaccion",
+            session: req.session
         })
     },
+
+    login:(req,res) => {
+        res.render('login2', {
+            title: "prueba",
+            session: req.session
+        })
+    },
+    userLogin:(req,res) => {
+        let errors = validationResult(req)
+       
+        if(errors.isEmpty()){
+            let user = getUsers.find (user => user.email === req.body.email)
+                req.session.user ={
+                    id:user.id,
+                    userName :user.nombre + "" + user.apellido,
+                    email:user.email,
+                    avatar :user.image,
+                    rol: user.admin
+                    
+                }
+                
+                 
+                if(req.body.remember){
+                    res.cookie('cookieTech', req.session.user , { maxAge: 5000*60})
+                }
+                
+                res.locals.user = req.session.user
+                
+                res.redirect('/')
+        }else{
+            res.render('login2',{
+                errors: errors.mapped(),
+                title: 'Login',
+                
+            })
+        }
+
+
+    },
+    userLogout:(req,res)=> {
+        req.session.destroy();
+
+        if(req.cookies.cookieTech){
+            res.cookie('cookieTech','', {maxAge: -1})
+        }
+        res.redirect('/')
+    }
     
 
 }

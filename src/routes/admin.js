@@ -5,16 +5,18 @@ let {formAgregar, listProducts, editForm , agregarProducto, deleteProduct,editPr
 
 let upload = require('../middlewares/uploadImage')
 let uploadAvatar = require('../middlewares/uploadAvatar')
+let userAdmin = require('../middlewares/userAdmin')
+let userSession = require('../middlewares/userSession')
 
 
 
 /* GET  donde requerimos el formulario para agregar nuevo producto */
-router.get('/agregarProducto', formAgregar)
+router.get('/agregarProducto',userSession,userAdmin, formAgregar)
 /* Metodo POST ,Captura los datos para agregar un producto*/
 router.post('/agregarProducto',upload.array('product-image') ,agregarProducto)
 
 /* Index del admin, donde vamos a ver todos nuestros productos */
-router.get('/index', listProducts)  
+router.get('/index',userSession,userAdmin, listProducts)  
 
 /* GET - requiero el formulario de edicion con los values */
 router.get('/edit/:id', editForm)
@@ -22,11 +24,11 @@ router.get('/edit/:id', editForm)
 router.put('/edit/:id',upload.array('product-image') ,editProduct)
 
 /*GET - Donde vamos a mostrar la lista de usuarios registrados */
-router.get('/users',listUsers)
+router.get('/users',userSession,userAdmin,listUsers)
 
 
 /*GET - requiero la vista de editar usuarios */
-router.get('/user/:id',vistaEdit )
+router.get('/user/:id',userSession,userAdmin,vistaEdit )
 
 /* PUT - Donde vamos a editar el perfil del usuario desde el panel de administrador */ 
 router.put('/user/:id', uploadAvatar.single('userImage'), editUser )

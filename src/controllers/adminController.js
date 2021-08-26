@@ -84,7 +84,7 @@ module.exports = {
           }
         })
         addProduct(getProducts)
-      res.redirect('/admin/index')
+      res.redirect('/')
        
       //res.send(req.file) 
     },

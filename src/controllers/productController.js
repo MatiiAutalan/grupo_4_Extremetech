@@ -5,7 +5,8 @@ module.exports = {
     index: (req,res) => {
         res.render('generalProduct', {
             title: "Nuestros Productos",
-            getProducts
+            getProducts,
+            session: req.session
         })
     },
     product:(req,res) =>{
@@ -15,7 +16,8 @@ module.exports = {
             })
             res.render('productDetail', {
                 title: "Nuestros Productos",
-                producto
+                producto,
+                session: req.session
         })
 
         
@@ -25,7 +27,8 @@ module.exports = {
         let productosOferta = getProducts.filter (productos => productos.discount >=10)
          res.render('generalProduct', {
             getProducts:  productosOferta,
-            title: "Nuestras Ofertas"
+            title: "Nuestras Ofertas",
+            session: req.session
         })  
        
        
@@ -34,7 +37,8 @@ module.exports = {
         let productosNotebook = getProducts.filter(productos => productos.categorias == "notebook")
         res.render('generalProduct', {
             getProducts: productosNotebook,
-            title:"Notebooks"
+            title:"Notebooks",
+            session: req.session
         })
     },
     categorias: (req,res) =>{
@@ -42,7 +46,8 @@ module.exports = {
         let categorias = getProducts.filter(product => product.categorias == categoriasId)
         res.render('generalProduct', {
             getProducts: categorias,
-            title: "Productos"
+            title: "Productos",
+            session: req.session
         })
     },
 }

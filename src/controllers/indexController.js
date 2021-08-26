@@ -5,13 +5,15 @@ module.exports = {
     index: (req,res) => {
          res.render('index', {
             title: "Bienvenidos",
-            getPc
+            getPc,
+            session: req.session
         })  
        
     },
     about:(req,res) =>{
         res.render('about', {
-            title:"about-us"
+            title:"about-us",
+            session: req.session
         })
     },
     search: (req, res) => {
@@ -26,6 +28,7 @@ module.exports = {
             title: 'resultados de busqueda',
 			result,
 			search: req.query.keywords,
+            session: req.session
 			
 		}) 
         /* res.send(result) */

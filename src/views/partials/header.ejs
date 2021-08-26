@@ -41,7 +41,13 @@
         <li><a href="/products/ofertas">Ofertas</a></li>
         <li><a href="/products/notebooks">Notebooks</a></li>
         <li><a href="/products">Productos</a></li>
-        <li><a href="/about">Nosotros</a></li>
+        <% if ( session.user && session.user.rol == true) { %>
+          <li><a href="/admin/index">ADMIN</a></li>
+        <% }else{ %>
+           <li><a href="/about">Nosotros</a></li>
+        
+        <%} %>
       </ul>
     </nav>
+    
   </header>

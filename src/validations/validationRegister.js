@@ -16,7 +16,7 @@ module.exports = [
     check('nombre').notEmpty().withMessage('Campo obligatorio'),
     check('apellido').notEmpty().withMessage('Campo obligatorio'),
     check('telefono').notEmpty().withMessage('Campo obligatorio')
-    .isLength({ max: 10}).withMessage('maximo 10 caracteres'),
+    .isLength({ min:8 , max: 12}).withMessage('maximo 10 caracteres'),
 
     body('repeatPassword').custom((value, {req}) => value !== req.body.password ? false : true )
     .withMessage('Las contraseñas no coinciden')

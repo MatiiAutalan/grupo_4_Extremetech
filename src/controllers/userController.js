@@ -44,7 +44,7 @@ module.exports = {
             
             req.session.user = user
 
-            res.redirect('/user/')
+            res.redirect('/user')
 
         }else{
             res.render('userProfile', {
@@ -112,9 +112,12 @@ module.exports = {
     },
 
     login:(req,res) => {
+        let user = getUsers.find(user => user.id === +req.params.id)
         res.render('login2', {
             title: "prueba",
-            session: req.session
+            session: req.session,
+            user
+            
         })
     },
     userLogin:(req,res) => {

@@ -5,12 +5,13 @@ let validationRegister = require('../validations/validationRegister')
 let validationLogin = require('../validations/validationLogin')
 let userSession = require('../middlewares/userSession')
 let uploadAvatar = require('../middlewares/uploadAvatar')
+let cookieCheck = require('../middlewares/cookieCheck')
 
 /* GET home page. */
 
-router.get('/', index)
-router.get('/edit/:id',editProfile);
-router.put('/edit/:id',uploadAvatar.single('image'),updateProfile)
+router.get('/',cookieCheck, index)
+router.get('/edit/:id',cookieCheck,editProfile);
+router.put('/edit/:id',uploadAvatar.single('image'),cookieCheck,updateProfile)
 
 
 router.get('/register', register)

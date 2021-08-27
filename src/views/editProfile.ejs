@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %> 
+</head>
+<body>
+    <%- include('partials/header') %> 
+    <main class="main-carga-productos-panel">
+        <h2 class="carga-productos-panel-adm">Editando Usuario <%= user.email%></h1>
+            <h4 class="nuevo-producto-panel-adm">Usuario</h3>
+                <form action="/user/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
+                <div class="carga-form-productos" >
+                    <div class="container-productos-carga-individual">
+                        <input class="producto-individual-carga" type="text" placeholder="Nombre" name="nombre" value="<%= locals.old ? old.nombre : user.nombre %>" />
+                        <% if (locals.errors && errors.nombre) { %>
+                            <small class="text-danger"><%= errors.nombre.msg %> </small>
+                        <% } %>
+                        <input class="producto-individual-carga"type="text" placeholder="Apellido" name="apellido" value="<%= locals.old ? old.apellido : user.apellido %>">
+                        <% if (locals.errors && errors.apellido) { %>
+                            <small class="text-danger"><%= errors.apellido.msg %> </small>
+                        <% } %>
+                           
+                        <input type="text" class="producto-individual-carga" placeholder="Password" name="telefono" value="<%= locals.old ? old.telefono : user.telefono %>">
+                        <% if (locals.errors && errors.telefono) { %>
+                            <small class="text-danger"><%= errors.telefono.msg %> </small>
+                        <% } %>
+                    </div>
+                    <!-- <p id="desc-producto-carga-productos">Descripcion del producto</p>
+                    <textarea class="desc-product-text-area" name="descripcion" id="descripcion" ></textarea> -->
+                    <p class="add-file-img-carga-products">Imagen de perfil</p>
+                    <div class="container-img-products-carga-end">
+                        <input  class="buttonForm" type="file" id="file" name="image" multiple /><br><br>
+                        <div id="submit-fn">
+                            <button type="submit" id="btn-submit-finalizar-edit">Finalizar</button>
+                        </div>
+                    </div>                  
+                </div>
+            </form>
+                </main>
+            </body>
+            </html>

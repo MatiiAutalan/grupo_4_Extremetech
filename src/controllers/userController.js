@@ -4,10 +4,56 @@ const {validationResult} = require('express-validator');
 
 module.exports = {
     index: (req,res) => {
+        let user = getUsers.find(user => user.id === +req.session.user.id)
+        
         res.render('userProfile', {
             title:"Cuenta",
-            session: req.session
+            session: req.session,
+            user
         })
+    },
+    editProfile:(req,res)=>{
+        let user = getUsers.find(user => user.id === +req.params.id)
+
+        res.render('editProfile', {
+            title:"Cuenta",
+            session: req.session,
+            user
+        })
+    },
+    updateProfile:(req,res)=> {
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+            let user = getUsers.find(user => user.id === +req.params.id)
+            let  = {
+                 nombre,
+                apellido,
+                telefono,
+                documento,
+            } = req.body
+            user.id = user.id
+            user.nombre = nombre
+            user.apellido = apellido
+            user.telefono = telefono
+            user.documento = documento
+            user.image = req.file ? req.file.filename : user.image
+
+            addUsers(getUsers)
+
+            delete user.password
+            
+            req.session.user = user
+
+            res.redirect('/user/')
+
+        }else{
+            res.render('userProfile', {
+                title:"Cuenta",
+                session: req.session,
+                old: req.body,
+                errors : errors.mapped()
+            })
+        }
     },
     register:(req,res) =>{
         res.render('register', {
@@ -97,6 +143,7 @@ module.exports = {
             res.render('login2',{
                 errors: errors.mapped(),
                 title: 'Login',
+                session: req.session
                 
             })
         }

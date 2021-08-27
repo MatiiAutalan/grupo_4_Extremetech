@@ -1,12 +1,16 @@
 var express = require('express');
 var router = express.Router();
-let {index , register, finishBuy, userRegister,login, userLogin, userLogout }= require('../controllers/userController')
+let {index , register, finishBuy, userRegister,login, userLogin, userLogout,editProfile, updateProfile }= require('../controllers/userController')
 let validationRegister = require('../validations/validationRegister')
 let validationLogin = require('../validations/validationLogin')
 let userSession = require('../middlewares/userSession')
+let uploadAvatar = require('../middlewares/uploadAvatar')
+
 /* GET home page. */
 
 router.get('/', index)
+router.get('/edit/:id',editProfile);
+router.put('/edit/:id',uploadAvatar.single('image'),updateProfile)
 
 
 router.get('/register', register)

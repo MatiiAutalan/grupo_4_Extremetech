@@ -7,15 +7,16 @@
         <h1>Mis datos</h1>
 
         <div class="imageProfile">
-            <div class="avatar">Imagen de perfil</div>
-            <input type="file" name="avatar" id="avatar">
+            <div class="avatar">
+                <img src="/images/users/<%= user.image %> " alt="" width="150px"></div>
+            
         </div>
 
         <div class="data">
             <h3>Datos de cuenta</h3>
             <div>
                 <p>E-mail</p>
-                <p>ejemplo@ejemplo.com</p>
+                <p><%= user.email %></p>
             </div>
 
             <div>
@@ -28,23 +29,23 @@
             <h3>Datos personales</h3>
             <div>
                 <p>Nombre</p>
-                <p>NOMBRE</p>
+                <p><%= user.nombre %></p>
             </div>
             <div>
               <p>Apellido</p>
-              <p>APELLIDO</p>
+              <p><%= user.apellido %></p>
             </div>
             <div>
                 <p>Documento</p>
-                <p>DNI 123456789</p>
+                <p><%= user.documento %></p>
             </div>
             <div>
                 <p>Teléfono</p>
-                <p>1512345678</p>
+                <p><%= user.telefono %></p>
             </div>
         </div>
 
-        <a class="btnProfile">Editar perfil</a>
+        <a href="/user/edit/<%= user.id %> " class="btnProfile">Editar perfil</a>
     </main>
 
     <%- include('partials/footer') %>

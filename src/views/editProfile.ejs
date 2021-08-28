@@ -19,6 +19,10 @@
                         <% if (locals.errors && errors.apellido) { %>
                             <small class="text-danger"><%= errors.apellido.msg %> </small>
                         <% } %>
+                        <input class="producto-individual-carga"type="text" placeholder="documento" name="documento" value="<%= locals.old ? old.documento : user.documento %>">
+                        <% if (locals.errors && errors.documento) { %>
+                            <small class="text-danger"><%= errors.documento.msg %> </small>
+                        <% } %>
                            
                         <input type="text" class="producto-individual-carga" placeholder="Password" name="telefono" value="<%= locals.old ? old.telefono : user.telefono %>">
                         <% if (locals.errors && errors.telefono) { %>

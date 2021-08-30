@@ -142,6 +142,13 @@
 .fas-fa-lock {
     font-size: 22px;
 }
+
+.avatar-login a img {
+    border-radius: 50%;
+    border: 4px solid white;
+    height: 50px;
+    width: 50px;
+}
 @media (min-width: 576px){
     .section2-login {
         width: 60%;
@@ -169,4 +176,5 @@
         height: 75%;
         margin: 30px 45px 0 0;
     }
+   
 }

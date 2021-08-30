@@ -1,6 +1,6 @@
-<div>
+<div class="avatar-login">
   <% if (typeof session.user != "undefined") { %>
-    <a href="/user"> Profile</a>
+    <a href="/user"> <img src="/images/users/<%=session.user.avatar %>" alt="" width="50px"> </a>
     <a href="/user/logout">Cerrar Sesion</a>
    <% }else{ %>
   

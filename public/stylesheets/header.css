@@ -1,5 +1,5 @@
 header.navbar .container {
-  background-image: url(/images/backgroundHeader.png);
+  background-image: url(/images/fondo_header.jpg);
 }
 
 .fa-shopping-cart {
@@ -94,7 +94,7 @@ header .ul-links {
 
 header .navbar {
   /* height: 100px; */
-  background-image: url(/images/backgroundHeader.png);
+  background-image: url(/images/fondo_header.jpg);
   background-repeat: no-repeat;
 
   background-size: cover;

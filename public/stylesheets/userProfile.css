@@ -35,6 +35,11 @@
     color: var(--colorSecundary);
     font-weight: bold;
 }
+.containerUserProfile .imageProfile .avatar img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
 
 .containerUserProfile .imageProfile input {
     width: 90%;

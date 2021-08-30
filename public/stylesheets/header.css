@@ -243,15 +243,15 @@ header .navbar .container .login-cart button:hover {
     flex-direction: row;
   }
   /* login cart */
-  header .navbar .container .login-cart a i {
-    padding-right: 1px;
-    padding-top: 1px;
-  }
+ /*  header .navbar .container .login-cart a i {
+     padding-right: 1px;
+    padding-top: 1px; 
+  } */
   /* login btn */
-  header .navbar .container .login-cart button {
+/*   header .navbar .container .login-cart button {
     margin-left: 15px;
     margin-right: 30px;
-  }
+  } */
   /* about us */
   header .navbar ul {
     width: 80%;
@@ -266,6 +266,7 @@ header .navbar .container .login-cart button:hover {
   header .navbar ul li {
     padding-right: 25px;
     font-size: 20px;
+    text-transform: uppercase;
   }
   
   header .navbar ul li a {
@@ -342,7 +343,7 @@ header .navbar .container .login-cart button:hover {
   header .navbar ul li a {
     font-size: 14px;
     letter-spacing: 3px;
-    text-transform: uppercase;
+    
   }
 
   header .navbar .container .login-cart {

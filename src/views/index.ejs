@@ -38,49 +38,64 @@
       
       <% getPc.forEach(pcs => { %>
         <article>
+          <a href="/products">
           <div class="img-product-main">
             <img class="img-product-main" src="/images/<%= pcs.image %> " alt="">
             <p><%= pcs.Modelo %></p>
             <p><%= pcs.Memoria %> </p>
             <p><%= pcs.Almacenamiento %> </p>
-            <a href="/products"><h3>Ver Producto</h3></a>
+            <h3>Ver Producto</h3>
           </div>
+        </a>
         </article> 
       <% }) %>
         
      
     </section>
     <!-- img icons main -->
+    <hr class="separador">
+
+    <div class="pc-recommended">
+      <h2>TIPOS DE PRODUCTOS</h2>
+    </div>
     <section>
       <article>
+        <a href="/products">
         <div class="img-product-main">
           <img class="img-product-main" src="/images/homeauriculares.svg" alt="">
           <p class="parrafo-products">AURICULARES</p>
         </div>
+      </a>
       </article>
       <article>
-        <div class="img-product-main">
+        <a href="/products/monitores">
+          <div class="img-product-main">
           <img src="/images/homemonitor.svg" alt="" >
-          <p class="parrafo-products">MONITORES</p>
+          <a href="/products/monitores"><p class="parrafo-products">MONITORES</p>
         </div>
+      </a>
       </article>
       <article>
+        <a href="/products/notebooks">
         <div class="img-product-main">
           <img src="/images/homenotebook.svg" alt="" >
           <p class="parrafo-products">NOTEBOOKS</p>
         </div>
+      </a>
       </article>
       <article>
+        <a href="/products">
         <div class="img-product-main">
           <img src="/images/homejoystick.svg" alt="" >
           <p class="parrafo-products">JOYSTICK</p>
         </div>
+      </a>
       </article>
     </section>
     
     <!-- carrousel products -->
     <div class="productos-recomendados" id="Ofertas">
-      <h2>Productos recomendados</h2>
+      <h2>Productos Destacados</h2>
     </div>
     <div id="carrusel">
       <a href="#" class="left-arrow"><i class="fas fa-arrow-left"></i></a>

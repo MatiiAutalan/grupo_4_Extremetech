@@ -64,22 +64,36 @@
 }
 .main-content section article {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 100%;
     background-color: var(--colorWhite);
 }
-.main-content section article .img-product-main {
-    margin: 0 auto;
+
+.main-content section article .img-product-main{
+    margin: 10px 0;
 }
+
+.main-content section article div {
+    padding: 10px;
+    box-shadow:0 5px 15px black;
+    border-radius: 10px;
+    margin: 10px 5px;
+}
+
+
 .main-content section article .img-product-main img {
     width: 50%;
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 50px;
-    padding-top: 1px;
+    margin-top: 10px;
 }
+
+.main-content section article div:hover{
+    box-shadow: 0px 7px 17px var(--colorSecundaryWhite);
+}
+
 .main-content section article .img-product-main p {
     width: 300px;
     padding-left: 10px;
@@ -110,6 +124,12 @@
 .main-content section article .img-product-main h3:hover {
     background-color: var(--colorPrimaryC);
 }
+
+.separador {
+    width: 5px;
+    color: var(--colorTertiary);
+}
+
 .pc-recommended {
     font-size: 12px;
     display: flex;
@@ -118,7 +138,8 @@
     color: #fff;
     text-transform: uppercase;
     border-top: 4px solid var(--colorSecundary);
-    margin-top: 25px
+    margin-top: 25px;
+    padding: 10px;
 }
 .productos-recomendados {
     font-size: 12px;
@@ -131,6 +152,7 @@
     border-top: 4px solid var(--colorSecundary);
     box-shadow: 2px 2px 2px 1px rgba(8, 6, 6, 0.2);
     margin-top: 100px;
+    padding: 10px;
 }
 .product-highlights {
     font-size: 12px;
@@ -256,13 +278,9 @@ main .carrusel .product .price {
         grid-template-columns: repeat(2, 1fr);
     }
     .main-content section article .img-product-main img {
-        padding-top: 20px;
         width: 180px;
     }
-    .main-content section article .img-product-main img:hover {
-        border: 3px solid var(--colorPrimaryC);
-        border-radius: 10px;
-    }
+
     header .navbar .container .logo img {
         height: 100px;
         width: 100px;

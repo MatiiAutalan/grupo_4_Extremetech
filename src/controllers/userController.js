@@ -95,7 +95,7 @@ module.exports = {
             res.redirect('/')  // una vez agregado el producto nos redirecciona  a la vista de productos
         }else{
             res.render('register', {
-                title : "asd",
+                title : "Registro",
                 errors: errors.mapped(),
                 old : req.body,
                 session: req.session
@@ -114,7 +114,7 @@ module.exports = {
     login:(req,res) => {
         let user = getUsers.find(user => user.id === +req.params.id)
         res.render('login2', {
-            title: "prueba",
+            title: "Login",
             session: req.session,
             user
             

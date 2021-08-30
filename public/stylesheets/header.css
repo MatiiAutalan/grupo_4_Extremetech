@@ -1,383 +1,371 @@
+header.navbar .container {
+  background-image: url(/images/backgroundHeader.png);
+}
 
-body {
-    font-family: "Roboto Mono";
-}
-/* modal estilos */
-.btn-login .btn-style a {
-    color: var(--colorPrimary);
+.fa-shopping-cart {
+    color: var(--colorWhite);
+} 
 
-}
-.btn-login .btn-style button {
-    color: var(--colorPrimary);
-}
-#carrito-color {
+.fa-shopping-cart:hover {
     color: var(--colorSecundary);
 }
+
+/* modal estilos */
+.btn-login .btn-style a {
+  color: var(--colorPrimary);
+}
+.btn-login .btn-style button {
+  color: var(--colorPrimary);
+}
+
 /* header mobile */
 
 /* The sidebar menu */
 .sidebar {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0;
-    left: 0;
-    background-color: var(--colorTertiary); /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-    display: flex;
-    flex-direction: column;
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: var(--colorTertiary); /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+  display: flex;
+  flex-direction: column;
 }
 header .ul-links {
-    display: none;
+  display: none;
 }
 /* The sidebar links */
 .sidebar a {
-    color: #fff;
-    position: relative;
-    display: flex;
-    line-height: 40px;
-    justify-content: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    background-image: linear-gradient(#6c0979, #6c0979);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 2px;
-    transition: background-size 0.3s;
+  color: #fff;
+  position: relative;
+  display: flex;
+  line-height: 40px;
+  justify-content: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(#6c0979, #6c0979);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s;
 }
 .sidebar a:hover,
 .siderbar a:focus {
-    background-size: 100% 2px;
+  background-size: 100% 2px;
 }
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
-    color: #f1f1f1;
+  color: #f1f1f1;
 }
 /* Position and style the close button (top right corner) */
 .sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
 }
 /* The button used to open the sidebar */
 .openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #111;
-    color: white;
-    padding: 10px 15px;
-    border: none;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
 }
 .openbtn:hover {
-    background-color: #444;
+  background-color: #444;
 }
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
-    transition: margin-left 0.5s; /* If you want a transition effect */
-    padding: 20px;
+  transition: margin-left 0.5s; /* If you want a transition effect */
 }
 #main button {
-    font-size: 34px;
-    margin-bottom: 80px;
-    background-color: var(--colorPrimary);
+  font-size: 34px;
+
+  background-color: transparent;
 }
 /* navbar */
 
 header .navbar {
-    height: 100px;
-    background-color: var(--colorPrimary);
+  /* height: 100px; */
+  background-image: url(/images/backgroundHeader.png);
+  background-repeat: no-repeat;
+
+  background-size: cover;
+  background-clip: border-box;
+}
+header .logo {
+  align-items: center;
+  text-align: center;
 }
 header .logo img {
-    width: 94px;
+  width: 94px;
+}
+header .logo h3 {
+  font-family: "Libre Barcode 39 Extended Text", cursive;
+  color: white;
+  font-weight: 100;
+  font-size: 22px;
 }
 header .navbar .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-header .navbar .container .logo img {
-    margin-right: 20px;
-    margin-bottom: 80px;
-}
-header .navbar .container .login-cart {
-    margin-right: 40px;
-    margin-bottom: 80px;
-}
+
 /* search */
 header .navbar .container .search-container {
-    display: none;
+  display: none;
 }
 header .navbar .container .search-container i {
-    display: none;
+  display: none;
 }
 /* login and cart */
-header .navbar .container .login-cart {
-    color: var(--colorSecundary);
-    display: flex;
-    flex-direction: column-reverse;
+header .navbar .container .login-cart a {
+  color: var(--colorSecundary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
 }
-header .navbar .container .login-cart a i {
-    color: var(--colorSecundary);
-    font-size: 28px;
-    display: block;
-    padding-top: 8px;
-    margin-left: 12px;
+header .navbar .container .login-cart a {
+  color: white;
 }
+
 header .navbar .container .login-cart button {
-    background-color: var(--colorWhite);
-    border: none;
-    color: var(--colorPrimary);
-    text-transform: uppercase;
-    width: 100%;
-    font-size: 14px;
-    border-radius: 5px;
-    padding: 5px;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: var(--colorWhite);
+  border: none;
+  color: white;
+  width: 100%;
+  font-size: 14px;
+
+  cursor: pointer;
 }
 header .navbar .container .login-cart button:hover {
-    background-color: var(--colorGreenC);
+  background-color: var(--colorGreenC);
 }
 /* Modal window */
 .modal {
-    display: none;
-    background: rgba(0,0,0 , 0.7);
-    backdrop-filter: blur(2px);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position:fixed;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2px);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
 }
 .modal-container {
-    background: var(--colorPrimary);
-    min-width: 300px;
-    max-width: 350px;
-    min-height: 250px;
-    max-height: 90%;
-    padding: 20px;
-    border-radius: 15px;
-    position: relative;
-    box-shadow: 4px 4px 4px 1px var(--colorTertiary);
+  background: var(--colorPrimary);
+  min-width: 300px;
+  max-width: 350px;
+  min-height: 250px;
+  max-height: 90%;
+  padding: 20px;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 4px 4px 4px 1px var(--colorTertiary);
 }
 
 .close-modal {
-    background: var(--colorPrimaryC);
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    padding-bottom: 2px;
-    font-size: 1rem;
-    border-radius: 30%;
-    position: absolute;
-    right: 2px;
-    margin-top: 4px; 
-    margin-right: 6px;
-    top: 3px;
-    cursor: pointer;
+  background: var(--colorPrimaryC);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding-bottom: 2px;
+  font-size: 1rem;
+  border-radius: 30%;
+  position: absolute;
+  right: 2px;
+  margin-top: 4px;
+  margin-right: 6px;
+  top: 3px;
+  cursor: pointer;
 }
 
-/* header tablet */
 @media (min-width: 576px) {
-    /* logo */
-    header .navbar .container .logo {
-        margin-left: -30px;
-    }
+  /* logo */
 
-  /* header tablet */
-  
-  @media (min-width: 576px) {
-      /* logo */
-      header .navbar .container .logo {
-          margin-left: -30px;
-      }
-    /* menu */
-    .navbar .container .menu-hamburguer {
-        display: none;
-    }
-    header .navbar .container .menu {
-        display: none;
-    }
-    /* search */
-    header .navbar .container .search-container {
-        display: flex;
-        width: 50%;
-    }
-    /* search-input */
-    header .navbar .container .search-container input {
-        width: 100%;
-        margin-left: -20px;
-        margin-bottom: 80px;
-        height: 24px;
-        border-bottom: 4px solid var(--colorSecundary);
-        padding: 0 25px 0 10px;
-        color: var(--colorTertiary);
-    }
-    /* search loupe */
-    header .navbar .container .search-container i {
-        display: flex;
-        color: var(--colorTertiary);
-        font-size: 14px;
-    }
+  /* menu */
+  .navbar .container .menu-hamburguer {
+    display: none;
+  }
+  header .navbar .container .menu {
+    display: none;
+  }
+  /* search */
+  header .navbar .container .search-container {
+    display: flex;
+    width: 50%;
+  }
+  /* search-input */
+  header .navbar .container .search-container input {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 30px;
+    border: 2px solid var(--colorWhite);
+    padding: 0 25px 0 10px;
+    border-radius: 55px;
+    color: white;
+    outline: none;
+  }
 
-    header .navbar .container .search-container button{
-        height: 10px;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        position: relative;
-        right: 20px;
-        top: 5px;
-    }
+  header .navbar .container .search-container input:hover {
+    border: 2px solid var(--colorSecundary);
+  }
 
-    /* login and cart */
-    header .navbar .container .login-cart {
-        display: flex;
-        flex-direction: row;
-    }
-    /* login cart */
-    header .navbar .container .login-cart a i {
-        padding-right: 1px;
-        padding-top: 1px;
-    }
-    /* login btn */
-    header .navbar .container .login-cart button {
-        margin-left: 15px;
-        margin-right: 30px;
-    }
-    /* about us */
-    header .navbar ul {
-        display: flex;
-        justify-content: center;
-        z-index: 1;
-        position: relative;
-        bottom: 115px;
-        font-size: 16px;
-    }
-    header .navbar ul li {
-        padding-right: 40px;
-        font-size: 20px;
-    }
-    #carrito-color {
-        color: var(--colorSecundary);
-    }
-    header .navbar ul li a {
-        color: #fff;
-        font-size: 14px;
-        font-weight: bold;
-        border-bottom: 1px solid var(--colorSecundary);
-    }
-    /* hover ul */
-    header .navbar ul li a:hover {
-        color: var(--colorSecundary);
-        border-bottom: 1px solid #fff;
-        
-    }
-    
-    /* menu toggle */
-    #burger-menu {
-        display: none;
-    }
-    /* logo tablet */
-    header .navbar .container .logo img {
-        margin-left: 40px;
-        width: 90px;
-    }
-    /* Window model */
-    .modal-container {
-        min-width: 300px;
-        max-width: 500px;
-        min-height: 250px;
-        max-height: 450px;
-    }
-    .btn-style a {
-        color: #fff;
-        padding: 6px;
-        font-size: 14px;
-    }
-    
-    
+  header .navbar .container .search-container button {
+    height: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    right: 20px;
+    top: 5px;
+  }
+
+  /* login and cart */
+  header .navbar .container .login-cart {
+    display: flex;
+    flex-direction: row;
+  }
+  /* login cart */
+  header .navbar .container .login-cart a i {
+    padding-right: 1px;
+    padding-top: 1px;
+  }
+  /* login btn */
+  header .navbar .container .login-cart button {
+    margin-left: 15px;
+    margin-right: 30px;
+  }
+  /* about us */
+  header .navbar ul {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    position: relative;
+    bottom: 30px;
+    left: 155px;
+    font-size: 16px;
+  }
+  header .navbar ul li {
+    padding-right: 25px;
+    font-size: 20px;
   }
   
-  @media (min-width: 911px) {
-    /* search */
-    header .navbar .container .search-container {
-        width: 50%;
-    }
-    /* search desktop */
-    header .navbar .container .search-container input {
-        width: 100%;
-        height: 28px;
-        background-color: #fff;
-        border-radius: 4px;
-        border-bottom: 4px solid var(--colorSecundary);
-    }
-    /* search icon */
-    header .navbar .container .search-container i {
-        top: 5px;
-    }
-    #burger-menu {
-        display: none;
-    }
-    /* espacing words ul */
-    header .navbar ul {
-        padding-right: 80px;
-        margin-left: 20px;
-        display: flex;
-        bottom: 118px;
-        font-weight: bold;
-        justify-content: center;
-    }
-    header .navbar ul li a {
-        font-size: 14px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-    }
-    header .navbar ul li {
-        padding-right: 80px;
-    }
-    
-    header .navbar .container .login-cart {
-        align-items: center;
-        
-    }
-    header .navbar .container .login-cart i {
-        margin-right: 40px;
-    }
-    header .navbar .container .login-cart button {
-        font-size: 18px;
-        cursor: pointer;
-    }
-    .modal-container {
-        min-width: 400px;
-        max-width: 600px;
-        min-height: 350px;
-        max-height: 90%;
-    }
-    .btn-login .btn-style a {
-        color: var(--colorPrimary);
-        font-size: 16px;
-        
-    }
-    .btn-login .btn-style button {
-        color: var(--colorPrimary);
-    }
-    #carrito-color {
-        color: var(--colorSecundary);
-    }
-    
- }
+  header .navbar ul li a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--colorSecundary);
+  }
+  /* hover ul */
+  header .navbar ul li a:hover {
+    color: var(--colorSecundary);
+    border-bottom: 1px solid #fff;
+  }
+
+  /* menu toggle */
+  #burger-menu {
+    display: none;
+  }
+
+  /* Window model */
+  .modal-container {
+    min-width: 300px;
+    max-width: 500px;
+    min-height: 250px;
+    max-height: 450px;
+  }
+  .btn-style a {
+    color: #fff;
+    padding: 6px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  header .navbar ul {
+    bottom: 30px;
+    left: 155px;
+  }
+
+  header .navbar ul li {
+    padding-right: 50px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 911px) {
+  /* search */
+  header .navbar .container .search-container {
+    width: 50%;
+  }
+  /* search desktop */
+  header .navbar .container .search-container input {
+    width: 100%;
+    height: 28px;
+  }
+  
+
+  header .navbar ul li {
+    padding-right: 60px;
+    font-size: 20px;
+  }
+
+  /* search icon */
+  header .navbar .container .search-container i {
+    top: 5px;
+  }
+  #burger-menu {
+    display: none;
+  }
+  /* espacing words ul */
+  header .navbar ul {
+    left: 180px;
+  }
+  header .navbar ul li a {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  header .navbar .container .login-cart {
+    align-items: center;
+  }
+  header .navbar .container .login-cart i {
+    margin-right: 40px;
+  }
+  header .navbar .container .login-cart button {
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .modal-container {
+    min-width: 400px;
+    max-width: 600px;
+    min-height: 350px;
+    max-height: 90%;
+  }
+  .btn-login .btn-style a {
+    color: var(--colorPrimary);
+    font-size: 16px;
+  }
+  .btn-login .btn-style button {
+    color: var(--colorPrimary);
+  }
 }

@@ -1,11 +1,6 @@
 <%- include('partials/head') %> 
-<div>
-    <button onclick="openModal()" name="button">Login</button>
-  </div> 
-  <div class="modal" id="modalAdd">
-    <div class="modal-container">
-      <div class="close-modal" onclick="closeModal()">X</div>
-      <div>
+<%- include('partials/header') %> 
+      <div class="container-login">
         <div class="section2-login">
           <h2 class="enter-register">Inicia sesion/Registrate</h2>
           <form action="/user/login" class="form-login" method="POST">
@@ -27,18 +22,12 @@
               <h3 class="enter"> O ingresa con:</h4>
               <div class="login-gmail">
               <a href="#"><div><img src="/images/google.png" alt=""></div><div class="btn-google"><h6>Google</h6></div></a>
-          </div>
-          <button class="btn-style" id="btn-width" type="submit">Ingresar</button>
-          <button class="btn-style" id="btn-width" type="submit"><a href="/user/register">Registrarse</a></button>
-          </form>
+              </div>
           <div class="btn-login">
-          
+            <button class="btn-style" id="btn-width" type="submit">Ingresar</button>
+            <button class="btn-style" id="btn-width" type="submit"><a href="/user/register">Registrarse</a></button>
+          </div>
+          </form>
       </div>
     </div>
-      </div>
-      
-    </div>
-  </div>
-  <script src="../../../javascript/modal.js"></script>
-</div>
-</div>
+<%- include('partials/footer') %> 

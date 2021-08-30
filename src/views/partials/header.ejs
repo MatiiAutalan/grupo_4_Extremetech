@@ -1,53 +1,52 @@
 <header>
-    <nav class="navbar">
-      <div class="container">
-        <!-- menu hamburguer -->
-        <div class="menu-hamburguer">
-          <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="/products/ofertas">Ofertas</a>
-            <a href="/products/notebooks">Notebooks</a>
-            <a href="/products">Productos</a>
-            <a href="#">Contact</a>
-          </div>
-          <!-- toggle nav -->
-          <div id="main">
-            <button class="openbtn" onclick="openNav()">&#9776;</button>
-          </div>
+  <nav class="navbar">
+    <div class="container">
+      <!-- menu hamburguer -->
+      <div class="menu-hamburguer">
+        <div id="mySidebar" class="sidebar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a href="/products/ofertas">Ofertas</a>
+          <a href="/products/notebooks">Notebooks</a>
+          <a href="/products">Productos</a>
+          <a href="#">Contact</a>
         </div>
-        <!-- logo navbar -->
-        <div class="logo">
-         <a href="/"><img src="/images/logo-principal.png" alt="" /></a>
+        <!-- toggle nav -->
+        <div id="main">
+          <button class="openbtn" onclick="openNav()">&#9776;</button>
         </div>
-        <!-- search -->
-        <form class="search-container" action="/search" method="GET">
-          <input type="search" name="keywords" id="" placeholder="Buscar productos"/>
-          <button type="submit"> <i class="fas fa-search"></i></button>
-        </form>
-        
-        <!-- login and cart -->
-        <div class="login-cart">
+      </div>
+      <!-- logo navbar -->
+      <div class="logo">
+       <a href="/"><img src="/images/logoSinFondo.png" alt="" /> <h3>EXTREMETECH</h3></a>
+      </div>
+      <!-- search -->
+      <form class="search-container" action="/search" method="GET">
+        <input type="search" name="keywords" id="" placeholder="Buscar productos"/>
+        <button type="submit"> <i class="fas fa-search"></i></button>
+      </form>
+      <!-- login and cart -->
+      <div class="login-cart">
 
-          <!-- Comienzo ProductCart -->
-              <%- include('./productCart') %> 
-          <!-- Fin ProductCart -->
+        <!-- Comienzo ProductCart -->
+            <%- include('./productCart') %> 
+        <!-- Fin ProductCart -->
 
-          <!-- Comienza ventana modal Login -->
-              <%- include('./login') %> 
-          <!-- Fin ventana modal Login -->
-
-      <!-- links -->
-      <ul class="ul-links">
-        <li><a href="/products/ofertas">Ofertas</a></li>
-        <li><a href="/products/notebooks">Notebooks</a></li>
-        <li><a href="/products">Productos</a></li>
-        <% if ( session.user && session.user.rol == true) { %>
-          <li><a href="/admin/index">ADMIN</a></li>
-        <% }else{ %>
-           <li><a href="/about">Nosotros</a></li>
-        
-        <%} %>
-      </ul>
-    </nav>
-    
-  </header>
+        <!-- Comienza ventana modal Login -->
+            <%- include('./login') %> 
+        <!-- Fin ventana modal Login -->
+      </div>
+    <!-- links -->
+    <ul class="ul-links">
+      <li><a href="/products/ofertas">Ofertas</a></li>
+      <li><a href="/products/notebooks">Notebooks</a></li>
+      <li><a href="/products">Productos</a></li>
+      <% if ( session.user && session.user.rol == true) { %>
+        <li><a href="/admin/index">ADMIN</a></li>
+      <% }else{ %>
+         <li><a href="/about">Nosotros</a></li>
+      
+      <%} %>
+    </ul>
+  </nav>
+  
+</header>

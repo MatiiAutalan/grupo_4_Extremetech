@@ -8,7 +8,16 @@
           <a href="/products/ofertas">Ofertas</a>
           <a href="/products/notebooks">Notebooks</a>
           <a href="/products">Productos</a>
-          <a href="#">Contact</a>
+          <% if ( session.user && session.user.rol == true) { %>
+            <li><a href="/admin/index">ADMIN</a></li>
+          <% }else{ %>
+             <li><a href="/about">Nosotros</a></li>
+          
+          <%} %>
+        </ul>
+        <% if (typeof session.user != "undefined") { %>
+          <a class="logout" href="/user/logout">Cerrar Sesion</a>
+          <% } %> 
         </div>
         <!-- toggle nav -->
         <div id="main">

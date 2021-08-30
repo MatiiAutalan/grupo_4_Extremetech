@@ -143,12 +143,17 @@
     font-size: 22px;
 }
 
-.avatar-login a img {
+.avatar-login a .user-icono {
     border-radius: 50%;
     border: 4px solid white;
     height: 50px;
     width: 50px;
 }
+
+.avatar-login a .user-icono:hover{
+    border: 4px solid var(--colorSecundary);
+}
+
 @media (min-width: 576px){
     .section2-login {
         width: 60%;

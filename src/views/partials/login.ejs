@@ -1,54 +1,10 @@
 <div class="avatar-login">
   <% if (typeof session.user != "undefined") { %>
-    <a href="/user"> <img src="/images/users/<%=session.user.avatar %>" alt="" width="50px"> </a>
+    <a href="/user"> <img class= "user-icono"src="/images/users/<%=session.user.avatar %>" alt="" width="50px"> </a>
     <a href="/user/logout">Cerrar Sesion</a>
    <% }else{ %>
   
-    <a href="/user/login"> <img src="/images/login2.png" alt="" width="35px" height="35px"> </a>
+    <a href="/user/login"> <img class="user-icono"src="/images/iconousuario.svg" alt=""> </a>
     <% }  %> 
-  
-
-    
 </div> 
-<div class="modal" id="modalAdd" >
-  <div class="modal-container">
-    <div class="close-modal" onclick="closeModal()">X</div>
-    <div>
-      <div class="section2-login">
-        <h2 class="enter-register">Inicia sesion/Registrate</h2>
-        <form action="" class="form-login">
-            <p class="user">
-            <label for="email"><i class="far fa-envelope"></i>
-
-            </label>
-                <input class="inputs" type="text" name="email" id="user" placeholder="Email">
-            </p>
-            <p class="pass">
-                <label for="password"><i class="fas fa-lock"></i></label>
-                <input class="inputs" type="password" name="password" id="password" placeholder="Contraseña">
-            </p>
-            <p class="remember-password">
-            <label for="remember">Recordar contraseña</label>
-            <input type="checkbox" name="remember" id="remember">
-        </p>
-            <a class="a-login" id="remember-password" href="#">Olvidaste tu contraseña?</a>
-            <h3 class="enter"> O ingresa con:</h4>
-            <div class="login-gmail">
-            <a href="#"><div><img src="/images/google.png" alt=""></div><div class="btn-google"><h6>Google</h6></div></a>
-        </div>
-        <div class="btn-login">
-          <button class="btn-style" id="btn-width" type="submit">Ingresar</button>
-          <button class="btn-style" id="btn-width" type="submit"><a href="/user/register">Registrarse</a></button>
-      </div>
-        </form>
-        
-  </div>
-    </div>
-    
-  </div>
 </div>
-<script src="../../../javascript/modal.js"></script>
-</div>
-</div>
-
-<!-- <button onclick="openModal()" name="button"></button> -->

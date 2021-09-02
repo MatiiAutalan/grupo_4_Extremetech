@@ -119,6 +119,10 @@
   color: var(--colorWhite);
 }
 
+.full-screen-nav ul li a:hover {
+  color: var(--colorSecundary);
+}
+
 /* Backgroup position and animation */
 .backdrop {
   position: absolute;

@@ -2,14 +2,42 @@
     height: 400px;
     display: flex;
     align-items: center;
+    margin: 10px 0;
   }
   
   .carrusel-items {
     display: flex;
-    overflow-x:unset;
-    overflow-y: hidden;
+    overflow: auto;
     padding: 30px 0px;
   }
+
+.carrusel-items::-webkit-scrollbar {
+  width: 1px;
+  height: 8px;
+}
+
+ /* Estilos barra (thumb) de scroll */
+.carrusel-items::-webkit-scrollbar-thumb {
+  background: var(--colorPrimaryC);
+  border-radius: 4px;
+  width: 45px;
+}
+
+.carrusel-ite5s::-webkit-scrollbar-thumb:active {
+  background-color: var(--colorSecundaryWhite);
+}
+
+.carrusel-items::-webkit-scrollbar-thumb:hover {
+  background: var(--colorPrimary);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+ /* Estilos track de scroll */
+.carrusel-items::-webkit-scrollbar-track {
+  background: var(--colorSecundary);
+  border-radius: 4px;
+}
+
   
   .carrusel-item {
     min-width: 300px;

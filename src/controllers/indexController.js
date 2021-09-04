@@ -6,6 +6,7 @@ module.exports = {
          res.render('index', {
             title: "Bienvenidos",
             getPc,
+            getProducts,
             session: req.session
         })  
        

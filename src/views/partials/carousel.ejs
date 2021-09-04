@@ -1,0 +1,24 @@
+
+    <div class="carrusel">
+      <div class="carrusel-items">
+        <% getProducts.forEach(product => { %>
+        <div class="carrusel-item">
+            <div class="sliderbox">
+                <div class="imagenBox">
+                    <img src="/images/<%- product.image ? product.image[0] : 'default.png' %>">
+                </div>
+                <p><% if(product.modelo.length > 19){ %>
+                    <% let modeloSlice = product.modelo.slice(0,19) %>
+                    <%= modeloSlice %>
+                <% }else{ %> 
+            <%= product.modelo %> 
+        <% } %> </p>
+                <p class="price"> $ <%= product.precio %> </p>
+                <div class="cart">
+                    <a href="/products/detalle/<%- product.id %>">Ver producto</a>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>

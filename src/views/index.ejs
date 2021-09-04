@@ -95,73 +95,21 @@
     
     <!-- carrousel products -->
     <div class="productos-recomendados" id="Ofertas">
-      <h2>Productos Destacados</h2>
     </div>
-    <div id="carrusel">
-      <a href="#" class="left-arrow"><i class="fas fa-arrow-left"></i></a>
-      <a href="#" class="right-arrow"><i class="fas fa-arrow-right"></i></a>
-      <div class="carrusel">
-        <div class="product" id="product_0">
-        
-              <img src="/images/monitor1.png" />
-              <h5>Monitor Asus Tuf Gaming 144 Hz</h5>
-              <p class="price">$45.999</p>
-            </div>
-        <div class="product" id="product_1">
-              <img src="/images/1.jpg" />
-              <h5>Placa de video Nvidia MSI GTX 1660Ti 6GB</h5>
-              <p class="price">$86.999</p>
-          </div>
-          <div class="product" id="product_1">
-            <img src="/images/1.jpg" />
-            <h5>Placa de video Nvidia MSI GTX 1650 Super 4GB</h5>
-            <p class="price">$74.999</p>
-        </div>
-          <div class="product" id="product_3">
-              <img src="/images/3.jpg" />
-              <h5>Teclado gamer Redragon Kumara K552</h5>
-              <p class="price">$5.290</p>
-          </div>
-          <div class="product" id="product_4">
-              <img src="/images/4.jpg" />
-              <h5>Auriculares Gamer 7.1 Corsair Void Elite</h5>
-              <p class="price">$13.499</p>
-          </div>
-          <div class="product" id="product_5">
-              <img src="/images/aurishyperx2.png"/>
-              <h5>Auriculares gamer HyperX Cloud Alpha</h5>
-              <p class="price">$12.999</p>
-          </div>
-          <div class="product" id="product_6">
-            <img src="/images/teclado-draconic.jpg"/>
-            <h5>Teclado Gamer Bluetooth Redragon Draconic K530</h5>
-            <p class="price">$5.999</p>
-        </div>
-        <div class="product" id="product_7">
-          <img src="/images/teclado-draconic.jpg"/>
-          <h5>Teclado Gamer Bluetooth Redragon Draconic K530</h5>
-          <p class="price">$5.999</p>
-      </div>
-      <div class="product" id="product_8">
-        <img src="/images/teclado-draconic.jpg"/>
-        <h5>Teclado Gamer Bluetooth Redragon Draconic K530</h5>
-        <p class="price">$5.999</p>
-    </div>
-      </div>
-  </div>
-    </main>
+    <%- include('partials/carousel') %> 
     <div class="container-img-logitech-background">
       <img class="img-banner-logitech-back" src="/images/about-us/5.jpg" alt="">
   </div>
-  <div class="rgba"></div>
-    <%- include('partials/footer') %> 
-
+<div class="rgba"></div>
+  <%- include('partials/footer') %> 
+</main>
 <!-- carrousel-products-main -->
 <script src="javascript/carrousel-products-main.js"></script>
 <!-- app.js -->
 <script src="javascript/app.js"></script>
 <!-- carrousel principal home -->
 <script src="../../javascript/carrouselPrincipalHome.js"></script>
+<script src="/javascript/carousel.js" defer></script>
 </body>
 </html>
 

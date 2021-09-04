@@ -1,0 +1,99 @@
+.carrusel {
+    height: 400px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .carrusel-items {
+    display: flex;
+    overflow-x:unset;
+    overflow-y: hidden;
+    padding: 30px 0px;
+  }
+  
+  .carrusel-item {
+    min-width: 300px;
+    max-width: 300px;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .carrusel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+.carrusel-item:hover {
+    transform: scale(1.1);
+  } 
+
+  .carrusel-item:hover .cart {
+    background-color:var(--colorPrimaryC);
+  }
+
+  .sliderbox{
+    height: 350px;
+    position: relative;
+    width: 250px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: solid 1px rgba(8, 111, 189 , 0.8)
+  }
+  
+  .sliderbox a {
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .imagenBox {
+    height: 170px;
+  }
+  
+  .imagenBox img {
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .sliderbox .detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    font-size: 20px;
+    line-height: 35px;
+  }
+  
+  .sliderbox .price {
+    color : var(--colorSecundaryWhite);
+    line-height: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px;
+  }
+  
+  .sliderbox .cart {
+    position: absolute;
+    height: 45px;
+    bottom: 0px;
+    background-color: var(--colorPrimary);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ;
+  }
+  
+  .sliderbox .cart a {
+    color: white;
+  }
+  
+  .sliderbox:hover {
+    box-shadow: 2px 2px 12px rgba(47,47,47, 0.40);
+  }

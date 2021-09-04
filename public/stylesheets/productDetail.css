@@ -288,6 +288,7 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
 
   .priceProduct .payment div {
     width: 48%;
+    height: 70px;
     margin-bottom: 10px;
   }
 
@@ -298,6 +299,7 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
 
   .priceProduct .payment .tarjetas {
     display: flex;
+    height: 50%;
   }
 
   .containerProduct hr {

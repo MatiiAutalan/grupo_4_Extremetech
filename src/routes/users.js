@@ -10,7 +10,7 @@ let cookieCheck = require('../middlewares/cookieCheck')
 /* GET home page. */
 
 router.get('/',cookieCheck, index)
-router.get('/edit/:id',cookieCheck,editProfile);
+router.get('/edit/:id',userSession,cookieCheck,editProfile);
 router.put('/edit/:id',uploadAvatar.single('image'),cookieCheck,updateProfile)
 
 

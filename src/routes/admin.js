@@ -19,7 +19,7 @@ router.post('/agregarProducto',upload.array('product-image') ,agregarProducto)
 router.get('/index',userSession,userAdmin, listProducts)  
 
 /* GET - requiero el formulario de edicion con los values */
-router.get('/edit/:id', editForm)
+router.get('/edit/:id',userSession,userAdmin, editForm)
 /* PUT -  edito el formulario y lo envio */
 router.put('/edit/:id',upload.array('product-image') ,editProduct)
 

@@ -87,10 +87,43 @@ corregir lo que sea necesario
 *Empezar a hacer:
 
 -Establecer un horario para una reunión semanal.
+- Hacer mas reuniones diarias aunque sea para charlar 5 minutos 3 veces por semana
+
+*Dejar de hacer:
 - Terminar la vista sobre nosotros
+
+
+Retrospectiva Sprint 4 :
+
+*Seguir haciendo:
+
+- Distribucion de tarea equitativa.
+- Compañerismo 
+- Codear juntos
+- Adelantando cosas respecto al sprint
+-Poniendo fechas limites anteriores a las entregas para luego tener tiempo de 
+corregir lo que sea necesario
+- Trabajar en los detalles de la pagina.
+
+
+
+*Hacer más:
+- Intentar buscar algo para destacarnos por sobre el resto de los proyectos
+
+-Leer el siguiente sprint y analizarlo antes de empezar.
+- Trabajar la comunicacion
+
+
+*Hacer menos:
+- Mejorar el diseño(Analizar la posibilidad de cambio de colores)
+
+
+*Empezar a hacer:
+-Establecer un horario para una reunión semanal.
 - Hacer mas reuniones
 
 *Dejar de hacer:
 - Trabajar en los detalles de la pagina.
+- Terminar la vista sobre nosotros
 
 

@@ -30,6 +30,9 @@
               <% } %>
               <label for="contraseña">Contraseña</label>
               <input type="password" name="password"/>
+              <% if (locals.errors && errors.password) { %>
+                <small class="error"><%= errors.password.msg %> </small>
+              <% } %>
               <label for="repetir contraseña">Repetir contraseña</label>
               <input type="password" name="repeatPassword"/>
               <% if (locals.errors && errors.repeatPassword) { %>

@@ -14,9 +14,10 @@ module.exports = [
         }
     }). withMessage('email ya esta registrado'),
     check('nombre').notEmpty().withMessage('Campo obligatorio'),
-    check('apellido').notEmpty().withMessage('Campo obligatorio'),
-    check('telefono').notEmpty().withMessage('Campo obligatorio')
-    .isLength({ min:8 , max: 12}).withMessage('maximo 10 caracteres'),
+    check('password').notEmpty().withMessage('Campo obligatorio'),
+    //check('apellido').notEmpty().withMessage('Campo obligatorio'),
+    //check('telefono').notEmpty().withMessage('Campo obligatorio')
+    //.isLength({ min:8 , max: 12}).withMessage('maximo 10 caracteres'),
 
     body('repeatPassword').custom((value, {req}) => value !== req.body.password ? false : true )
     .withMessage('Las contraseñas no coinciden')

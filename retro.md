@@ -109,13 +109,12 @@ corregir lo que sea necesario
 
 *Hacer más:
 - Intentar buscar algo para destacarnos por sobre el resto de los proyectos
-
 -Leer el siguiente sprint y analizarlo antes de empezar.
 - Trabajar la comunicacion
 
 
 *Hacer menos:
-- Mejorar el diseño(Analizar la posibilidad de cambio de colores)
+- Posponer reuniones.
 
 
 *Empezar a hacer:
@@ -123,7 +122,6 @@ corregir lo que sea necesario
 - Hacer mas reuniones
 
 *Dejar de hacer:
-- Trabajar en los detalles de la pagina.
 - Terminar la vista sobre nosotros
 
 

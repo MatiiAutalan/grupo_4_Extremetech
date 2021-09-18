@@ -1,1 +1,73 @@
-[{"id":1,"nombre":"Matias","apellido":"ElDeRiver","email":"matipruebaedit@clickbank.net","password":"riverplate","reapeatPassword":"uYoeM8R","admin":"true","image":"1629402537228.jpg"},{"id":2,"nombre":"Gere","apellido":"deLeague","email":"gere@clickbank.net","password":"gere123","reapeatPassword":"uooeM8R","admin":"true","image":"1629401777365.jpg"},{"id":3,"nombre":"Jona","apellido":"ElDeRacing","email":"jona@clickbank.net","password":"upoeM8R","reapeatPassword":"upoeM8R","admin":"true","image":"1629401868950.jpg"},{"id":4,"nombre":"Gonza","apellido":"ElMendocino","email":"gonza_mendoza@clickbank.net","password":"mendoza","reapeatPassword":"mendoza","admin":"false","image":"1629685603374.jpg"},{"id":5,"nombre":"Kevin","apellido":"Kraven","email":"Kraven@clickbank.net","password":"kevin123","reapeatPassword":"kevin123","admin":"false","image":"1629996765648.png"},{"id":7,"nombre":"tobias","apellido":"racedo","email":"tobi@hotmail.com","password":"asd123","repeatPassword":"asd123","admin":"false","image":"user.jpg"},{"id":8,"nombre":"aime","apellido":"Pelozo","email":"aime@aaa.com","password":"asd123","repeatPassword":"asd123","admin":"true","image":"1629685536544.png"},{"id":10,"nombre":"banco nacion la concha de tu madre","apellido":"apellido","telefono":"1127885555","email":"probando@asd.com","password":"$2b$10$.lK.o07zQPRDBxzQDi.3uOxlVbsnlFGJY1TOrbViE5EnRY3VkY.5a","admin":false,"image":"1630167467164.png","documento":"35842763"}]
+[
+  {
+    "id": 1,
+    "nombre": "Matias",
+    "apellido": "ElDeRiver",
+    "email": "matipruebaedit@clickbank.net",
+    "password": "riverplate",
+    "reapeatPassword": "uYoeM8R",
+    "admin": "true",
+    "image": "1629402537228.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Gere",
+    "apellido": "deLeague",
+    "email": "gere@clickbank.net",
+    "password": "gere123",
+    "reapeatPassword": "uooeM8R",
+    "admin": "true",
+    "image": "1629401777365.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Jona",
+    "apellido": "ElDeRacing",
+    "email": "jona@clickbank.net",
+    "password": "upoeM8R",
+    "reapeatPassword": "upoeM8R",
+    "admin": "true",
+    "image": "1629401868950.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Gonza",
+    "apellido": "ElMendocino",
+    "email": "gonza_mendoza@clickbank.net",
+    "password": "mendoza",
+    "reapeatPassword": "mendoza",
+    "admin": "false",
+    "image": "1629685603374.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Kevin",
+    "apellido": "Kraven",
+    "email": "Kraven@clickbank.net",
+    "password": "kevin123",
+    "reapeatPassword": "kevin123",
+    "admin": "false",
+    "image": "1629996765648.png"
+  },
+  {
+    "id": 7,
+    "nombre": "tobias",
+    "apellido": "racedo",
+    "email": "tobi@hotmail.com",
+    "password": "asd123",
+    "repeatPassword": "asd123",
+    "admin": "false",
+    "image": "user.jpg"
+  },
+  {
+    "id": 10,
+    "nombre": "banco nacion la concha de tu madre",
+    "apellido": "apellido",
+    "telefono": "1127885555",
+    "email": "probando@asd.com",
+    "password": "$2b$10$.lK.o07zQPRDBxzQDi.3uOxlVbsnlFGJY1TOrbViE5EnRY3VkY.5a",
+    "admin": true,
+    "image": "1630167467164.png",
+    "documento": "35842763"
+  }
+]

@@ -1,8 +1,20 @@
 const { getUsers, addUsers } = require("../data/dataBase");
 const bcrypt = require('bcrypt')
 const {validationResult} = require('express-validator');
+const db = require('../database/models')
 
 module.exports = {
+    list: (req,res) => {
+        db.Products.findAll({
+            include: [{association:"category"},
+                    {association:"brands"},
+                    {association:"images_product"}]
+        })
+        .then(users =>{
+            res.send(users)
+        }).catch(error => console.log(error))
+    },
+
     index: (req,res) => {
         let user = getUsers.find(user => user.id === +req.session.user.id)
         

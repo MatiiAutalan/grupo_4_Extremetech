@@ -3,9 +3,12 @@ module.exports = (sequelize,DataTypes)=>{
     let cols ={
         id: {
             type:DataTypes.INTEGER(255).UNSIGNED,
-            primeryKey:true,
+            primaryKey:true,
             autoIncrement:true,
             allowNull: false
+        },
+        name:{
+            type:DataTypes.STRING
         },
         price: {
             type:DataTypes.INTEGER(255).UNSIGNED,
@@ -25,10 +28,6 @@ module.exports = (sequelize,DataTypes)=>{
         brand_id:{
             type:DataTypes.INTEGER(50).UNSIGNED,
             allowNull:false
-        },
-        images_id:{
-            type:DataTypes.STRING(255),
-            allowNull:false
         }
     
     }
@@ -38,20 +37,19 @@ module.exports = (sequelize,DataTypes)=>{
     }
     const Product = sequelize.define(alias,cols,config)
 
-    Product.associate = models =>{
-        Product.belongsTo(models.Brand,{
-            as: "brand",
-            foreignKey:"brand_id"
+   Product.associate = models =>{
+       Product.hasMany(models.Image_product,{
+            as:"images_product",
+           foreignKey: "product_id"
         })
-        Product.belongsTo(models.Category,{
-            as:"category",
-            foreignKey:"category_id"
-        })
-
-        Product.hasMany(models.Image_product,{
-            as: "images_products",
-            foreignKey:"images_id"
-        })
-    }
+       Product.belongsTo(models.Category,{
+           as:"category",
+           foreignKey:"category_id"
+       })
+       Product.belongsTo(models.Brands,{
+           as:"brands",
+           foreignKey:"brand_id"
+       })
+   }
     return Product;
 }

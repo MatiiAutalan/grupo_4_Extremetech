@@ -1,64 +1,57 @@
 module.exports = (sequelize,DataTypes)=>{
-    let alias = "Users";
+    let alias = "User";
     let cols ={
         id: {
-            type:DataTypes.INTEGER(255).UNSIGNED,
-            primeryKey:true,
+            type:DataTypes.INTEGER,
+            primaryKey:true,
             autoIncrement:true,
             allowNull: false
         },
-        street: {
-            type: DataTypes.STRING(100),
-            allowNull:false
+        first_name:{
+            type: DataTypes.STRING, 
+        },
+        last_name:{
+            type: DataTypes.STRING, 
         },
         phone:{
-            type:DataTypes.STRING(20),
-            allowNull:false
+            type:DataTypes.STRING,
         },
         email:{
-            type: DataTypes.STRING(100),
+            type: DataTypes.STRING,
             allowNull:false,
             unique:true
         },
         password:{
-            type: DataTypes.STRING(60),
+            type: DataTypes.STRING,
             allowNull:false
         },
         rol_user:{
-            type: DataTypes.INTEGER(10).UNSIGNED,
+            type: DataTypes.INTEGER,
             allowNull:false
         },
         image:{
-            type: DataTypes.STRING(255),
+            type: DataTypes.STRING,
             allowNull:false
         },
         document:{
-            type: DataTypes.INTEGER(20).UNSIGNED,
-            allowNull:false
+            type: DataTypes.INTEGER,
+            unique: true
         },
-        address_id:{
-            type: DataTypes.INTEGER(100).UNSIGNED,
-            allowNull:false
+        address:{
+            type: DataTypes.STRING,
+        },
+        pc:{
+            type:DataTypes.INTEGER
+        },
+        province:{
+            type:DataTypes.STRING
         }
-    
     }
     let config ={
         tableName:"users",
         timestamps:false
     }
     const User = sequelize.define(alias,cols,config)
-
-    User.associate = models =>{
-        User.belongsTo(models.User_rol,{
-            as:"user_rol",
-            foreignKey:"rol_user"
-        })
-        User.belongsTo(models.Address,{
-            as:"address",
-            foreignKey:"address_id"
-        })
-    }
-    
 
     return User;
 }

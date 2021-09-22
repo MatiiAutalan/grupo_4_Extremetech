@@ -3,12 +3,12 @@ module.exports = (sequelize,DataTypes)=>{
     let cols ={
         id: {
             type:DataTypes.INTEGER(255).UNSIGNED,
-            primeryKey:true,
+            primaryKey:true,
             autoIncrement:true,
             allowNull: false
         },
         name:{
-            type:DataTypes.STRING(100).UNSIGNED,
+            type:DataTypes.STRING,
             allowNull:false
         }
     }
@@ -18,8 +18,8 @@ module.exports = (sequelize,DataTypes)=>{
     }
     const Brand = sequelize.define(alias,cols,config)
 
-    Brand.associate = models =>{
-        Brand.hasMany(models.Product,{
+   Brand.associate = models =>{
+        Brand.hasMany(models.Products,{
             as: "products",
             foreignKey:"brand_id"
         })

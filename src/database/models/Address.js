@@ -27,5 +27,14 @@ module.exports = (sequelize,DataTypes)=>{
         timestamps:false
     }
     const Address = sequelize.define(alias,cols,config)
+
+     
+    Address.associate = models =>{
+        Address.belgonsTo(models.User,{
+            as:"user_address",
+            foreignKey:"address_id"
+        })
+    }
+
     return Address;
 }

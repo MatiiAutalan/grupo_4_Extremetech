@@ -26,7 +26,7 @@ module.exports = (sequelize,DataTypes)=>{
             type:DataTypes.INTEGER(50).UNSIGNED,
             allowNull:false
         },
-        images:{
+        images_id:{
             type:DataTypes.STRING(255),
             allowNull:false
         }

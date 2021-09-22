@@ -34,6 +34,11 @@ module.exports = (sequelize,DataTypes)=>{
             as:"user_address",
             foreignKey:"address_id"
         })
+
+        Address.belgonsTo(models.Province,{
+            as:"province",
+            foreignKey:"province_id"
+        })
     }
 
     return Address;

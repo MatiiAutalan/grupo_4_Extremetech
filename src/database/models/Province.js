@@ -17,5 +17,13 @@ module.exports = (sequelize,DataTypes)=>{
         timestamps:false
     }
     const Province = sequelize.define(alias,cols,config)
+
+    Province.associate = models =>{
+        Province.hasMany(models.Address,{
+            as:"province",
+            foreignKey:"province_id"
+        })
+    }
+
     return Province;
 }

@@ -1,17 +1,21 @@
 let {getProducts} = require('../data/dataBase')
 
-//const db = require('../database/models');
-//const Product = db.Product;
-
+const { Product }= require('../database/models');
+const path = require('path')
 
 module.exports = {
     index: (req,res) => {
-        res.render('generalProduct', {
-            title: "Nuestros Productos",
-            getProducts,
-            session: req.session
-        })
+        Product.findAll()
+        .then(products => {
+            return res.render('generalProduct', {
+             title: "Nuestros Productos",
+             products,
+             session: req.session
+            })
+        }) 
+        .catch(error => res.send(error))
     },
+
     product:(req,res) =>{
         
             let producto = getProducts.find(product =>{

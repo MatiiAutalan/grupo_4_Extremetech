@@ -1,5 +1,5 @@
 module.exports = (sequelize,DataTypes)=>{
-    let alias = "Products";
+    let alias = "Product";
     let cols ={
         id: {
             type:DataTypes.INTEGER(255).UNSIGNED,
@@ -46,7 +46,7 @@ module.exports = (sequelize,DataTypes)=>{
            as:"category",
            foreignKey:"category_id"
        })
-       Product.belongsTo(models.Brands,{
+       Product.belongsTo(models.Brand,{
            as:"brands",
            foreignKey:"brand_id"
        })

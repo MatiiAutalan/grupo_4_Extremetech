@@ -4,24 +4,18 @@ const db = require('../database/models')
 
 module.exports = [
     check('email').isEmail().withMessage('Email invalido'),
-   //body('email').custom(value => {
-     //db.User.findOne({
-       //    where : {
-         //      email : value
-          //  }
-        //}).then(()=>{
-          //  if (user == false){
-           //     return true
-           //}else {
-            //    return false
-            //}
-            
-       // })
-        //let user = getUsers.filter(user =>{
-          //  return user.email == value
-       // })
-       
-   //}). withMessage('email ya esta registrado'),
+    body('email').custom((value, {req}) => {
+      return db.User.findOne({
+          where : {
+              email : req.body.email
+          }
+      })
+      .then(user => {
+          if(user){
+              return Promise.reject('Este email ya está registrado')
+          }
+      })
+    }),
     check('nombre').notEmpty().withMessage('Campo obligatorio'),
     check('password').notEmpty().withMessage('Campo obligatorio'),
     //check('apellido').notEmpty().withMessage('Campo obligatorio'),

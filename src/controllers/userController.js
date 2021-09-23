@@ -65,40 +65,33 @@ module.exports = {
     },
     userRegister:(req,res) => {
         let errors = validationResult(req);
-        
-       
+        res.send(errors)
             if(errors.isEmpty()){
 
                 let {nombre,apellido,telefono,email,password} =req.body
 
-               db.User.create({
-                    
-                    first_name: nombre,  // escribimos el modelo , con el parametro que recibimos por el  objeto body que nos envia la pagina y con el "." estamos entrando en el objeto
+               db.User.create({                    
+                    first_name: nombre,  
                     last_name: apellido,
                     phone: telefono,
                     email: email,
                     password: bcrypt.hashSync(password,10),
-                    rol_user: false,
+                    rol_user: 0,
                     image:'user.jpg',
                     
                 })
                 .then(()=>{
                    res.redirect('/')
-                })
-                
-                //getUsers.push(nuevoUsuario);   // le estamos metiendo a la variable getproducts que es la que tiene todos los productos el nuevo producto que estamos creando
-                
-                //addUsers(getUsers);  // esta funcion escribe el json  y recibe como parametro la base de datos donde va a ser escrito      
-            }else{
+                }).catch(error =>console.log(error))
+     
+            }else{               
                 res.render('register', {
                     title : "Registro",
                     errors: errors.mapped(),
                     old : req.body,
-                    session: req.session.user?req.session.user:""
+                    session: req.session
                 })
-            }
-            
-            
+            }                  
         },
         finishBuy:(req,res) =>{
             res.render('finishBuying', {

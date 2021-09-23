@@ -1,7 +1,6 @@
 let {getProducts} = require('../data/dataBase')
 
 const { Product }= require('../database/models');
-const path = require('path')
 
 module.exports = {
     index: (req,res) => {

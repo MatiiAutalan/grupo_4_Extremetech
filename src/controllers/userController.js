@@ -65,22 +65,25 @@ module.exports = {
     },
     userRegister:(req,res) => {
         let errors = validationResult(req);
+        
        
             if(errors.isEmpty()){
-                db.User.create({
+
+                let {nombre,apellido,telefono,email,password} =req.body
+
+               db.User.create({
                     
-                    first_name: req.body.nombre.trim(),  // escribimos el modelo , con el parametro que recibimos por el  objeto body que nos envia la pagina y con el "." estamos entrando en el objeto
-                    last_name: req.body.apellido.trim(),
-                    phone: req.body.telefono.trim(),
-                    email: req.body.email.trim(),
-                    password: bcrypt.hashSync(req.body.password.trim(),10),
-                    documento: "",
+                    first_name: nombre,  // escribimos el modelo , con el parametro que recibimos por el  objeto body que nos envia la pagina y con el "." estamos entrando en el objeto
+                    last_name: apellido,
+                    phone: telefono,
+                    email: email,
+                    password: bcrypt.hashSync(password,10),
                     rol_user: false,
                     image:'user.jpg',
                     
                 })
-                .then((usuario)=>{
-                    res.redirect('/')
+                .then(()=>{
+                   res.redirect('/')
                 })
                 
                 //getUsers.push(nuevoUsuario);   // le estamos metiendo a la variable getproducts que es la que tiene todos los productos el nuevo producto que estamos creando
@@ -91,7 +94,7 @@ module.exports = {
                     title : "Registro",
                     errors: errors.mapped(),
                     old : req.body,
-                    session: req.session
+                    session: req.session.user?req.session.user:""
                 })
             }
             

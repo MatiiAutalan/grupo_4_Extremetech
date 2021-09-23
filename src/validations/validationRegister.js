@@ -4,24 +4,24 @@ const db = require('../database/models')
 
 module.exports = [
     check('email').isEmail().withMessage('Email invalido'),
-    body('email').custom(value => {
-        let user = db.User.findOne({
-            where : {
-                email : value
-            }
-        }).then(()=>{
-            if (user == false){
-                return true
-            }else {
-                return false
-            }
+   //body('email').custom(value => {
+     //db.User.findOne({
+       //    where : {
+         //      email : value
+          //  }
+        //}).then(()=>{
+          //  if (user == false){
+           //     return true
+           //}else {
+            //    return false
+            //}
             
-        })
+       // })
         //let user = getUsers.filter(user =>{
           //  return user.email == value
        // })
-        return user
-    }). withMessage('email ya esta registrado'),
+       
+   //}). withMessage('email ya esta registrado'),
     check('nombre').notEmpty().withMessage('Campo obligatorio'),
     check('password').notEmpty().withMessage('Campo obligatorio'),
     //check('apellido').notEmpty().withMessage('Campo obligatorio'),

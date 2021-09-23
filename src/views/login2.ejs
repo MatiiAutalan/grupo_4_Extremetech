@@ -10,15 +10,14 @@
               </label>
                   <input class="inputs" type="text" name="email" id="email" placeholder="Email">
               </p>
-              <% if (locals.errors && errors.email) { %>
-                <small class="error"><%= errors.email.msg %> </small>
-              <% } %>
+              
               <p class="pass">
                   <label for="password"><i class="fas fa-lock"></i></label>
                   <input class="inputs" type="password" name="password" id="password" placeholder="Contraseña">
               </p>
-              <% if (locals.errors && errors.password) { %>
-                <small class="error"><%= errors.password.msg %> </small>
+              <br>
+              <% if (locals.errors && errors.custom) { %>
+                <small class="error"><%= errors.custom.msg %> </small>
               <% } %>
               <p class="remember-password">
               <label for="remember">Recordar contraseña</label>

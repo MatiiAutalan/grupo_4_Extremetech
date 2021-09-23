@@ -120,7 +120,11 @@ module.exports = {
             let errors = validationResult(req)
             
             if(errors.isEmpty()){
-                let user = getUsers.find (user => user.email === req.body.email)
+               db.User.findOne({
+                   where: {email:req.body.email}
+               })
+               .then((user)=>{
+                   
                 req.session.user ={
                     id:user.id,
                     userName :user.nombre + "" + user.apellido,
@@ -128,16 +132,13 @@ module.exports = {
                     avatar :user.image,
                     rol: user.admin
                     
-                }
-                
-                
+                }                              
                 if(req.body.remember){
                     res.cookie('cookieTech', req.session.user , { maxAge: 5000*60})
-                }
-                
-                res.locals.user = req.session.user
-                
+                }          
+                                                   
                 res.redirect('/')
+               })             
             }else{
                 res.render('login2',{
                     errors: errors.mapped(),
@@ -145,9 +146,7 @@ module.exports = {
                     session: req.session
                     
                 })
-            }
-            
-            
+            }                       
         },
         userLogout:(req,res)=> {
             req.session.destroy();

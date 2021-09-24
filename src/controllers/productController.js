@@ -1,10 +1,10 @@
 let {getProducts} = require('../data/dataBase')
 
-const { Product }= require('../database/models');
+const db= require('../database/models');
 
 module.exports = {
     index: (req,res) => {
-        Product.findAll()
+        db.Product.findAll()
         .then(products => {
             return res.render('generalProduct', {
              title: "Nuestros Productos",
@@ -16,16 +16,22 @@ module.exports = {
     },
 
     product:(req,res) =>{
-        
-            let producto = getProducts.find(product =>{
-                return product.id === +req.params.id
-            })
-            res.render('productDetail', {
-                title: "Nuestros Productos",
-                producto,
-                session: req.session
-        })
 
+        db.Product.findOne({
+            where: {
+                id: +req.params.id
+            },
+            include: [{
+                association: "images_product"
+            }]
+        }) 
+            .then(product => {
+                res.render('productDetail', {
+                    title: "Nuestros Productos",
+                    product,
+                    session: req.session
+            })
+            })
         
     },
     ofertas: (req,res) => {

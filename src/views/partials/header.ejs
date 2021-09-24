@@ -8,7 +8,7 @@
           <a href="/products/ofertas">Ofertas</a>
           <a href="/products/notebooks">Notebooks</a>
           <a href="/products">Productos</a>
-          <% if ( session.user && session.user.rol == true) { %>
+          <% if ( session.user && session.user.rol == 1) { %>
             <li><a href="/admin/index">ADMIN</a></li>
           <% }else{ %>
              <li><a href="/about">Nosotros</a></li>
@@ -49,7 +49,7 @@
       <li><a href="/products/ofertas">Ofertas</a></li>
       <li><a href="/products/notebooks">Notebooks</a></li>
       <li><a href="/products">Productos</a></li>
-      <% if ( session.user && session.user.rol == true) { %>
+      <% if ( session.user && session.user.rol == 1) { %>
         <li><a href="/admin/index">ADMIN</a></li>
       <% }else{ %>
          <li><a href="/about">Nosotros</a></li>

@@ -1,16 +1,20 @@
 let {getPc, getProducts} = require('../data/dataBase')
 
+const db = require('../database/models')
+
 
 module.exports = {
     index: (req,res) => {
-         res.render('index', {
-            title: "Bienvenidos",
-            getPc,
-            getProducts,
-            session: req.session
-        })  
-       
+        db.Product.findAll()
+        .then(products => {
+            return res.render('index', {
+                title: "Bienvenidos",
+                products,
+                session: req.session
+            })
+        })
     },
+
     about:(req,res) =>{
         res.render('about', {
             title:"about-us",

@@ -1,28 +1,37 @@
 let {getProducts} = require('../data/dataBase')
 
-//const db = require('../database/models');
-//const Product = db.Product;
-
+const db= require('../database/models');
 
 module.exports = {
     index: (req,res) => {
-        res.render('generalProduct', {
-            title: "Nuestros Productos",
-            getProducts,
-            session: req.session
-        })
-    },
-    product:(req,res) =>{
-        
-            let producto = getProducts.find(product =>{
-                return product.id === +req.params.id
+        db.Product.findAll()
+        .then(products => {
+            return res.render('generalProduct', {
+             title: "Nuestros Productos",
+             products,
+             session: req.session
             })
-            res.render('productDetail', {
-                title: "Nuestros Productos",
-                producto,
-                session: req.session
-        })
+        }) 
+        .catch(error => res.send(error))
+    },
 
+    product:(req,res) =>{
+
+        db.Product.findOne({
+            where: {
+                id: +req.params.id
+            },
+            include: [{
+                association: "images_product"
+            }]
+        }) 
+            .then(product => {
+                res.render('productDetail', {
+                    title: "Nuestros Productos",
+                    product,
+                    session: req.session
+            })
+            })
         
     },
     ofertas: (req,res) => {

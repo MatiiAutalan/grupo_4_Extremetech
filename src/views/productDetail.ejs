@@ -7,8 +7,8 @@
         <!-- Slide section -->
 
         <section class="imageProduct">
-          <h2><%= producto.modelo %> </h2>
-          <img class="imgIndividual" src="/images/<%= producto.image %> " alt="<%= producto.modelo %>" />
+          <h2><%= product.name %> </h2>
+          <img class="imgIndividual" src="/images/<%= product.image %> " alt="<%= product.name%>" />
           <div class="containerSlider">
             <div class="container">
               <input type="radio" id="1" name="image-slide" hidden />
@@ -17,29 +17,29 @@
       
               <div class="slide">
                 <div class="item-slide">
-                  <img src="/images/<%= producto.image[0] %>" alt="<%= producto.modelo %> " />
+                  <img src="/images/<%= product.image %>" alt="<%= product.modelo %> " />
                 </div>
       
                 <div class="item-slide">
-                  <img src="/images/<%= producto.image[1] %>" alt="mouse pulsefiredart" />
+                  <img src="/images/<%= product.image %>" alt="mouse pulsefiredart" />
                 </div>
       
                 <div class="item-slide">
-                  <img src="/images/<%= producto.image[2] %>" alt="mouse pulsefiredart"/>
+                  <img src="/images/<%= product.image %>" alt="mouse pulsefiredart"/>
                 </div>
               </div>
       
               <div class="pagination">
                 <label for="1" class="pagination-item">
-                  <img src="/images/<%= producto.image[0] %>" alt="mouse pulsefiredart" />
+                  <img src="/images/<%= product.image %>" alt="mouse pulsefiredart" />
                 </label>
       
                 <label for="2" class="pagination-item">
-                  <img src="/images/<%= producto.image[1] %>" alt="mouse pulsefiredart" />
+                  <img src="/images/<%= product.image %>" alt="mouse pulsefiredart" />
                 </label>
       
                 <label for="3" class="pagination-item">
-                  <img src="/images/<%= producto.image[2] %>" alt="mouse pulsefiredart" />
+                  <img src="/images/<%= product.image %>" alt="mouse pulsefiredart" />
                 </label>
               </div>
             </div>
@@ -50,7 +50,7 @@
         <!-- Price section -->
         <section class="priceProduct">
           <div class="price">
-            <h1>$<%= producto.precio- (producto.precio * producto.discount)/100   %></h1>
+            <h1>$<%= product.price- (product.price * product.discount)/100   %></h1>
             <hr />
             <p> <strong>Stock:</strong>  5 unidades disponibles</p>
             <p>
@@ -101,8 +101,8 @@
           <div> 
             <h4>General</h4>
             <ul>
-              <li><strong>Marca:</strong><%= producto.marca %> </li>
-              <li><strong>Modelo:</strong><%= producto.modelo %> </li>
+              <li><strong>Marca:</strong><%= product.brand %> </li>
+              <li><strong>Modelo:</strong><%= product.name %> </li>
               <li><strong>Ergonómico:</strong> Ergonómico</li>
               <li><strong>Color:</strong> Negro</li>
             </ul>

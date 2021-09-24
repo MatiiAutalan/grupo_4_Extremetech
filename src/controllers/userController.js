@@ -108,11 +108,11 @@ module.exports = {
         },
         
         login:(req,res) => {
-            let user = getUsers.find(user => user.id === +req.params.id)
+           
             res.render('login2', {
                 title: "Login",
                 session: req.session,
-                user
+                
                 
             })
         },
@@ -125,14 +125,16 @@ module.exports = {
                })
                .then((user)=>{
                    
+                   
                 req.session.user ={
                     id:user.id,
                     userName :user.nombre + "" + user.apellido,
                     email:user.email,
                     avatar :user.image,
-                    rol: user.admin
+                    rol: user.rol_user
                     
-                }                              
+                }    
+                                         
                 if(req.body.remember){
                     res.cookie('cookieTech', req.session.user , { maxAge: 5000*60})
                 }          

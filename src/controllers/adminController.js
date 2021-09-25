@@ -1,13 +1,23 @@
-let {getProducts, addProduct, getUsers , addUsers } = require('../data/dataBase');
-const { array } = require('../middlewares/uploadImage');
-const { product } = require('./productController');
+const db = require('../database/models')
 
 module.exports = {
     formAgregar:(req,res) =>{
-        res.render('cargaProducts', {
-            title:"carga-productos"
-        })
+
+        db.Product.findAll({
+            include: [{
+                association: "category"
+            }]
+        }
+        )
+        .then( category =>{
+            res.render('cargaProducts', {
+                title:"carga-productos",
+                category
+            })}
+        )
     },
+
+
     agregarProducto:(req,res) => {
         let lastId = 1;   // Creo una variable con un id , esta  variable representa un contador basicamente
 
@@ -47,9 +57,12 @@ module.exports = {
         
     },
     listProducts:(req,res) =>{
-        res.render('editProduct',{
-            title: 'Edicion de productos',
-            productos : getProducts
+        db.Product.findAll()
+        .then(products => {
+            return res.render('editProduct',{
+                title: 'Edicion de productos',
+                products
+            })
         })
     },
     editForm:(req,res) =>{
@@ -101,13 +114,17 @@ module.exports = {
 
         res.redirect('/admin/index')
     },
-    listUsers:(req,res) =>{
-        res.render('listUsers',{
-            title: 'Lista de usuarios',
-            users : getUsers
+    listUsers:(req,res) =>
+    {
+        db.User.findAll()
+        .then(users => {
+            return res.render('listUsers',{
+                title: 'Lista de usuarios',
+                users
+            })
         })
-    
     },
+    
     vistaEdit:(req,res) =>{
         let users = getUsers.find(user => {       // Creamos una variable de un producto donde nos guarde el objeto que recibimos por la url que coincida con el id de nuestra base de datos
             return user.id === +req.params.id

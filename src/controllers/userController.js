@@ -6,13 +6,16 @@ const db = require('../database/models')
 module.exports = {
     
     index: (req,res) => {
-        let user = getUsers.find(user => user.id === +req.session.user.id)
-        
-        res.render('userProfile', {
-            title:"Cuenta",
-            session: req.session,
-            user
+        db.User.findByPk(req.session.user.id)
+        .then(user =>{
+            res.render('userProfile', {
+                title:"Cuenta",
+                session: req.session,
+                user
+            })
         })
+        
+       
     },
     editProfile:(req,res)=>{
         let user = getUsers.find(user => user.id === +req.params.id)

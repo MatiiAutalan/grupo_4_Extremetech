@@ -15,18 +15,10 @@
                         <input class="producto-individual-carga"type="text" name="marca" placeholder="Marca">
                         <input type="text" class="producto-individual-carga" name="discount" placeholder="Descuento"/>
                         <select name="categorias" id="categorias" class="form-input">
-							<option value="alimentacion" >Alimentacion</option>
-							<option value="almacenamiento">Almacenamiento</option>
-							<option value="micro">Microprocesadores</option>
-							<option value="mother">Motherboards</option>
-							<option value="memorias">Memorias</option>
-							<option value="gpu">Placa de Video</option>
-							<option value="refrigeracion">Refrigeracion</option>
-							<option value="gabinetes">Gabinetes</option>
-							<option value="perifericos">Perifericos</option>
-							<option value="audio">Audio</option>
-							<option value="soft">Software</option>
-							<option value="monitores">Monitores</option>
+							<option selected hidden value="">Categorias</option>
+                                <% category.forEach(element => { %>
+                            <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.category.name %></option>
+                                <% }) %>
 						</select>
                         <input type="text" class="producto-individual-carga" name="precio" placeholder="Precio"/>
                         

@@ -13,17 +13,17 @@
           <a href="#"><i class="fas fa-search"></i></a>
         </div>
       </div>
-      <% productos.forEach(producto => { %>
+      <% products.forEach(producto => { %>
        
       
       <div class="cardProduct">
         <div class="image">
-          <img src="/images/<%= producto.image[0] %> " alt=""/>
+          <img src="/images/<%= producto.image%> " alt=""/>
         </div>
 
         <div class="description">
-          <p>Modelo: <%= producto.modelo.slice(0,19) %></p>
-          <p>Precio: <%= producto.precio %></p>
+          <p>Modelo: <%= producto.name.slice(0,19) %></p>
+          <p>Precio: <%= producto.price %></p>
           <p>Descuento: <%= producto.discount %> </p>
         </div>
 

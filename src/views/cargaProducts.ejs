@@ -11,16 +11,16 @@
                 <form action="/admin/agregarProducto" method="POST" enctype="multipart/form-data">
                 <div class="carga-form-productos" >
                     <div class="container-productos-carga-individual">
-                        <input class="producto-individual-carga" type="text" name="modelo" placeholder="Modelo" />
-                        <input class="producto-individual-carga"type="text" name="marca" placeholder="Marca">
+                        <input class="producto-individual-carga" type="text" name="name" placeholder="Modelo" />
+                        <input class="producto-individual-carga"type="text" name="brand_id" placeholder="Marca">
                         <input type="text" class="producto-individual-carga" name="discount" placeholder="Descuento"/>
-                        <select name="categorias" id="categorias" class="form-input">
+                        <select name="category_id" id="categorias" class="form-input">
 							<option selected hidden value="">Categorias</option>
                                 <% category.forEach(element => { %>
                             <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.category.name %></option>
                                 <% }) %>
 						</select>
-                        <input type="text" class="producto-individual-carga" name="precio" placeholder="Precio"/>
+                        <input type="text" class="producto-individual-carga" name="price" placeholder="Precio"/>
                         
                         
                     </div>

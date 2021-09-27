@@ -15,18 +15,11 @@ module.exports = {
                 category
             })}
         )
+        .catch(err => console.log(err))
     },
 
 
     agregarProducto:(req,res) => {
-        let lastId = 1;   // Creo una variable con un id , esta  variable representa un contador basicamente
-
-        getProducts.forEach(producto => {   // recorro el array de productos buscando un producto
-            if(producto.id > lastId){    // Si el id del producto es mayor que la variable
-                lastId = producto.id     //va a valer 1
-            }
-        });
-
         let arrayImages = [];
         if(req.files){
             req.files.forEach(imagen => {
@@ -34,27 +27,42 @@ module.exports = {
             })
         }
 
-        let nuevoProducto = {
-            
+        let { name,
+            price,
+            discount,
+            brand_id,
+            category_id,
+            description } = req.body;
 
-            id: lastId + 1,  // para crear un nuevo producto , le estamos diciendo que el id que recibe el nuevo producto , va a ser el valor del lastid, osea el ultimo producto que  itero +1
-            modelo: req.body.modelo.trim(),  // escribimos el modelo , con el parametro que recibimos por el  objeto body que nos envia la pagina y con el "." estamos entrando en el objeto
-            marca: req.body.marca.trim(),
-            precio: req.body.precio.trim(),
-            categorias: req.body.categorias.trim(),
-            discount: req.body.discount.trim(),
-            descripcion: req.body.descripcion,
-            image: arrayImages.length > 0 ? arrayImages : ['default.png']
-        }
-
-        
-
-        getProducts.push(nuevoProducto);   // le estamos metiendo a la variable getproducts que es la que tiene todos los productos el nuevo producto que estamos creando
-        
-        addProduct(getProducts);  // esta funcion escribe el json  y recibe como parametro la base de datos donde va a ser escrito
-        
-        res.redirect('/products')  // una vez agregado el producto nos redirecciona  a la vista de productos
-        
+        db.Product.create({
+            name,
+            price,
+            discount,
+            brand_id,
+            category_id,
+            description
+        })
+        .then(product => {
+            if (arrayImages.length > 0){
+                let images= arrayImages.map(image => {
+                    return {
+                        image: image,
+                        productId: product.id
+                    }
+                })
+                db.Image_product.blukCreate(images)
+                .then(() => res.redirect('/products'))
+                .catch(err => console.log(err))
+            } else {
+                db.Image_product.create({
+                    image: "default.png",
+                    productId : product.id
+                })
+                res.send(product) 
+                .then(() => res.redirect('/products'))
+                .catch(err => console.log(err))
+            }
+        })
     },
     listProducts:(req,res) =>{
         db.Product.findAll()
@@ -66,53 +74,50 @@ module.exports = {
         })
     },
     editForm:(req,res) =>{
-        let producto = getProducts.find(producto => {       // Creamos una variable de un producto donde nos guarde el objeto que recibimos por la url que coincida con el id de nuestra base de datos
-            return producto.id === +req.params.id
-        })
-
-        res.render('editForm', {
-            title:"Edicion del producto",
-            producto
+        db.Product.findByPk(req.params.id)
+        .then((product) => {
+            res.render('editForm', {
+                title:"Edicion del producto",
+                product,
+            })
         })
     },
     editProduct: (req,res) => {
-      let {modelo, marca, precio , categorias , discount,descripcion} = req.body  // esto es un destructuring del objeto body , donde traemos toda la info de los campos que vamos a editar
-       
-       let arrayImages = [];
-        if(req.files){
-            req.files.forEach(imagen => {
-                arrayImages.push(imagen.filename)
-            })
-        } 
+        let { name,
+            price,
+            discount,
+            brand_id,
+            category_id,
+            description } = req.body;
 
-        getProducts.forEach(producto => {
-            if(producto.id === +req.params.id){   // aca le decimos que si el product.id que recibimos por parametro coincide con el producto que edite los campos con el objeto que recibimos por el form
-                producto.modelo = modelo.trim()
-                producto.marca = marca.trim()
-                producto.precio = precio.trim()
-                producto.categorias = categorias.trim()
-                producto.discount = discount.trim()
-                producto.descripcion = descripcion.trim()
-                producto.image = arrayImages.length > 0 ? arrayImages : producto.image
-          }
+        db.Product.update({
+            name,
+            price,
+            discount,
+            brand_id,
+            category_id,
+            description
+        }, {
+            where: {
+                id: +req.params.id
+            }
         })
-        addProduct(getProducts)
-      res.redirect('/')
-       
-      //res.send(req.file) 
+        .then(() => {
+            res.redirect('/admin/index')
+        })
+        .catch(err => console.log(err))
     },
 
     deleteProduct : (req, res) => {
-        getProducts.forEach(producto => {
-            if (producto.id === +req.params.id) {
-                let productToDelete = getProducts.indexOf(producto);
-                getProducts.splice(productToDelete, 1)
+        db.Product.destroy({
+            where: {
+                id: +req.params.id
             }
         })
-        
-        addProduct(getProducts);
-
-        res.redirect('/admin/index')
+        .then(() => {
+            res.redirect('/admin/index')
+        })
+        .catch(err => console.log(err))
     },
     listUsers:(req,res) =>
     {

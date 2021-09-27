@@ -30,28 +30,41 @@ module.exports = {
     },
     updateProfile:(req,res)=> {
         let errors = validationResult(req);
+        let  = {
+            nombre,
+            apellido,
+            telefono,
+            documento,
+            telefono,
+            address,
+            pc,
+            province
+        } = req.body
+        
         if(errors.isEmpty()){
-            let user = getUsers.find(user => user.id === +req.params.id)
-            let  = {
-                nombre,
-                apellido,
-                telefono,
-                documento,
-            } = req.body
-            user.id = user.id
-            user.nombre = nombre
-            user.apellido = apellido
-            user.telefono = telefono
-            user.documento = documento
-            user.image = req.file ? req.file.filename : user.image
+            db.User.update({
+                first_name:nombre,
+                last_name:apellido,
+                phone:telefono,
+                address:address,
+                pc:pc,
+                province:province,
+                image: req.file && req.file.filename
+            },
+            {where:{id:req.params.id}})
+            .then(()=>{
+                db.User.findByPk(req.params.id)
+                .then((user)=>{
+                    res.redirect('/user')
+                })
+                
             
-            addUsers(getUsers)
+                
+            })
             
-            delete user.password
+           
             
-            req.session.user = user
             
-            res.redirect('/user')
             
         }else{
             res.render('userProfile', {

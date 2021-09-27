@@ -50,7 +50,7 @@ module.exports = {
                         productId: product.id
                     }
                 })
-                db.Image_product.blukCreate(images)
+                db.Image_product.bulkCreate(images)
                 .then(() => res.redirect('/products'))
                 .catch(err => console.log(err))
             } else {

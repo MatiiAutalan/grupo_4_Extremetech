@@ -11,23 +11,56 @@
                 <form action="/user/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
                 <div class="carga-form-productos" >
                     <div class="container-productos-carga-individual">
-                        <input class="producto-individual-carga" type="text" placeholder="Nombre" name="nombre" value="<%= locals.old ? old.nombre : user.nombre %>" />
+                        <input class="producto-individual-carga" type="text" placeholder="Nombre" name="nombre" value="<%= locals.old ? old.nombre : user.first_name %>" />
                         <% if (locals.errors && errors.nombre) { %>
                             <small class="text-danger"><%= errors.nombre.msg %> </small>
                         <% } %>
-                        <input class="producto-individual-carga"type="text" placeholder="Apellido" name="apellido" value="<%= locals.old ? old.apellido : user.apellido %>">
+                        <input class="producto-individual-carga"type="text" placeholder="Apellido" name="apellido" value="<%= locals.old ? old.apellido : user.last_name %>">
                         <% if (locals.errors && errors.apellido) { %>
                             <small class="text-danger"><%= errors.apellido.msg %> </small>
                         <% } %>
-                        <input class="producto-individual-carga"type="text" placeholder="documento" name="documento" value="<%= locals.old ? old.documento : user.documento %>">
+                        <input class="producto-individual-carga"type="text" placeholder="documento" name="documento" value="<%= locals.old ? old.documento : user.document %>">
                         <% if (locals.errors && errors.documento) { %>
                             <small class="text-danger"><%= errors.documento.msg %> </small>
                         <% } %>
                            
-                        <input type="text" class="producto-individual-carga" placeholder="Password" name="telefono" value="<%= locals.old ? old.telefono : user.telefono %>">
+                        <input type="text" class="producto-individual-carga" placeholder="Telefono" name="telefono" value="<%= locals.old ? old.telefono : user.phone %>">
                         <% if (locals.errors && errors.telefono) { %>
                             <small class="text-danger"><%= errors.telefono.msg %> </small>
                         <% } %>
+                        <input type="text" class="producto-individual-carga" placeholder="Direccion" name="address" value="<%= locals.old ? old.telefono : user.address %>">
+                        <% if (locals.errors && errors.telefono) { %>
+                            <small class="text-danger"><%= errors.telefono.msg %> </small>
+                        <% } %>
+                        <input type="text" class="producto-individual-carga" placeholder="Codigo Postal" name="pc" value="<%= locals.old ? old.telefono : user.pc %>">
+                        <% if (locals.errors && errors.telefono) { %>
+                            <small class="text-danger"><%= errors.telefono.msg %> </small>
+                        <% } %>
+                        <select name="province" id="">
+                            <option value="Buenos Aires">Buenos Aires</option>
+                            <option value="Santa Cruz">Santa Cruz</option>
+                            <option value="Misiones">Misiones</option>
+                            <option value="Chaco">Chaco</option>
+                            <option value="Tierra del Fuego">Tierra del Fuego</option>
+                            <option value="Entre Rios">Entre Rios</option>
+                            <option value="La Pampa">La Pampa</option>
+                            <option value="Cordoba">Cordoba</option>
+                            <option value="Santa Fe">Santa Fe</option>
+                            <option value="Chubut">Chubut</option>
+                            <option value="Mendoza">Mendoza</option>
+                            <option value="Tucuman">Tucuman</option>
+                            <option value="Corrientes">Corrientes</option>
+                            <option value="Jujuy">Jujuy</option>
+                            <option value="Rio Negro">Rio Negro</option>
+                            <option value="Neuquen">Neuquen</option>
+                            <option value="San Luis">San Luis</option>
+                            <option value="San Juan">San Juan</option>
+                            <option value="Formosa">Formosa</option>
+                            <option value="La Rioja">La Rioja</option>
+                            <option value="Catamarca">Catamarca</option>
+                            <option value="Santiago del Estero">Santiago del Estero</option>
+                        </select>
+                        
                     </div>
                     <!-- <p id="desc-producto-carga-productos">Descripcion del producto</p>
                     <textarea class="desc-product-text-area" name="descripcion" id="descripcion" ></textarea> -->

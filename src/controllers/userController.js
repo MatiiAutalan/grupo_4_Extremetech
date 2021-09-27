@@ -18,13 +18,15 @@ module.exports = {
        
     },
     editProfile:(req,res)=>{
-        let user = getUsers.find(user => user.id === +req.params.id)
-        
+       db.User.findByPk(req.params.id)
+       .then(user=>{
         res.render('editProfile', {
             title:"Cuenta",
             session: req.session,
             user
         })
+       })
+  
     },
     updateProfile:(req,res)=> {
         let errors = validationResult(req);

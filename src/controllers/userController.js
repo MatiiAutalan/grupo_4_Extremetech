@@ -47,6 +47,7 @@ module.exports = {
                 last_name:apellido,
                 phone:telefono,
                 address:address,
+                document:documento,
                 pc:pc,
                 province:province,
                 image: req.file && req.file.filename
@@ -57,15 +58,9 @@ module.exports = {
                 .then((user)=>{
                     res.redirect('/user')
                 })
-                
-            
-                
+                   
             })
-            
-           
-            
-            
-            
+     
         }else{
             res.render('userProfile', {
                 title:"Cuenta",
@@ -149,7 +144,9 @@ module.exports = {
                     userName :user.nombre + "" + user.apellido,
                     email:user.email,
                     avatar :user.image,
-                    rol: user.rol_user
+                    rol: user.rol_user,
+                    documento: user.document,
+                    direccion: user.address
                     
                 }    
                                          

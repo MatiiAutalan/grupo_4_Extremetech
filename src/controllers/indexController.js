@@ -1,6 +1,5 @@
-let {getPc, getProducts} = require('../data/dataBase')
-
-const db = require('../database/models')
+const db = require('../database/models');
+const Op = db.Sequelize.Op;
 
 
 module.exports = {
@@ -25,20 +24,20 @@ module.exports = {
         })
     },
     search: (req, res) => {
-		let result = []
-		getProducts.forEach(product => {
-			if (product.modelo.toLowerCase().includes(req.query.keywords.toLowerCase())||product.marca.toLowerCase().includes(req.query.keywords.toLowerCase()) ){
-				result.push(product)
-			}
-		});
+		db.Product.findAll({
+            where:{
+                name:{[Op.like]: `%${req.query.search}%`}
+            }
+        })
+        
+        .then(results => {
+            res.render('results', {
+                title: 'resultados de busqueda',
+                results,
+                session: req.session
+            })
+
+        })
 		
-		 	res.render('results', {
-            title: 'resultados de busqueda',
-			result,
-			search: req.query.keywords,
-            session: req.session
-			
-		}) 
-        /* res.send(result) */
 	}
 }

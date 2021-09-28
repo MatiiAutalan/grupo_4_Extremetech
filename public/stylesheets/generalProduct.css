@@ -16,6 +16,11 @@
   justify-content: center;
 }
 
+.title-results {
+  text-align: center;
+  padding: 0 50px;
+}
+
 .product-item {
   width: 300px;
   margin: 15px 20px;

@@ -155,15 +155,28 @@ module.exports = {
         //res.send(req.file) 
       },
       deleteUser : (req, res) => {
-        getUsers.forEach(user => {
-            if (user.id === +req.params.id) {
-                let userToDelete = getUsers.indexOf(user);
-                getUsers.splice(userToDelete, 1)
-            }
-        })
-        
-        addUsers(getUsers);
+       db.User.destroy({
+           where:{id:req.params.id}
+       })
 
         res.redirect('/admin/index')
     },
+
+    formCategoria:(req,res) =>{
+        res.render('crearCategory',{
+            title: 'Agregar categoria'
+        })
+    },
+
+    agregarMarca:(req,res) => {
+        let {categoria} = req.body
+        db.Brand.create({
+            name: categoria
+        })
+        .then(user =>{
+            
+            res.redirect('/admin/index')
+        })
+
+    }
 }

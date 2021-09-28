@@ -140,24 +140,17 @@ module.exports = {
 
     },
     editUser: (req,res) => {
-        let {nombre, apellido, telefono , email ,password, documento, admin, image} = req.body  // esto es un destructuring del objeto body , donde traemos toda la info de los campos que vamos a editar
-         
-  
-          getUsers.forEach(producto => {
-              if(producto.id === +req.params.id){   // aca le decimos que si el product.id que recibimos por parametro coincide con el producto que edite los campos con el objeto que recibimos por el form
-                  producto.nombre = nombre
-                  producto.apellido = apellido
-                  producto.email = email
-                  producto.password = password
-                  producto.documento = documento
-                  producto.telefono = telefono
-                  producto.admin = admin
-                  producto.image = req.file ? req.file.filename : producto.image
-                  
-            }
-          })
-          addUsers(getUsers)
-        res.redirect('/admin/users')
+        let {admin} = req.body  // esto es un destructuring del objeto body , donde traemos toda la info de los campos que vamos a editar
+         db.User.update({
+            rol_user: admin 
+
+         },
+         {where: {id:req.params.id}})
+         .then(()=>{
+             
+
+             res.redirect('/admin/users')
+         })
          
         //res.send(req.file) 
       },

@@ -2,17 +2,14 @@ const db = require('../database/models')
 
 module.exports = {
     formAgregar:(req,res) =>{
-
-        db.Product.findAll({
-            include: [{
-                association: "category"
-            }]
-        }
-        )
-        .then( category =>{
+       let category = db.Category.findAll()
+        let brand =db.Brand.findAll()
+        Promise.all([category,brand])
+        .then( ([category, brand ])=>{
             res.render('cargaProducts', {
                 title:"carga-productos",
-                category
+                category,
+                brand
             })}
         )
         .catch(err => console.log(err))
@@ -43,6 +40,7 @@ module.exports = {
             description
         })
         .then(product => {
+            res.send(product)
             if (arrayImages.length > 0){
                 let images= arrayImages.map(image => {
                     return {

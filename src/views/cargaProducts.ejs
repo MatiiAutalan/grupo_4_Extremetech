@@ -12,12 +12,17 @@
                 <div class="carga-form-productos" >
                     <div class="container-productos-carga-individual">
                         <input class="producto-individual-carga" type="text" name="name" placeholder="Modelo" />
-                        <input class="producto-individual-carga"type="text" name="brand_id" placeholder="Marca">
+                        <select name="brand_id" id="categorias" class="form-input">
+							<option selected hidden value="">Marca</option>
+                                <% brand.forEach(element => { %>
+                            <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.name %></option>
+                                <% }) %>
+						</select>
                         <input type="text" class="producto-individual-carga" name="discount" placeholder="Descuento"/>
                         <select name="category_id" id="categorias" class="form-input">
 							<option selected hidden value="">Categorias</option>
                                 <% category.forEach(element => { %>
-                            <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.category.name %></option>
+                            <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.name %></option>
                                 <% }) %>
 						</select>
                         <input type="text" class="producto-individual-carga" name="price" placeholder="Precio"/>

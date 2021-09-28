@@ -129,14 +129,15 @@ module.exports = {
     },
     
     vistaEdit:(req,res) =>{
-        let users = getUsers.find(user => {       // Creamos una variable de un producto donde nos guarde el objeto que recibimos por la url que coincida con el id de nuestra base de datos
-            return user.id === +req.params.id
+        db.User.findByPk(req.params.id)
+        .then(users =>{
+
+            res.render('editUser', {
+                title:"Edicion del usuario",
+                users
+            })
         })
 
-        res.render('editUser', {
-            title:"Edicion del usuario",
-            users
-        })
     },
     editUser: (req,res) => {
         let {nombre, apellido, telefono , email ,password, documento, admin, image} = req.body  // esto es un destructuring del objeto body , donde traemos toda la info de los campos que vamos a editar

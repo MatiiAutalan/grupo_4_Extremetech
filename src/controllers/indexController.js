@@ -36,8 +36,7 @@ module.exports = {
                 results,
                 session: req.session
             })
-
         })
-		
+		.catch(err => res.send(err))
 	}
 }

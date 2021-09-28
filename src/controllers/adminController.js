@@ -23,6 +23,7 @@ module.exports = {
                 arrayImages.push(imagen.filename)
             })
         }
+       
 
         let { name,
             price,
@@ -40,12 +41,11 @@ module.exports = {
             description
         })
         .then(product => {
-            res.send(product)
             if (arrayImages.length > 0){
                 let images= arrayImages.map(image => {
                     return {
-                        image: image,
-                        productId: product.id
+                        name: image,
+                        product_id: product.id
                     }
                 })
                 db.Image_product.bulkCreate(images)
@@ -53,8 +53,8 @@ module.exports = {
                 .catch(err => console.log(err))
             } else {
                 db.Image_product.create({
-                    image: "default.png",
-                    productId : product.id
+                    name: "default.png",
+                    product_id : product.id
                 })
                 res.send(product) 
                 .then(() => res.redirect('/products'))

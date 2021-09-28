@@ -4,8 +4,12 @@ const db= require('../database/models');
 
 module.exports = {
     index: (req,res) => {
-        db.Product.findAll()
+        db.Product.findAll({
+            include:[{association:'images_product'}]
+            
+        })
         .then(products => {
+            
             return res.render('generalProduct', {
              title: "Nuestros Productos",
              products,

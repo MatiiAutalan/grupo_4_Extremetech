@@ -27,6 +27,8 @@ module.exports = {
             },
             include: [{
                 association: "images_product"
+            },{
+                association: "brands"
             }]
         }) 
             .then(product => {

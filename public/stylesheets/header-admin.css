@@ -8,17 +8,17 @@
 }
 
 .containerLogoAdmin {
-    width: 33%;
+  width: 33%;
 }
 
 .logoAdmin {
   width: 90px;
-
+  margin-left: 20px;
 }
 
 /*burger Admin*/
 .menuBurgerAdmin {
-  width: 33%;  
+  width: 33%;
   padding: 10px;
   font-size: 28px;
   text-align: center;
@@ -98,6 +98,7 @@
   font-size: 18px;
   padding: 8px 5px;
   border: solid 1.3px gray;
+  color: var(--colorTertiary);
 }
 
 .contenidoBurgerAdmin ul a {
@@ -116,24 +117,25 @@
 
 /*nav desktop*/
 .navAdmin {
-    width: 60%;
-    display: none;
+  width: 60%;
+  display: none;
 }
 
 .navAdmin ul {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .navAdmin ul li {
   display: inline-block;
   color: white;
-  padding: 5px;
+  padding: 3px;
   background-color: var(--colorSecundary);
   border-radius: 5px;
   border-bottom: solid 2px;
-  width: 125px;
+  width: 91px;
   text-align: center;
+  margin: 0 2px;
 }
 
 .navAdmin ul li:hover {
@@ -165,14 +167,21 @@
   }
 
   .navAdmin {
-      display: block;
+    display: block;
   }
 
   .containerLogoAdmin {
-      width: 20%;
+    width: 20%;
   }
 
   .userAdmin {
-      width: 20%;
+    width: 20%;
+  }
+}
+
+@media (min-width: 992px) {
+  .navAdmin ul li {
+    padding: 5px;
+    width: 110px;
   }
 }

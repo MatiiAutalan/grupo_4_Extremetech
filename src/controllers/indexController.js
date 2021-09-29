@@ -26,11 +26,12 @@ module.exports = {
     search: (req, res) => {
 		db.Product.findAll({
             where:{
-                name:{[Op.like]: `%${req.query.search}%`}
+                name:{[Op.like]: `%${req.query.search.trim()}%`}
             }
         })
         
         .then(results => {
+            
             res.render('results', {
                 title: 'resultados de busqueda',
                 results,

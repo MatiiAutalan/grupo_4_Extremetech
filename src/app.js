@@ -5,12 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session')
+const categoriesProduct = require('./middlewares/categoriesProduct')
 
 // require router
 var indexRouter = require('../src/routes/index');
 var productRouter = require('../src/routes/product');
 var usersRouter = require('../src/routes/users');
 var adminRouter = require('../src/routes/admin');
+
 
 
 
@@ -32,6 +34,7 @@ app.use(session({
   resave: false, 
   saveUninitialized: true 
 }));
+app.use(categoriesProduct)
 
 /* Routes*/
 app.use('/', indexRouter);

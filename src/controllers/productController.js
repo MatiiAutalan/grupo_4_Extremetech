@@ -1,6 +1,9 @@
 let {getProducts} = require('../data/dataBase')
 
 const db= require('../database/models');
+const {
+    Op
+} = require("sequelize");
 
 module.exports = {
     index: (req,res) => {
@@ -42,12 +45,22 @@ module.exports = {
     },
     ofertas: (req,res) => {
 
-        let productosOferta = getProducts.filter (productos => productos.discount >=10)
-         res.render('generalProduct', {
-            getProducts:  productosOferta,
-            title: "Nuestras Ofertas",
-            session: req.session
-        })  
+        db.Product.findAll({
+            include:[{association:'category'},{association:'images_product'}],
+            where:{discount: {
+                [Op.gte]: 10
+            }}
+        }) 
+        .then(( productosOferta)=>{
+            
+           
+            res.render('generalProduct', {
+               products:  productosOferta,
+               title: "Nuestras Ofertas",
+               session: req.session
+           })  
+           
+        })
        
        
     },
@@ -60,12 +73,20 @@ module.exports = {
         })
     },
     categorias: (req,res) =>{
-        let categoriasId = req.params.categorias
-        let categorias = getProducts.filter(product => product.categorias == categoriasId)
-        res.render('generalProduct', {
-            getProducts: categorias,
-            title: "Productos",
-            session: req.session
+        //let categoriasId = req.params.categorias
+        //let categorias = getProducts.filter(product => product.categorias == categoriasId)
+        db.Product.findAll({
+            include:[{association:'category'},{association:'images_product'}],
+            where: {category_id : req.params.categorias}
         })
+        .then(categorias =>{
+            
+            res.render('generalProduct', {
+                products: categorias,
+                title: "Productos",
+                session: req.session
+            })
+        })
+       
     },
 }

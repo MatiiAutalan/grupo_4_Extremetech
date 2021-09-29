@@ -1,9 +1,13 @@
 <div class="simil-body">
     <nav class="full-screen-nav">
         <div class="backdrop"></div>
+
         <ul>
-            <li ><a href="/products/alimentacion">Alimentacion</a></li>
-            <li><a href="/products/almacenamiento">Almacenamiento</a></li>
+            <% categories.forEach(element => { %>
+                <li ><a href="/products/<%= element.id %> "><%= element.name  %></a></li>
+            <% }) %>
+            
+           <!--  <li><a href="/products/almacenamiento">Almacenamiento</a></li>
             <li><a href="/products/micro">Microprocesadores</a></li>
             <li><a href="/products/mother">Motherboards</a></li>
             <li><a href="/products/memorias">Memorias</a></li>
@@ -14,7 +18,7 @@
             <li><a href="/products/audio">Audio</a></li>
             <li><a href="/products/soft">Software</a></li>
             <li><a href="/products/monitores">Monitores</a></li>
-             <li><a href=""></a></li>
+             <li><a href=""></a></li> -->
         </ul>
     </nav>
 
@@ -29,7 +33,10 @@
             <h4>Categorias</h4>
 
             <ul class="ul-product">
-                <li ><a href="/products/alimentacion">Alimentacion</a></li>
+                <% categories.forEach(element => { %>
+                    <li ><a href="/products/<%= element.id %> "><%= element.name  %></a></li>
+                <% }) %>
+                <!-- <li ><a href="/products/1">Alimentacion</a></li>
                 <li><a href="/products/almacenamiento">Almacenamiento</a></li>
                 <li><a href="/products/micro">Microprocesadores</a></li>
                 <li><a href="/products/mother">Motherboards</a></li>
@@ -41,7 +48,7 @@
                 <li><a href="/products/audio">Audio</a></li>
                 <li><a href="/products/soft">Software</a></li>
                 <li><a href="/products/monitores">Monitores</a></li>
-                 <li><a href=""></a></li>
+                 <li><a href=""></a></li> -->
             </ul>
         </div>
     </section>

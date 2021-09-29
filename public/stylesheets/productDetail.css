@@ -211,6 +211,12 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
   padding: 4px;
 }
 
+.description {
+  width: 80%;
+  font-size: 20px;
+  font-style: italic;
+}
+
 /* Product specifications */
 
 /*Media Queries*/
@@ -234,7 +240,7 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
   .specifications {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .specifications h3 {
@@ -243,7 +249,7 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
   }
 
   .specifications div {
-    width: 42%;
+    width: 50%;
     padding: 0 25px;
   }
 
@@ -314,8 +320,8 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
   }
 
   .specifications div {
-    width: 33%;
-    padding: 0 25px;
+    width: 40%;
+    padding: 0 50px;
   }
 
   .specifications h3 {

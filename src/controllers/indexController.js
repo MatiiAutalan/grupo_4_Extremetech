@@ -25,8 +25,10 @@ module.exports = {
     },
     search: (req, res) => {
 		db.Product.findAll({
+            include: [{association:'brands'}],
             where:{
-                name:{[Op.like]: `%${req.query.search.trim()}%`}
+                name:{[Op.like]: `%${req.query.search.trim()}%`},
+                description: {[Op.like]: `%${req.query.search.trim()}%`}
             }
         })
         

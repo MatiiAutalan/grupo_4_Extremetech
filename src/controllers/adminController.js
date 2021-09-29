@@ -178,5 +178,21 @@ module.exports = {
             res.redirect('/admin/index')
         })
 
+    },
+    listarMarcas:(req,res) =>{
+        db.Brand.findAll()
+        .then( brands =>{
+            res.render('listBrands',{
+                title:'Marcas',
+                brands
+            })
+        })
+    },
+    deleteBrand:(req,res) => {
+        db.Brand.destroy({
+            where:{id:req.params.id}
+        })
+ 
+         res.redirect('/admin/marca')
     }
 }

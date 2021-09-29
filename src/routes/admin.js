@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-let {formAgregar, listProducts, editForm , agregarProducto, deleteProduct,editProduct, listUsers, vistaEdit, editUser, deleteUser,formCategoria,agregarMarca}= require('../controllers/adminController')
+let {formAgregar, listProducts, editForm , agregarProducto, deleteProduct,editProduct, listUsers, vistaEdit, editUser, deleteUser,formCategoria,agregarMarca,listarMarcas,deleteBrand}= require('../controllers/adminController')
 
 let upload = require('../middlewares/uploadImage')
 let uploadAvatar = require('../middlewares/uploadAvatar')
@@ -16,8 +16,11 @@ router.get('/agregarProducto',cookieCheck,userAdmin, formAgregar)
 /* Metodo POST ,Captura los datos para agregar un producto*/
 router.post('/agregarProducto',upload.array('product-image') ,agregarProducto)
 
+/* Metodo para manipular  una marca */
 router.get('/agregarMarca',formCategoria)
 router.post('/agregarMarca',agregarMarca)
+router.get('/marca',listarMarcas)
+router.delete('/deleteBrand/:id',deleteBrand)
 
 /* Index del admin, donde vamos a ver todos nuestros productos */
 router.get('/index',cookieCheck,userAdmin, listProducts)  

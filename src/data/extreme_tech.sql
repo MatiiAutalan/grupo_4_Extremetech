@@ -59,7 +59,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Perifericos'),(2,'Alimentacion'),(3,'Almacenamiento'),(4,'Microprocesadores'),(5,'Motherboards'),(6,'Memorias'),(7,'Placas de Video'),(8,'Refrigeracion'),(9,'Gabinetes'),(10,'Perifericos'),(11,'Audio'),(12,'Software'),(13,'Monitores');
+INSERT INTO `categories` VALUES (1,'Perifericos'),(2,'Alimentacion'),(3,'Almacenamiento'),(4,'Microprocesadores'),(5,'Motherboards'),(6,'Memorias'),(7,'Placas de Video'),(8,'Refrigeracion'),(9,'Gabinetes'),(11,'Audio'),(12,'Software'),(13,'Monitores');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,8 +106,8 @@ CREATE TABLE `products` (
   `brand_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_fa2bf439-6a52-48a3-8374-533f3b54f478` (`brand_id`),
   KEY `FK_b0cd8467-b7ef-4002-9744-59555271368a` (`category_id`),
+  KEY `FK_fa2bf439-6a52-48a3-8374-533f3b54f478` (`brand_id`),
   CONSTRAINT `FK_b0cd8467-b7ef-4002-9744-59555271368a` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
   CONSTRAINT `FK_fa2bf439-6a52-48a3-8374-533f3b54f478` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
@@ -171,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-28 15:09:43
+-- Dump completed on 2021-09-28 23:49:44

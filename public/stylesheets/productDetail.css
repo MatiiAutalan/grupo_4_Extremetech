@@ -209,12 +209,20 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
   font-size: 13px;
   list-style: none;
   padding: 4px;
+  text-align: start;
+}
+
+.specifications div {
+  text-align: center;
 }
 
 .description {
-  width: 80%;
-  font-size: 20px;
+  width: 100%;
+  font-size: 15px;
   font-style: italic;
+  font-weight: bold;
+  padding-bottom: 15px;
+  text-align: start;
 }
 
 /* Product specifications */
@@ -249,8 +257,11 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
   }
 
   .specifications div {
-    width: 50%;
-    padding: 0 25px;
+    width: 40%;
+  }
+
+  .specifications .containerDescription {
+    width: 60%;
   }
 
   .specifications h4 {
@@ -320,10 +331,13 @@ input[id="3"]:checked ~ .pagination .pagination-item[for="3"] {
   }
 
   .specifications div {
-    width: 40%;
-    padding: 0 50px;
+    width: 30%;
   }
 
+  .specifications .containerDescription {
+    width: 70%;
+  }
+  
   .specifications h3 {
     text-align: center;
     padding: 10px;

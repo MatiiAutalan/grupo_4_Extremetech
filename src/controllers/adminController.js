@@ -56,7 +56,7 @@ module.exports = {
                     name: "default.png",
                     product_id : product.id
                 })
-                res.send(product) 
+                
                 .then(() => res.redirect('/products'))
                 .catch(err => console.log(err))
             }

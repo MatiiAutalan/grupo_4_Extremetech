@@ -64,14 +64,14 @@ module.exports = {
        
        
     },
-    notebook: (req,res) =>{
+  /*   notebook: (req,res) =>{
         let productosNotebook = getProducts.filter(productos => productos.categorias == "notebook")
         res.render('generalProduct', {
             getProducts: productosNotebook,
             title:"Notebooks",
             session: req.session
-        })
-    },
+        }) 
+    },*/
     categorias: (req,res) =>{
         //let categoriasId = req.params.categorias
         //let categorias = getProducts.filter(product => product.categorias == categoriasId)

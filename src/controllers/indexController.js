@@ -9,10 +9,12 @@ module.exports = {
             
         })
         .then(products => {
+            let pcsArmadas = products.filter(producto => producto.category_id == 15)
             return res.render('index', {
                 title: "Bienvenidos",
                 products,
-                session: req.session
+                session: req.session,
+                pcsArmadas
             })
         })
     },

@@ -150,7 +150,7 @@ module.exports = {
                     
                 }  
                 
-                res.send(req.session.user)
+                
                                          
                 if(req.body.remember){
                     res.cookie('cookieTech', req.session.user , { maxAge: 5000*60})

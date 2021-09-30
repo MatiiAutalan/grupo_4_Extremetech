@@ -14,35 +14,27 @@
               <input type="radio" id="1" name="image-slide" hidden />
               <input type="radio" id="2" name="image-slide" hidden />
               <input type="radio" id="3" name="image-slide" hidden />
-      
               <div class="slide">
-                
-                <div class="item-slide">
+              <% product.images_product.forEach(image => { %>
+                  <div class="item-slide">
+                    <img src="/images/<%= image.name %>" alt="<%= product.modelo %> " />
+                  </div>
                   
-                  <img src="/images/<%= product.images_product[0]?product.images_product[0].name:'default.png' %>" alt="<%= product.modelo %> " />
+                  <% }) %>
+                  
                 </div>
-      
-                <div class="item-slide">
-                  <img src="/images/<%= product.images_product[1]?product.images_product[1].name:'default.png' %>" alt="<%= product.modelo %> " />
-                </div>
-      
-                <div class="item-slide">
-                  <img src="/images/<%= product.images_product[2]?product.images_product[2].name:'default.png' %>" alt="<%= product.modelo %> " />
-                </div>
-              </div>
+              
       
               <div class="pagination">
-                <label for="1" class="pagination-item">
-                  <img src="/images/<%= product.images_product[0]?product.images_product[0].name:'default.png' %>" alt="<%= product.modelo %> " />
-                </label>
+                <% product.images_product.forEach(images => { %>
+                  
+                  <label for="1" class="pagination-item">
+                    <img src="/images/<%= images.name %>" alt="mouse pulsefiredart" />
+                  </label>
+                  
+                  <% }) %>
       
-                <label for="2" class="pagination-item">
-                  <img src="/images/<%= product.images_product[1]?product.images_product[1].name:'default.png' %>" alt="<%= product.modelo %> " />
-                </label>
-      
-                <label for="3" class="pagination-item">
-                  <img src="/images/<%= product.images_product[2]?product.images_product[2].name:'default.png' %>" alt="<%= product.modelo %> " />
-                </label>
+              
               </div>
             </div>
           </div>
@@ -100,7 +92,7 @@
         <!-- Product specifications -->
         <section class="specifications">
           <h3>Características del Producto</h3>
-          <div> 
+          <!-- <div> 
             <h4>General</h4>
             <ul>
               <li><strong>Marca:</strong><%= product.brands.name %> </li>
@@ -108,10 +100,17 @@
               <li><strong>Ergonómico:</strong> Ergonómico</li>
               <li><strong>Color:</strong> Negro</li>
             </ul>
-          </div>
-          <div>
+          </div> -->
+          <div class="description-container">
             <h4>Descripción</h4>
             <p class="description">
+              <h4>General</h4>
+            <ul>
+              <li><strong>Marca:</strong><%= product.brands.name %> </li>
+              <li><strong>Modelo:</strong><%= product.name %> </li>
+              <li><strong>Ergonómico:</strong> Ergonómico</li>
+              <li><strong>Color:</strong> Negro</li>
+            </ul>
               <%= product.description %> 
             </p>
             </ul>

@@ -65,8 +65,11 @@ module.exports = {
         })
     },
     listProducts:(req,res) =>{
-        db.Product.findAll()
+        db.Product.findAll({
+            include:[{association:'images_product'}]
+        })
         .then(products => {
+            
             return res.render('editProduct',{
                 title: 'Edicion de productos',
                 products

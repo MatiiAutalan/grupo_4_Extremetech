@@ -30,7 +30,8 @@ module.exports = {
             discount,
             brand_id,
             category_id,
-            description } = req.body;
+            description,
+        color } = req.body;
 
         db.Product.create({
             name,
@@ -38,7 +39,8 @@ module.exports = {
             discount,
             brand_id,
             category_id,
-            description
+            description,
+            color
         })
         .then(product => {
             if (arrayImages.length > 0){

@@ -28,6 +28,9 @@ module.exports = (sequelize,DataTypes)=>{
         brand_id:{
             type:DataTypes.INTEGER(50).UNSIGNED,
             allowNull:false
+        },
+        color:{
+            type:DataTypes.STRING
         }
     
     }

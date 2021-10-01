@@ -1,26 +1,26 @@
 const db = require('../database/models')
 
 module.exports = {
-    formAgregar:(req,res) =>{
-        let category = db.Category.findAll()
-        let brand =db.Brand.findAll()
-        Promise.all([category,brand])
-        .then( ([category, brand ])=>{
-            res.render('cargaProducts', {
+    formAgregar:(req,res) =>{                   // Metodo de renderizar la vista y mandarle los datos que requiere
+        let category = db.Category.findAll()  // Busco en nuestro modelo de categorias , todas las categorias 
+        let brand =db.Brand.findAll()           // Busco en nuestro modelo de marcas , todas las marcas
+        Promise.all([category,brand])          // Ejecuto las 2 promesas con un promise All
+        .then( ([category, brand ])=>{          // .Then significa "luego", esto quedaria como que luego de ejecutarse otorga esas objetos
+            res.render('cargaProducts', {       //renderizo la vista y le paso un objeto con category y brand que son los objetos que obtuve del then
                 title:"carga-productos",
                 category,
                 brand
             })}
             )
-            .catch(err => console.log(err))
+            .catch(err => console.log(err))    // en caso de que algo salga mal , el catch captura el error y lo muestra en la consola
         },
         
         
-        agregarProducto:(req,res) => {
-            let arrayImages = [];
-            if(req.files){
-                req.files.forEach(imagen => {
-                    arrayImages.push(imagen.filename)
+        agregarProducto:(req,res) => {     // Metodo de agregar producto
+            let arrayImages = [];           // creo un array vacio para almacenar las imagenes
+            if(req.files){                      // si existen archivos en el req.files que es del input tipo file
+                req.files.forEach(imagen => {       // que haga un foreach de eso que me llega y que recorra y pushe en el array cde cada imagen el filename que es el nombre de la imagen
+                    arrayImages.push(imagen.filename)  // pusheo
                 })
             }
             
@@ -31,31 +31,31 @@ module.exports = {
                 brand_id,
                 category_id,
                 description,
-                color } = req.body;
+                color } = req.body;   // destructuring de los input del formulario
                 
-                db.Product.create({
+                db.Product.create({    // de la base de datos de productos que me cree 1 producto
                     name,
                     price,
                     discount,
                     brand_id,
                     category_id,
                     description,
-                    color
+                    color                      // a estos atributos les asigno lo que llega por el req body
                 })
-                .then(product => {
-                    if (arrayImages.length > 0){
-                        let images= arrayImages.map(image => {
+                .then(product => {               // luego de eso , el resultado es un producto ya creado llamado "product"
+                    if (arrayImages.length > 0){    // si el array de imagenes es mayor a 0
+                        let images= arrayImages.map(image => {          // le ejecuto el metodo map que me devuelve un array modificado
                             return {
-                                name: image,
-                                product_id: product.id
+                                name: image,                   // le asigno la imagen en la columna name de mi base de datos
+                                product_id: product.id          // y el id del producto correspondiente
                             }
                         })
-                        db.Image_product.bulkCreate(images)
-                        .then(() => res.redirect('/products'))
+                        db.Image_product.bulkCreate(images)    // este metodo de sequelize crea varios datos
+                        .then(() => res.redirect('/products'))   // una vez creado te redirige a /products
                         .catch(err => console.log(err))
                     } else {
-                        db.Image_product.create({
-                            name: "default.png",
+                        db.Image_product.create({         // si el array no es mayor a 0 , osea el usuario no sube ninguna imagen se carga una imagen default en el producto creado
+                            name: "default.png",            // le paso directamente el nombre del dato
                             product_id : product.id
                         })
                         
@@ -64,9 +64,9 @@ module.exports = {
                     }
                 })
             },
-            listProducts:(req,res) =>{
+            listProducts:(req,res) =>{                          //Metodo de listar productos
                 db.Product.findAll({
-                    include:[{association:'images_product'}]
+                    include:[{association:'images_product'}]         //asocio la tabla imagenes , este es el alias que le asigne en el modelo de productos
                 })
                 .then(products => {
                     
@@ -76,8 +76,8 @@ module.exports = {
                     })
                 })
             },
-            editForm:(req,res) =>{
-                db.Product.findByPk(req.params.id)
+            editForm:(req,res) =>{                      //Metodo de editar producto
+                db.Product.findByPk(req.params.id)         // Busco en la base de datos por el id que me llego en la url
                 .then((product) => {
                     res.render('editForm', {
                         title:"Edicion del producto",
@@ -85,10 +85,10 @@ module.exports = {
                     })
                 })
             },
-            editProduct: (req,res) => {
-                db.Image_product.destroy({
+            editProduct: (req,res) => {             // Metodo de editar el producto
+                db.Image_product.destroy({          // destruyo todas las imagenes
                     where: {
-                        product_id: +req.params.id,
+                        product_id: +req.params.id, // que coincide con el product_id que recibe por url
                     },
                 })
                 let { name,
@@ -96,9 +96,9 @@ module.exports = {
                     discount,
                     brand_id,
                     category_id,
-                    description } = req.body;
+                    description } = req.body;     // destructuring del body
                     
-                    db.Product.update({
+                    db.Product.update({             //usando el metodo update de sequelize "Update" actualizamos las siguientes columnas de la tabla productos ,con los datos que llegan del body 
                         name,
                         price,
                         discount,
@@ -106,11 +106,11 @@ module.exports = {
                         category_id,
                         description
                     }, {
-                        where: {
+                        where: {                    // donde ? en el parametro que llega por la url
                             id: +req.params.id
                         }
                     })
-                    .then((productUpdated) => {
+                    .then((productUpdated) => {         
                         if (req.files.length > 0) {
                             let images = [];
                             let nameImages = req.files.map((image) => image.filename);
@@ -134,8 +134,8 @@ module.exports = {
                     })
                 },
                 
-                deleteProduct : (req, res) => {
-                    db.Product.destroy({
+                deleteProduct : (req, res) => {   // metodo de delete 
+                    db.Product.destroy({            // que elimine del producto que tengo en la url de id
                         where: {
                             id: +req.params.id
                         }
@@ -145,9 +145,9 @@ module.exports = {
                     })
                     .catch(err => console.log(err))
                 },
-                listUsers:(req,res) =>
+                listUsers:(req,res) =>   // listo usuarios 
                 {
-                    db.User.findAll()
+                    db.User.findAll()   // en el modelo de usuarios , traigo todos
                     .then(users => {
                         return res.render('listUsers',{
                             title: 'Lista de usuarios',
@@ -156,8 +156,8 @@ module.exports = {
                     })
                 },
                 
-                vistaEdit:(req,res) =>{
-                    db.User.findByPk(req.params.id)
+                vistaEdit:(req,res) =>{     //renderiza la vista para editar usuarios
+                    db.User.findByPk(req.params.id) // Busca en usuarios lo que llega por la URL
                     .then(users =>{
                         
                         res.render('editUser', {
@@ -169,37 +169,37 @@ module.exports = {
                 },
                 editUser: (req,res) => {
                     let {admin} = req.body  // esto es un destructuring del objeto body , donde traemos toda la info de los campos que vamos a editar
-                    db.User.update({
-                        rol_user: admin 
+                    db.User.update({        // Metodo de sequelize de update
+                        rol_user: admin     // el administrador solo puede modificar el rol del usuario , rol_user es como figura en nuestra base de datos y "admin" es el nombre del input
                         
                     },
-                    {where: {id:req.params.id}})
-                    .then(()=>{
+                    {where: {id:req.params.id}})   // esto es un condicional "where" hace referencia "donde" , lo que llega por la url
+                    .then(()=>{         
                         
                         
-                        res.redirect('/admin/users')
+                        res.redirect('/admin/users')        // una vez que pasa todo lleva a la vista de /admin/users que es donde estan listados los usuarios
                     })
                     
                     //res.send(req.file) 
                 },
-                deleteUser : (req, res) => {
-                    db.User.destroy({
-                        where:{id:req.params.id}
+                deleteUser : (req, res) => {    //metodo delete de sequelize
+                    db.User.destroy({               // del modelo usuario destruye/borra 
+                        where:{id:req.params.id}    // lo que recibe por url
                     })
                     
                     res.redirect('/admin/index')
                 },
                 
-                formCategoria:(req,res) =>{
-                    res.render('crearCategory',{
-                        title: 'Agregar categoria'
+                formCategoria:(req,res) =>{         // Metodo para renderizar el metodo de agregar marcas 
+                    res.render('crearCategory',{    // Vista de agregar marcas
+                        title: 'Agregar categoria'  
                     })
                 },
                 
-                agregarMarca:(req,res) => {
-                    let {categoria} = req.body
-                    db.Brand.create({
-                        name: categoria
+                agregarMarca:(req,res) => {         //metodo de agregar marca
+                    let {categoria} = req.body       // destructuring del req.body que es lo que viene de los inputs seria el name
+                    db.Brand.create({                 // del modelo marcas que cree una nueva marca
+                        name: categoria             // le asigno en el nombre que es como lo llamo en mi tabla , lo que llega del req.body
                     })
                     .then(user =>{
                         
@@ -207,16 +207,16 @@ module.exports = {
                     })
                     
                 },
-                listarMarcas:(req,res) =>{
-                    db.Brand.findAll()
-                    .then( brands =>{
-                        res.render('listBrands',{
+                listarMarcas:(req,res) =>{          // metodo de listar marcas
+                    db.Brand.findAll()              // Busca en el modelo marcas
+                    .then( brands =>{               // en la respuesta me da marcas
+                        res.render('listBrands',{       // renderizo en la vista listbrands todas las marcas que me encontro la promesa
                             title:'Marcas',
                             brands
                         })
                     })
                 },
-                deleteBrand:(req,res) => {
+                deleteBrand:(req,res) => {  //metodo de eliminar marca , similar a los otros
                     db.Brand.destroy({
                         where:{id:req.params.id}
                     })

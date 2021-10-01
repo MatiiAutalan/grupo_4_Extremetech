@@ -3,7 +3,7 @@ const Op = db.Sequelize.Op;
 
 
 module.exports = {
-    index: (req,res) => {
+    index: (req,res) => {                              
         db.Product.findAll({
             include:[{association:'images_product'}]
             
@@ -25,11 +25,11 @@ module.exports = {
             session: req.session
         })
     },
-    search: (req, res) => {
+    search: (req, res) => {                      //metodo search 
 		db.Product.findAll({
-            include: [{association:'brands'}],
-            where:{
-                name:{[Op.like]: `%${req.query.search.trim()}%`},
+            include: [{association:'brands'}],    
+            where:{ 
+                name:{[Op.like]: `%${req.query.search.trim()}%`},    // el operador OP.LIKE es un operador de sequelize y sirve para traer en la tabla de productos en la columna NAME lo que nos llegue por el input de type search los "%" funcionan como comodines.
                 description: {[Op.like]: `%${req.query.search.trim()}%`}
             }
         })

@@ -17,7 +17,7 @@ module.exports = {
         
        
     },
-    editProfile:(req,res)=>{
+    editProfile:(req,res)=>{    //metodo edit profile
        db.User.findByPk(req.params.id)
        .then(user=>{
         res.render('editProfile', {
@@ -54,10 +54,10 @@ module.exports = {
             },
             {where:{id:req.params.id}})
             .then(()=>{
-                db.User.findByPk(req.params.id)
-                .then((user)=>{
+                 db.User.findByPk(req.params.id)
+                .then((user)=>{ 
                     res.redirect('/user')
-                })
+                 }) 
                    
             })
      

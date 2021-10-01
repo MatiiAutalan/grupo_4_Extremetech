@@ -5,7 +5,7 @@
         <div class="carrusel-item">
             <div class="sliderbox">
                 <div class="imagenBox">
-                    <img src="/images/<%- product.image ? product.image[0] : 'default.png' %>">
+                    <img src="/images/<%- product.images_product ? product.images_product[0].name : 'default.png' %>">
                 </div>
                 <p><% if(product.name.length > 19){ %>
                     <% let nameSlice = product.name.slice(0,19) %>

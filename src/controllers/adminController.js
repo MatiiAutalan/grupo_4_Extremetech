@@ -86,11 +86,7 @@ module.exports = {
                 })
             },
             editProduct: (req,res) => {             // Metodo de editar el producto
-                db.Image_product.destroy({          // destruyo todas las imagenes
-                    where: {
-                        product_id: +req.params.id, // que coincide con el product_id que recibe por url
-                    },
-                })
+                
                 let { name,
                     price,
                     discount,
@@ -112,25 +108,34 @@ module.exports = {
                     })
                     .then((productUpdated) => {         
                         if (req.files.length > 0) {
-                            let images = [];
-                            let nameImages = req.files.map((image) => image.filename);
-                            nameImages.forEach((img) => {
-                                let newImage = {
-                                    product_id: req.params.id,
-                                    name: img
-                                };
-                                images.push(newImage);
-                            });
-                            db.Image_product
-                            .bulkCreate(images)
-                            .then((result) => {
-                                res.redirect(`/admin/index`);
+                            db.Image_product.destroy({          // destruyo todas las imagenes
+                                where: {
+                                    product_id: +req.params.id, // que coincide con el product_id que recibe por url
+                                },
+                            }).then(()=>{
+                                let images = [];
+                                let nameImages = req.files.map((image) => image.filename);
+                                nameImages.forEach((img) => {
+                                    let newImage = {
+                                        product_id: req.params.id,
+                                        name: img
+                                    };
+                                    images.push(newImage);
+                                });
+                                db.Image_product
+                                .bulkCreate(images)
+                                .then((result) => {
+                                    res.redirect(`/admin/index`);
+                                })
                             })
-                            /*  .then(() => {
+                             .then(() => {
                                 res.redirect('/admin/index')
-                            }) */
+                            }) 
                             .catch(err => console.log(err))
+                        }else {
+                            res.redirect('/admin/index')
                         }
+
                     })
                 },
                 

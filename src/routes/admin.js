@@ -17,9 +17,10 @@ router.get('/agregarProducto',cookieCheck,userAdmin, formAgregar)
 router.post('/agregarProducto',upload.array('product-image') ,agregarProducto)
 
 /* Metodo para manipular  una marca */
-router.get('/agregarMarca',formCategoria)
+router.get('/agregarProducto',cookieCheck,userAdmin, formAgregar)
+router.get('/agregarMarca',userAdmin,formCategoria)
 router.post('/agregarMarca',agregarMarca)
-router.get('/marca',listarMarcas)
+router.get('/marca',userAdmin,listarMarcas)
 router.delete('/deleteBrand/:id',deleteBrand)
 
 /* Index del admin, donde vamos a ver todos nuestros productos */

@@ -107,7 +107,7 @@ module.exports = {
                         }
                     })
                     .then((productUpdated) => {       
-                        res.send(productUpdated)  
+                         
                         if (req.files.length > 0) {
                             db.Image_product.destroy({          // destruyo todas las imagenes
                                 where: {

@@ -16,13 +16,17 @@
     background-size: cover  ;
 }
 
-.user {
-    padding: 20px 0;
+.user, .pass {
+    padding: 15px 0;
 }
 
 .inputs { 
     padding: 5px;
 
+}
+
+.is-invalid {
+    border: solid 2px red;
 }
 
 .btn-style {

@@ -48,7 +48,7 @@ $email.addEventListener("blur", function () {
     console.log($form.elements)
     let elementosForm = this.elements
     
-    for (let index = 0; index < elementosForm.length-1; index++) {
+    for (let index = 0; index < elementosForm.length-2; index++) {
       if(elementosForm[index].value == ""){
           elementosForm[index].classList.add('is-invalid');
           submitErrors.innerHTML = `${iconError} Los campos seleccionados son obligatorios`;

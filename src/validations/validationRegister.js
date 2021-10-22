@@ -4,9 +4,6 @@ const db = require('../database/models')
 
 module.exports = [
     check('email').isEmail().withMessage('Email invalido'),
-<<<<<<< HEAD
-    
-=======
     body('email').custom((value, {req}) => {
       return db.User.findOne({
           where : {
@@ -19,7 +16,6 @@ module.exports = [
           }
       })
     }),
->>>>>>> 80f2ca476e4dc700485f2f27a1780f4b61b9926c
     check('nombre').notEmpty().withMessage('Campo obligatorio'),
     check('password').notEmpty().withMessage('Campo obligatorio'),
     body('email').custom(value => {

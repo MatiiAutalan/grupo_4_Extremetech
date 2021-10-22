@@ -24,7 +24,12 @@
           <p>Nombre: <%= user.nombre%></p>
           <p>Apellido : <%= user.apellido %></p>
           <p>email: <%= user.email.slice(0,20) %> </p>
-          <p>admin: <%= user.admin %> </p>
+          <% if (user.rol_user == 0) { %>
+            <p>Admin : No</p>
+          <% }else{%>
+             <p>Admin : si</p>
+             <% } %>
+         
         </div>
 
         <div class="containerBtns">

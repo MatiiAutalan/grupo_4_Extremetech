@@ -41,6 +41,10 @@ ya que tenia un feedback de los profesores y me gustaba mucho la idea de poder i
 A futuro mi idea una vez finalizado el curso espero incorporarme en el mercado laboral desarrollando paginas webs, asi tambien 
 me gustaria seguir aprendiendo ingles ya que es muy basico mi conocimiento con este idioma y se que me va a servir a futuro. 
 
+Soy Gerardo Caceres, tengo 18 años y soy de Lanus, Buenos Aires, siempre me intereso el mundo de la tecnologia, me gusta arreglar y armar computadoras
+Conoci el mundo de la programacion por un amigo que me enseño a hacer un hola mundo, desde ese momento decidi aprender y ser un programadore web, ya que me gusta mucho las cosas que se pueden hacer con cada lenguaje
+Me gusta trabajar en equipo ya que no estoy solo y puedo contar con ellos para solucionar las problematicas que se presenten y poder salir adelante como un equipo, me gustan los desafios aunque aveces me dan miedo, eso hace que me interese cada vez mas este mundo y me dan ganas de aprender cada vez mas .
+
 ### Listado de 5 páginas referentes:
 
 https://www.goodgame.ar/<br>

@@ -11,21 +11,21 @@
                 <form action="/admin/user/<%= users.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
                 <div class="carga-form-productos" >
                     <div class="container-productos-carga-individual">
-                        <input class="producto-individual-carga" type="text" placeholder="Nombre" name="nombre" value="<%= users.nombre %>" />
-                        <input class="producto-individual-carga"type="text" placeholder="Apellido" name="apellido" value="<%= users.apellido %>">
-                        <input type="email" class="producto-individual-carga" placeholder="Email" name="email" value="<%= users.email %>">
+                        <input class="producto-individual-carga" type="text" placeholder="Nombre" disabled name="nombre" value="<%= users.nombre %>" />
+                        <input class="producto-individual-carga"type="text" placeholder="Apellido" disabled name="apellido" value="<%= users.apellido %>">
+                        <input type="email" class="producto-individual-carga" placeholder="Email" disabled name="email" value="<%= users.email %>">
                         <label for="administrador">Admin: <select name="admin" id="administrador" class="form-input">
-							<option value="true" <%= users.admin === true ? "selected" : ""%> >Si</option>
-							<option value="false"<%= users.admin === false ? "selected" : ""%> >No</option>	
+							<option value="1" <%= users.rol_user === true ? "selected" : ""%> >Si</option>
+							<option value="0"<%= users.rol_user === false ? "selected" : ""%> >No</option>	
 						</select></label>
                         
-                        <input type="text" class="producto-individual-carga" placeholder="Password" name="password" value="<%= users.password %>">
+                       
                     </div>
                     <!-- <p id="desc-producto-carga-productos">Descripcion del producto</p>
                     <textarea class="desc-product-text-area" name="descripcion" id="descripcion" ></textarea> -->
-                    <p class="add-file-img-carga-products">Agregar archivos de imagen</p>
+                    <p class="add-file-img-carga-products">Avatar del usuario</p>
                     <div class="container-img-products-carga-end">
-                        <input  class="buttonForm" type="file" id="file" name="userImage" multiple /><br><br>
+                        <img src="/images/<%= users.image %> " width="200px" height="200px" alt="">
                         <div id="submit-fn">
                             <button type="submit" id="btn-submit-finalizar-edit">Finalizar</button>
                         </div>

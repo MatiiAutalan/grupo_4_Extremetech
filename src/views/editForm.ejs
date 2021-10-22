@@ -12,32 +12,19 @@
         </div>
     </header>
     <main class="main-carga-productos-panel">
-        <h2 class="carga-productos-panel-adm">Editando producto <%= producto.id  %> </h1>
+        <h2 class="carga-productos-panel-adm">Editando producto <%= product.id  %> </h1>
             <h4 class="nuevo-producto-panel-adm">producto</h3>
-                <form action="/admin/edit/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <form action="/admin/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="carga-form-productos" >
                     <div class="container-productos-carga-individual">
-                        <input class="producto-individual-carga" type="text" placeholder="Modelo" name="modelo" value="<%= producto.modelo %>" />
-                        <input class="producto-individual-carga"type="text" placeholder="Marca" name="marca" value="<%= producto.marca %>">
-                        <input type="text" class="producto-individual-carga" placeholder="Descuento" name="discount" value="<%= producto.discount %>">
-                        <select name="categorias" id="categorias" class="form-input">
-							<option value="alimentacion" <%= producto.categorias === 'alimentacion' ? "selected" : ""%> >Alimentacion</option>
-							<option value="almacenamiento"<%- producto.categorias === 'almacenamiento' ? "selected" : ""%> >Almacenamiento</option>
-							<option value="micro" <%= producto.categorias === 'micro' ? "selected" : ""%> >Microprocesadores</option>
-							<option value="mother"<%- producto.categorias === 'mother' ? "selected" : ""%> >Motherboards</option>
-							<option value="memorias"<%- producto.categorias === 'memorias' ? "selected" : ""%> >Memorias</option>
-							<option value="gpu"<%- producto.categorias === 'gpu' ? "selected" : ""%> >Placa de Video</option>
-							<option value="refrigeracion"<%- producto.categorias === 'refrigeracion' ? "selected" : ""%> >Refrigeracion</option>
-							<option value="gabinetes"<%- producto.categorias === 'gabinetes' ? "selected" : ""%> >Gabinetes</option>
-							<option value="perifericos"<%- producto.categorias === 'perifericos' ? "selected" : ""%> >Perifericos</option>
-							<option value="audio"<%- producto.categorias === 'audio' ? "selected" : ""%> >Audio</option>
-							<option value="soft"<%- producto.categorias === 'soft' ? "selected" : ""%> >Software</option>
-							<option value="monitores"<%- producto.categorias === 'monitores' ? "selected" : ""%> >Monitores</option>
-						</select>
-                        <input type="text" class="producto-individual-carga" placeholder="Precio" name="precio" value="<%= producto.precio %>">
+                        <input class="producto-individual-carga" type="text" placeholder="Modelo" name="name" value="<%= product.name %>" />
+                        <input class="producto-individual-carga"type="text" placeholder="Marca" name="brand_id" value="<%= product.brand_id %>">
+                        <input type="text" class="producto-individual-carga" placeholder="Descuento" name="discount" value="<%= product.discount %>">
+                        <!--  -->
+                        <input type="text" class="producto-individual-carga" placeholder="Precio" name="price" value="<%= product.price%>">
                     </div>
                     <p id="desc-producto-carga-productos">Descripcion del producto</p>
-                    <textarea class="desc-product-text-area" name="descripcion" id="descripcion" ><%= producto.descripcion %></textarea>
+                    <textarea class="desc-product-text-area" name="description" id="descripcion" ><%= product.description %></textarea>
                     <p class="add-file-img-carga-products">Agregar archivos de imagen</p>
                     <div class="container-img-products-carga-end">
                         <input  class="buttonForm" type="file" id="file" name="product-image" multiple /><br><br>

@@ -11,24 +11,22 @@
                 <form action="/admin/agregarProducto" method="POST" enctype="multipart/form-data">
                 <div class="carga-form-productos" >
                     <div class="container-productos-carga-individual">
-                        <input class="producto-individual-carga" type="text" name="modelo" placeholder="Modelo" />
-                        <input class="producto-individual-carga"type="text" name="marca" placeholder="Marca">
-                        <input type="text" class="producto-individual-carga" name="discount" placeholder="Descuento"/>
-                        <select name="categorias" id="categorias" class="form-input">
-							<option value="alimentacion" >Alimentacion</option>
-							<option value="almacenamiento">Almacenamiento</option>
-							<option value="micro">Microprocesadores</option>
-							<option value="mother">Motherboards</option>
-							<option value="memorias">Memorias</option>
-							<option value="gpu">Placa de Video</option>
-							<option value="refrigeracion">Refrigeracion</option>
-							<option value="gabinetes">Gabinetes</option>
-							<option value="perifericos">Perifericos</option>
-							<option value="audio">Audio</option>
-							<option value="soft">Software</option>
-							<option value="monitores">Monitores</option>
+                        <input class="producto-individual-carga" type="text" name="name" placeholder="Modelo" />
+                        <input class="producto-individual-carga" type="text" name="color" placeholder="Color" />
+                        <select name="brand_id" id="categorias" class="form-input">
+							<option selected hidden value="">Marca</option>
+                                <% brand.forEach(element => { %>
+                            <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.name %></option>
+                                <% }) %>
 						</select>
-                        <input type="text" class="producto-individual-carga" name="precio" placeholder="Precio"/>
+                        <input type="text" class="producto-individual-carga" name="discount" placeholder="Descuento"/>
+                        <select name="category_id" id="categorias" class="form-input">
+							<option selected hidden value="">Categorias</option>
+                                <% category.forEach(element => { %>
+                            <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.name %></option>
+                                <% }) %>
+						</select>
+                        <input type="text" class="producto-individual-carga" name="price" placeholder="Precio"/>
                         
                         
                     </div>

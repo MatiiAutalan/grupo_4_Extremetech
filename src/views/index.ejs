@@ -36,14 +36,15 @@
     <!-- products and images -->
     <section>
       
-      <% getPc.forEach(pcs => { %>
+      <% pcsArmadas.forEach(product => { %>
+        
         <article>
-          <a href="/products">
+          <a href="/products/15">
           <div class="img-product-main">
-            <img class="img-product-main" src="/images/<%= pcs.image %> " alt="">
-            <p><%= pcs.Modelo %></p>
-            <p><%= pcs.Memoria %> </p>
-            <p><%= pcs.Almacenamiento %> </p>
+            <img src="/images/<%- product.images_product ? product.images_product[0].name : 'default.png' %>" alt="">
+            <p><%= product.name %></p>
+            <p>$<%= product.price %> </p>
+            <p>Descuento: <%= product.discount %> </p>
             <h3>Ver Producto</h3>
           </div>
         </a>

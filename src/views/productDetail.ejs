@@ -7,8 +7,8 @@
         <!-- Slide section -->
 
         <section class="imageProduct">
-          <h2><%= producto.modelo %> </h2>
-          <img class="imgIndividual" src="/images/<%= producto.image %> " alt="<%= producto.modelo %>" />
+          <h2><%= product.name %> </h2>
+          <img class="imgIndividual" src="/images/<%= product.images_product[0].name %> " alt="<%= product.images_product.name%>" />
           <div class="containerSlider">
             <div class="container">
               <input type="radio" id="1" name="image-slide" hidden />
@@ -16,30 +16,32 @@
               <input type="radio" id="3" name="image-slide" hidden />
       
               <div class="slide">
+                
                 <div class="item-slide">
-                  <img src="/images/<%= producto.image[0] %>" alt="<%= producto.modelo %> " />
+                  
+                  <img src="/images/<%= product.images_product[0]?product.images_product[0].name:'default.png' %>" alt="<%= product.modelo %> " />
                 </div>
       
                 <div class="item-slide">
-                  <img src="/images/<%= producto.image[1] %>" alt="mouse pulsefiredart" />
+                  <img src="/images/<%= product.images_product[1]?product.images_product[1].name:'default.png' %>" alt="<%= product.modelo %> " />
                 </div>
       
                 <div class="item-slide">
-                  <img src="/images/<%= producto.image[2] %>" alt="mouse pulsefiredart"/>
+                  <img src="/images/<%= product.images_product[2]?product.images_product[2].name:'default.png' %>" alt="<%= product.modelo %> " />
                 </div>
               </div>
       
               <div class="pagination">
                 <label for="1" class="pagination-item">
-                  <img src="/images/<%= producto.image[0] %>" alt="mouse pulsefiredart" />
+                  <img src="/images/<%= product.images_product[0]?product.images_product[0].name:'default.png' %>" alt="<%= product.modelo %> " />
                 </label>
       
                 <label for="2" class="pagination-item">
-                  <img src="/images/<%= producto.image[1] %>" alt="mouse pulsefiredart" />
+                  <img src="/images/<%= product.images_product[1]?product.images_product[1].name:'default.png' %>" alt="<%= product.modelo %> " />
                 </label>
       
                 <label for="3" class="pagination-item">
-                  <img src="/images/<%= producto.image[2] %>" alt="mouse pulsefiredart" />
+                  <img src="/images/<%= product.images_product[2]?product.images_product[2].name:'default.png' %>" alt="<%= product.modelo %> " />
                 </label>
               </div>
             </div>
@@ -50,7 +52,7 @@
         <!-- Price section -->
         <section class="priceProduct">
           <div class="price">
-            <h1>$<%= producto.precio- (producto.precio * producto.discount)/100   %></h1>
+            <h1>$<%= product.price- (product.price * product.discount)/100   %></h1>
             <hr />
             <p> <strong>Stock:</strong>  5 unidades disponibles</p>
             <p>
@@ -101,28 +103,19 @@
           <div> 
             <h4>General</h4>
             <ul>
-              <li><strong>Marca:</strong><%= producto.marca %> </li>
-              <li><strong>Modelo:</strong><%= producto.modelo %> </li>
+              <li><strong>Marca:</strong><%= product.brands.name %> </li>
+              <li><strong>Modelo:</strong><%= product.name %> </li>
               <li><strong>Ergonómico:</strong> Ergonómico</li>
-              <li><strong>Color:</strong> Negro</li>
+              <li><strong>Color:</strong><%= product.color %></li>
             </ul>
           </div>
-          <div>
-            <h4>Especificaciones</h4>
-            <ul>
-              <li><strong>Tipo:</strong> De juego</li>
-              <li><strong>Interfaces:</strong> USB</li>
-              <li><strong>Alcance Maximo:</strong> 2.1m</li>
-              <li><strong>Sensor:</strong> 800/ 1600/ 3200 dpi</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Otras especificaciones</h4>
-            <ul>
-              <li><strong>Tipo de conexion:</strong> inalámbrica de 2,4GHz/con cable</li>
-              <li><strong>Rueda de desplazamiento:</strong> Si</li>
-              <li><strong>Luces:</strong> Iluminación RGB por LED3</li>
-              <li><strong>Bluetooth:</strong> No</li>
+          <div class= "containerDescription">
+            <h4>Descripción</h4>
+            <p class="description">
+            
+            
+              <%= product.description %> 
+            </p>
             </ul>
           </div>
         </section>

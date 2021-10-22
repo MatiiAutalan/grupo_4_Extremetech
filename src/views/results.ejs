@@ -6,25 +6,28 @@
         <main class="main-product">
             <%- include('partials/ul') %> 
             <section class="cards-product">
-               <% result.forEach(product => { %>
-                    <article class="product-item">
-                    <div class="img-article">
-                        <img src="/images/<%- product.image ? product.image : 'default.png' %>" alt="">
-                    </div>
-                    <div class="description-product">
-                        <h4><% if(product.modelo.length > 19){ %>
-                            <% let modeloSlice = product.modelo.slice(0,19) %>
-                            <%= modeloSlice %>
-                        <% }else{ %> 
-                    <%= product.modelo %> 
-                <% } %> </h4>
-                        <P>$<%- product.precio %></P>
-                        <p>descuento: <strong>%<%- product.discount %></strong></p>
-                        <button class="btn-product"><a href="/products/detalle/<%- product.id %>">Ver producto</a></button>
-                    </div>
-                </article>
-               <% }) %> 
-               
+                <% if (results.length > 0) { %>
+                    <% results.forEach(product => { %>
+                        <article class="product-item">
+                        <div class="img-article">
+                            <img src="/images/<%- product.image ? product.image : 'default.png' %>" alt="">
+                        </div>
+                        <div class="description-product">
+                            <h4><% if(product.name.length > 19){ %>
+                                <% let nameSlice = product.name.slice(0,19) %>
+                                <%= nameSlice %>
+                            <% }else{ %> 
+                        <%= product.name %> 
+                    <% } %> </h4>
+                            <P>$<%- product.price %></P>
+                            <p>Descuento: <strong>%<%- product.discount %></strong></p>
+                            <button class="btn-product"><a href="/products/detalle/<%- product.id %>">Ver producto</a></button>
+                        </div>
+                    </article>
+                   <% }) %> 
+                <% } else { %>
+                    <div><h1 class="title-results">No se encontraron resultados de la busqueda</h1></div>
+                <% } %> 
             </section>
         </main>
         <%- include('partials/footer')  %> 

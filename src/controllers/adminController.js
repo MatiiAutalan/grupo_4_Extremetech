@@ -1,155 +1,232 @@
-let {getProducts, addProduct, getUsers , addUsers } = require('../data/dataBase');
-const { array } = require('../middlewares/uploadImage');
-const { product } = require('./productController');
+const db = require('../database/models')
 
 module.exports = {
-    formAgregar:(req,res) =>{
-        res.render('cargaProducts', {
-            title:"carga-productos"
-        })
-    },
-    agregarProducto:(req,res) => {
-        let lastId = 1;   // Creo una variable con un id , esta  variable representa un contador basicamente
-
-        getProducts.forEach(producto => {   // recorro el array de productos buscando un producto
-            if(producto.id > lastId){    // Si el id del producto es mayor que la variable
-                lastId = producto.id     //va a valer 1
+    formAgregar:(req,res) =>{                   // Metodo de renderizar la vista y mandarle los datos que requiere
+        let category = db.Category.findAll()  // Busco en nuestro modelo de categorias , todas las categorias 
+        let brand =db.Brand.findAll()           // Busco en nuestro modelo de marcas , todas las marcas
+        Promise.all([category,brand])          // Ejecuto las 2 promesas con un promise All
+        .then( ([category, brand ])=>{          // .Then significa "luego", esto quedaria como que luego de ejecutarse otorga esas objetos
+            res.render('cargaProducts', {       //renderizo la vista y le paso un objeto con category y brand que son los objetos que obtuve del then
+                title:"carga-productos",
+                category,
+                brand
+            })}
+            )
+            .catch(err => console.log(err))    // en caso de que algo salga mal , el catch captura el error y lo muestra en la consola
+        },
+        
+        
+        agregarProducto:(req,res) => {     // Metodo de agregar producto
+            let arrayImages = [];           // creo un array vacio para almacenar las imagenes
+            if(req.files){                      // si existen archivos en el req.files que es del input tipo file
+                req.files.forEach(imagen => {       // que haga un foreach de eso que me llega y que recorra y pushe en el array cde cada imagen el filename que es el nombre de la imagen
+                    arrayImages.push(imagen.filename)  // pusheo
+                })
             }
-        });
-
-        let arrayImages = [];
-        if(req.files){
-            req.files.forEach(imagen => {
-                arrayImages.push(imagen.filename)
-            })
-        }
-
-        let nuevoProducto = {
             
+            
+            let { name,
+                price,
+                discount,
+                brand_id,
+                category_id,
+                description,
+                color } = req.body;   // destructuring de los input del formulario
+                
+                db.Product.create({    // de la base de datos de productos que me cree 1 producto
+                    name,
+                    price,
+                    discount,
+                    brand_id,
+                    category_id,
+                    description,
+                    color                      // a estos atributos les asigno lo que llega por el req body
+                })
+                .then(product => {               // luego de eso , el resultado es un producto ya creado llamado "product"
+                    if (arrayImages.length > 0){    // si el array de imagenes es mayor a 0
+                        let images= arrayImages.map(image => {          // le ejecuto el metodo map que me devuelve un array modificado
+                            return {
+                                name: image,                   // le asigno la imagen en la columna name de mi base de datos
+                                product_id: product.id          // y el id del producto correspondiente
+                            }
+                        })
+                        db.Image_product.bulkCreate(images)    // este metodo de sequelize crea varios datos
+                        .then(() => res.redirect('/products'))   // una vez creado te redirige a /products
+                        .catch(err => console.log(err))
+                    } else {
+                        db.Image_product.create({         // si el array no es mayor a 0 , osea el usuario no sube ninguna imagen se carga una imagen default en el producto creado
+                            name: "default.png",            // le paso directamente el nombre del dato
+                            product_id : product.id
+                        })
+                        
+                        .then(() => res.redirect('/products'))
+                        .catch(err => console.log(err))
+                    }
+                })
+            },
+            listProducts:(req,res) =>{                          //Metodo de listar productos
+                db.Product.findAll({
+                    include:[{association:'images_product'}]         //asocio la tabla imagenes , este es el alias que le asigne en el modelo de productos
+                })
+                .then(products => {
+                    
+                    return res.render('editProduct',{
+                        title: 'Edicion de productos',
+                        products
+                    })
+                })
+            },
+            editForm:(req,res) =>{                      //Metodo de editar producto
+                db.Product.findByPk(req.params.id)         // Busco en la base de datos por el id que me llego en la url
+                .then((product) => {
+                    res.render('editForm', {
+                        title:"Edicion del producto",
+                        product,
+                    })
+                })
+            },
+            editProduct: (req,res) => {             // Metodo de editar el producto
+                
+                let { name,
+                    price,
+                    discount,
+                    brand_id,
+                    category_id,
+                    description } = req.body;     // destructuring del body
+                    
+                    db.Product.update({             //usando el metodo update de sequelize "Update" actualizamos las siguientes columnas de la tabla productos ,con los datos que llegan del body 
+                        name,
+                        price,
+                        discount,
+                        brand_id,
+                        category_id,
+                        description
+                    }, {
+                        where: {                    // donde ? en el parametro que llega por la url
+                            id: +req.params.id
+                        }
+                    })
+                    .then((productUpdated) => {       
+                         
+                        if (req.files.length > 0) {
+                            db.Image_product.destroy({          // destruyo todas las imagenes
+                                where: {
+                                    product_id: +req.params.id, // que coincide con el product_id que recibe por url
+                                },
+                            }).then(()=>{
+                                let images = [];
+                                let nameImages = req.files.map((image) => image.filename);
+                                nameImages.forEach((img) => {
+                                    let newImage = {
+                                        product_id: req.params.id,
+                                        name: img
+                                    };
+                                    images.push(newImage);
+                                });
+                                db.Image_product
+                                .bulkCreate(images)
+                                .then((result) => {
+                                    res.redirect(`/admin/index`);
+                                })
+                            })
+                             .then(() => {
+                                res.redirect('/admin/index')
+                            }) 
+                            .catch(err => console.log(err))
+                        }else {
+                            res.redirect('/admin/index')
+                        }
 
-            id: lastId + 1,  // para crear un nuevo producto , le estamos diciendo que el id que recibe el nuevo producto , va a ser el valor del lastid, osea el ultimo producto que  itero +1
-            modelo: req.body.modelo.trim(),  // escribimos el modelo , con el parametro que recibimos por el  objeto body que nos envia la pagina y con el "." estamos entrando en el objeto
-            marca: req.body.marca.trim(),
-            precio: req.body.precio.trim(),
-            categorias: req.body.categorias.trim(),
-            discount: req.body.discount.trim(),
-            descripcion: req.body.descripcion,
-            image: arrayImages.length > 0 ? arrayImages : ['default.png']
-        }
-
-        
-
-        getProducts.push(nuevoProducto);   // le estamos metiendo a la variable getproducts que es la que tiene todos los productos el nuevo producto que estamos creando
-        
-        addProduct(getProducts);  // esta funcion escribe el json  y recibe como parametro la base de datos donde va a ser escrito
-        
-        res.redirect('/products')  // una vez agregado el producto nos redirecciona  a la vista de productos
-        
-    },
-    listProducts:(req,res) =>{
-        res.render('editProduct',{
-            title: 'Edicion de productos',
-            productos : getProducts
-        })
-    },
-    editForm:(req,res) =>{
-        let producto = getProducts.find(producto => {       // Creamos una variable de un producto donde nos guarde el objeto que recibimos por la url que coincida con el id de nuestra base de datos
-            return producto.id === +req.params.id
-        })
-
-        res.render('editForm', {
-            title:"Edicion del producto",
-            producto
-        })
-    },
-    editProduct: (req,res) => {
-      let {modelo, marca, precio , categorias , discount,descripcion} = req.body  // esto es un destructuring del objeto body , donde traemos toda la info de los campos que vamos a editar
-       
-       let arrayImages = [];
-        if(req.files){
-            req.files.forEach(imagen => {
-                arrayImages.push(imagen.filename)
-            })
-        } 
-
-        getProducts.forEach(producto => {
-            if(producto.id === +req.params.id){   // aca le decimos que si el product.id que recibimos por parametro coincide con el producto que edite los campos con el objeto que recibimos por el form
-                producto.modelo = modelo.trim()
-                producto.marca = marca.trim()
-                producto.precio = precio.trim()
-                producto.categorias = categorias.trim()
-                producto.discount = discount.trim()
-                producto.descripcion = descripcion.trim()
-                producto.image = arrayImages.length > 0 ? arrayImages : producto.image
-          }
-        })
-        addProduct(getProducts)
-      res.redirect('/')
-       
-      //res.send(req.file) 
-    },
-
-    deleteProduct : (req, res) => {
-        getProducts.forEach(producto => {
-            if (producto.id === +req.params.id) {
-                let productToDelete = getProducts.indexOf(producto);
-                getProducts.splice(productToDelete, 1)
+                    })
+                },
+                
+                deleteProduct : (req, res) => {   // metodo de delete 
+                    db.Product.destroy({            // que elimine del producto que tengo en la url de id
+                        where: {
+                            id: +req.params.id
+                        }
+                    })
+                    .then(() => {
+                        res.redirect('/admin/index')
+                    })
+                    .catch(err => console.log(err))
+                },
+                listUsers:(req,res) =>   // listo usuarios 
+                {
+                    db.User.findAll()   // en el modelo de usuarios , traigo todos
+                    .then(users => {
+                        return res.render('listUsers',{
+                            title: 'Lista de usuarios',
+                            users
+                        })
+                    })
+                },
+                
+                vistaEdit:(req,res) =>{     //renderiza la vista para editar usuarios
+                    db.User.findByPk(req.params.id) // Busca en usuarios lo que llega por la URL
+                    .then(users =>{
+                        
+                        res.render('editUser', {
+                            title:"Edicion del usuario",
+                            users
+                        })
+                    })
+                    
+                },
+                editUser: (req,res) => {
+                    let {admin} = req.body  // esto es un destructuring del objeto body , donde traemos toda la info de los campos que vamos a editar
+                    db.User.update({        // Metodo de sequelize de update
+                        rol_user: admin     // el administrador solo puede modificar el rol del usuario , rol_user es como figura en nuestra base de datos y "admin" es el nombre del input
+                        
+                    },
+                    {where: {id:req.params.id}})   // esto es un condicional "where" hace referencia "donde" , lo que llega por la url
+                    .then(()=>{         
+                        
+                        
+                        res.redirect('/admin/users')        // una vez que pasa todo lleva a la vista de /admin/users que es donde estan listados los usuarios
+                    })
+                    
+                    //res.send(req.file) 
+                },
+                deleteUser : (req, res) => {    //metodo delete de sequelize
+                    db.User.destroy({               // del modelo usuario destruye/borra 
+                        where:{id:req.params.id}    // lo que recibe por url
+                    })
+                    
+                    res.redirect('/admin/index')
+                },
+                
+                formCategoria:(req,res) =>{         // Metodo para renderizar el metodo de agregar marcas 
+                    res.render('crearCategory',{    // Vista de agregar marcas
+                        title: 'Agregar categoria'  
+                    })
+                },
+                
+                agregarMarca:(req,res) => {         //metodo de agregar marca
+                    let {categoria} = req.body       // destructuring del req.body que es lo que viene de los inputs seria el name
+                    db.Brand.create({                 // del modelo marcas que cree una nueva marca
+                        name: categoria             // le asigno en el nombre que es como lo llamo en mi tabla , lo que llega del req.body
+                    })
+                    .then(user =>{
+                        
+                        res.redirect('/admin/index')
+                    })
+                    
+                },
+                listarMarcas:(req,res) =>{          // metodo de listar marcas
+                    db.Brand.findAll()              // Busca en el modelo marcas
+                    .then( brands =>{               // en la respuesta me da marcas
+                        res.render('listBrands',{       // renderizo en la vista listbrands todas las marcas que me encontro la promesa
+                            title:'Marcas',
+                            brands
+                        })
+                    })
+                },
+                deleteBrand:(req,res) => {  //metodo de eliminar marca , similar a los otros
+                    db.Brand.destroy({
+                        where:{id:req.params.id}
+                    })
+                    
+                    res.redirect('/admin/marca')
+                }
             }
-        })
-        
-        addProduct(getProducts);
-
-        res.redirect('/admin/index')
-    },
-    listUsers:(req,res) =>{
-        res.render('listUsers',{
-            title: 'Lista de usuarios',
-            users : getUsers
-        })
-    
-    },
-    vistaEdit:(req,res) =>{
-        let users = getUsers.find(user => {       // Creamos una variable de un producto donde nos guarde el objeto que recibimos por la url que coincida con el id de nuestra base de datos
-            return user.id === +req.params.id
-        })
-
-        res.render('editUser', {
-            title:"Edicion del usuario",
-            users
-        })
-    },
-    editUser: (req,res) => {
-        let {nombre, apellido, telefono , email ,password, documento, admin, image} = req.body  // esto es un destructuring del objeto body , donde traemos toda la info de los campos que vamos a editar
-         
-  
-          getUsers.forEach(producto => {
-              if(producto.id === +req.params.id){   // aca le decimos que si el product.id que recibimos por parametro coincide con el producto que edite los campos con el objeto que recibimos por el form
-                  producto.nombre = nombre
-                  producto.apellido = apellido
-                  producto.email = email
-                  producto.password = password
-                  producto.documento = documento
-                  producto.telefono = telefono
-                  producto.admin = admin
-                  producto.image = req.file ? req.file.filename : producto.image
-                  
-            }
-          })
-          addUsers(getUsers)
-        res.redirect('/admin/users')
-         
-        //res.send(req.file) 
-      },
-      deleteUser : (req, res) => {
-        getUsers.forEach(user => {
-            if (user.id === +req.params.id) {
-                let userToDelete = getUsers.indexOf(user);
-                getUsers.splice(userToDelete, 1)
-            }
-        })
-        
-        addUsers(getUsers);
-
-        res.redirect('/admin/index')
-    },
-}

@@ -6,48 +6,61 @@ const db = require('../database/models')
 module.exports = {
     
     index: (req,res) => {
-        let user = getUsers.find(user => user.id === +req.session.user.id)
-        
-        res.render('userProfile', {
-            title:"Cuenta",
-            session: req.session,
-            user
+        db.User.findByPk(req.session.user.id)
+        .then(user =>{
+            res.render('userProfile', {
+                title:"Cuenta",
+                session: req.session,
+                user
+            })
         })
-    },
-    editProfile:(req,res)=>{
-        let user = getUsers.find(user => user.id === +req.params.id)
         
+       
+    },
+    editProfile:(req,res)=>{    //metodo edit profile
+       db.User.findByPk(req.params.id)
+       .then(user=>{
         res.render('editProfile', {
             title:"Cuenta",
             session: req.session,
             user
         })
+       })
+  
     },
     updateProfile:(req,res)=> {
         let errors = validationResult(req);
+        let  = {
+            nombre,
+            apellido,
+            telefono,
+            documento,
+            telefono,
+            address,
+            pc,
+            province
+        } = req.body
+        
         if(errors.isEmpty()){
-            let user = getUsers.find(user => user.id === +req.params.id)
-            let  = {
-                nombre,
-                apellido,
-                telefono,
-                documento,
-            } = req.body
-            user.id = user.id
-            user.nombre = nombre
-            user.apellido = apellido
-            user.telefono = telefono
-            user.documento = documento
-            user.image = req.file ? req.file.filename : user.image
-            
-            addUsers(getUsers)
-            
-            delete user.password
-            
-            req.session.user = user
-            
-            res.redirect('/user')
-            
+            db.User.update({
+                first_name:nombre,
+                last_name:apellido,
+                phone:telefono,
+                address:address,
+                document:documento,
+                pc:pc,
+                province:province,
+                image: req.file && req.file.filename
+            },
+            {where:{id:req.params.id}})
+            .then(()=>{
+                 db.User.findByPk(req.params.id)
+                .then((user)=>{ 
+                    res.redirect('/user')
+                 }) 
+                   
+            })
+     
         }else{
             res.render('userProfile', {
                 title:"Cuenta",
@@ -101,11 +114,11 @@ module.exports = {
         },
         
         login:(req,res) => {
-            let user = getUsers.find(user => user.id === +req.params.id)
+           
             res.render('login2', {
                 title: "Login",
                 session: req.session,
-                user
+                
                 
             })
         },
@@ -113,24 +126,31 @@ module.exports = {
             let errors = validationResult(req)
             
             if(errors.isEmpty()){
-                let user = getUsers.find (user => user.email === req.body.email)
+               db.User.findOne({
+                   where: {email:req.body.email}
+               })
+               .then((user)=>{
+                   
+                   
                 req.session.user ={
                     id:user.id,
                     userName :user.nombre + "" + user.apellido,
                     email:user.email,
                     avatar :user.image,
-                    rol: user.admin
+                    rol: user.rol_user,
+                    documento: user.document,
+                    direccion: user.address
                     
-                }
+                }  
                 
                 
+                                         
                 if(req.body.remember){
                     res.cookie('cookieTech', req.session.user , { maxAge: 5000*60})
-                }
-                
-                res.locals.user = req.session.user
-                
+                }          
+                                                   
                 res.redirect('/')
+               })             
             }else{
                 res.render('login2',{
                     errors: errors.mapped(),
@@ -138,9 +158,7 @@ module.exports = {
                     session: req.session
                     
                 })
-            }
-            
-            
+            }                       
         },
         userLogout:(req,res)=> {
             req.session.destroy();

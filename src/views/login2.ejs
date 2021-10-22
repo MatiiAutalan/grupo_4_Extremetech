@@ -1,25 +1,28 @@
-<%- include('partials/head') %> 
-<%- include('partials/header') %> 
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %> 
+<body>
+  <%- include('partials/header') %> 
       <div class="container-login">
         <div class="section2-login">
           <h2 class="enter-register">Inicia sesion/Registrate</h2>
-          <form action="/user/login" class="form-login" method="POST">
+          <form id="form" action="/user/login" class="form-login" method="POST">
               <p class="user">
-              <label for="email"><i class="far fa-envelope"></i>
-
-              </label>
-                  <input class="inputs" type="text" name="email" id="email" placeholder="Email">
+                <label for="email"><i class="far fa-envelope"></i></label>
+                <input class="inputs" type="text" name="email" id="email" placeholder="Email">
               </p>
-              <% if (locals.errors && errors.email) { %>
-                <small class="error"><%= errors.email.msg %> </small>
-              <% } %>
+              <span class="error" id="emailErrors"></span>
+              
               <p class="pass">
                   <label for="password"><i class="fas fa-lock"></i></label>
                   <input class="inputs" type="password" name="password" id="password" placeholder="Contraseña">
               </p>
-              <% if (locals.errors && errors.password) { %>
-                <small class="error"><%= errors.password.msg %> </small>
+              <span class="error" id="passErrors"></span>
+              <br>
+              <% if (locals.errors && errors.custom) { %>
+                <small class="error"><%= errors.custom.msg %> </small>
               <% } %>
+              <span class="error" id="submitErrors"></span>
               <p class="remember-password">
               <label for="remember">Recordar contraseña</label>
               <input type="checkbox" name="remember" id="remember">
@@ -31,10 +34,12 @@
               <a href="#"><div><img src="/images/google.png" alt=""></div><div class="btn-google"><h6>Google</h6></div></a>
               </div>
           <div class="btn-login">
+            <button class="btn-style" id="btn-width"><a href="/user/register">Registrarse</a></button>
             <button class="btn-style" id="btn-width" type="submit">Ingresar</button>
-            <button class="btn-style" id="btn-width" type="submit"><a href="/user/register">Registrarse</a></button>
           </div>
           </form>
       </div>
     </div>
-<%- include('partials/footer') %> 
+    <script src="/javascript/validationLoginFront.js"></script>
+</body>
+</html>

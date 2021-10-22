@@ -1,53 +1,92 @@
 let {getProducts} = require('../data/dataBase')
 
+const db= require('../database/models');
+const {
+    Op
+} = require("sequelize");
 
 module.exports = {
     index: (req,res) => {
-        res.render('generalProduct', {
-            title: "Nuestros Productos",
-            getProducts,
-            session: req.session
+        db.Product.findAll({
+            include:[{association:'images_product'}]
+            
         })
-    },
-    product:(req,res) =>{
-        
-            let producto = getProducts.find(product =>{
-                return product.id === +req.params.id
+        .then(products => {
+            
+            return res.render('generalProduct', {
+             title: "Nuestros Productos",
+             products,
+             session: req.session
             })
-            res.render('productDetail', {
-                title: "Nuestros Productos",
-                producto,
-                session: req.session
-        })
+        }) 
+        .catch(error => res.send(error))
+    },
 
+    product:(req,res) =>{
+
+        db.Product.findOne({
+            where: {
+                id: +req.params.id
+            },
+            include: [{
+                association: "images_product"
+            },{
+                association: "brands"
+            }]
+        }) 
+            .then(product => {
+                res.render('productDetail', {
+                    title: "Nuestros Productos",
+                    product,
+                    session: req.session
+            })
+            })
         
     },
     ofertas: (req,res) => {
 
-        let productosOferta = getProducts.filter (productos => productos.discount >=10)
-         res.render('generalProduct', {
-            getProducts:  productosOferta,
-            title: "Nuestras Ofertas",
-            session: req.session
-        })  
+        db.Product.findAll({
+            include:[{association:'category'},{association:'images_product'}],
+            where:{discount: {
+                [Op.gte]: 10
+            }}
+        }) 
+        .then(( productosOferta)=>{
+            
+           
+            res.render('generalProduct', {
+               products:  productosOferta,
+               title: "Nuestras Ofertas",
+               session: req.session
+           })  
+           
+        })
        
        
     },
-    notebook: (req,res) =>{
+  /*   notebook: (req,res) =>{
         let productosNotebook = getProducts.filter(productos => productos.categorias == "notebook")
         res.render('generalProduct', {
             getProducts: productosNotebook,
             title:"Notebooks",
             session: req.session
-        })
-    },
+        }) 
+    },*/
     categorias: (req,res) =>{
-        let categoriasId = req.params.categorias
-        let categorias = getProducts.filter(product => product.categorias == categoriasId)
-        res.render('generalProduct', {
-            getProducts: categorias,
-            title: "Productos",
-            session: req.session
+        //let categoriasId = req.params.categorias
+        //let categorias = getProducts.filter(product => product.categorias == categoriasId)
+        db.Product.findAll({
+            include:[{association:'category'},{association:'images_product'}],
+            where: {category_id : req.params.categorias}
         })
+        .then(categorias =>{
+            
+            res.render('generalProduct', {
+                products: categorias,
+                title: "Productos",
+                session: req.session
+            })
+        })
+       
     },
 }

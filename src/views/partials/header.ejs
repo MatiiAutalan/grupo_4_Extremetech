@@ -5,10 +5,10 @@
       <div class="menu-hamburguer">
         <div id="mySidebar" class="sidebar">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="/products/ofertas">Ofertas</a>
-          <a href="/products/notebooks">Notebooks</a>
+          <a href="/products/oferta" >Ofertas</a>
+          <a href="/products/14">Notebooks</a>
           <a href="/products">Productos</a>
-          <% if ( session.user && session.user.rol == true) { %>
+          <% if ( session.user && session.user.rol == 1) { %>
             <li><a href="/admin/index">ADMIN</a></li>
           <% }else{ %>
              <li><a href="/about">Nosotros</a></li>
@@ -30,7 +30,7 @@
       </div>
       <!-- search -->
       <form class="search-container" action="/search" method="GET">
-        <input type="search" name="keywords" id="" placeholder="Buscar productos"/>
+        <input type="search" name="search" id="" placeholder="Buscar productos"/>
         <button type="submit"> <i class="fas fa-search"></i></button>
       </form>
       <!-- login and cart -->
@@ -46,10 +46,10 @@
       </div>
     <!-- links -->
     <ul class="ul-links">
-      <li><a href="/products/ofertas">Ofertas</a></li>
-      <li><a href="/products/notebooks">Notebooks</a></li>
+      <li><a href="/products/ofertas" >Ofertas</a></li>
+      <li><a href="/products/14">Notebooks</a></li>
       <li><a href="/products">Productos</a></li>
-      <% if ( session.user && session.user.rol == true) { %>
+      <% if ( session.user && session.user.rol == 1) { %>
         <li><a href="/admin/index">ADMIN</a></li>
       <% }else{ %>
          <li><a href="/about">Nosotros</a></li>

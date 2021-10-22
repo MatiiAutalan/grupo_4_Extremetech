@@ -16,6 +16,11 @@
   justify-content: center;
 }
 
+.title-results {
+  text-align: center;
+  padding: 0 50px;
+}
+
 .product-item {
   width: 300px;
   margin: 15px 20px;
@@ -193,13 +198,14 @@
     display: block;
     box-shadow: 2px 2px 2px 1px var(--colorSecundary);
     margin-top: 15px;
+    margin-bottom: 15px;
     padding-right: 15px;
     text-align: center;
     padding-left: 13px;
     line-height: 30px;
     position: sticky;
     top: 0;
-    height: 420px;
+    height: 450px;
     margin-left: 20px;
     background-color: var(--colorPrimary);
   }

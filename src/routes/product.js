@@ -7,7 +7,7 @@ let {index , product, ofertas, notebook, categorias}= require('../controllers/pr
 router.get('/',index)
 router.get('/detalle/:id',product)
 router.get('/ofertas', ofertas)
-router.get('/notebooks', notebook)
+/* router.get('/notebooks', notebook) */
 router.get('/:categorias', categorias)
 
 

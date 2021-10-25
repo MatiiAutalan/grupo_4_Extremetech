@@ -25,19 +25,19 @@
             <div>
               <legend>Datos de cuenta</legend>
               <label for="email">E-mail</label>
-              <input type="email" name="email" id="email" value="<%= locals.old && old.email %>"/>
+              <input type="email" name="email" id="inputEmail" value="<%= locals.old && old.email %>"/>
               <span id="erroresEmail" style="color: red;"></span> <br>
               <% if (locals.errors && errors.email) { %>
                 <small class="error"><%= errors.email.msg %> </small>
               <% } %>
               <label for="contraseña">Contraseña</label>
-              <input type="password" name="password" id="password"/>
+              <input type="password" name="password" id="inputPassword"/>
               <span id="erroresPass" style="color: red;"></span> <br>
               <% if (locals.errors && errors.password) { %>
                 <small class="error"><%= errors.password.msg %> </small>
               <% } %>
               <label for="repetir contraseña">Repetir contraseña</label>
-              <input type="password" name="repeatPassword" id="repeatPassword"/>
+              <input type="password" name="repeatPassword" id="inputRepeatPassword"/>
               <span id="passError2" style="color: red;"></span> <br>
               <% if (locals.errors && errors.repeatPassword) { %>
                 <small class="error"><%= errors.repeatPassword.msg %> </small>
@@ -53,13 +53,13 @@
                 <small class="error"><%= errors.nombre.msg %> </small>
               <% } %>
               <label for="apellido">Apellido</label>
-              <input type="text" name="apellido" id="apellido" value="<%= locals.old && old.apellido %>" />
+              <input type="text" name="apellido" id="inputApellido" value="<%= locals.old && old.apellido %>" />
               <span id="erroresApellido" style="color: red;"></span> <br>
               <% if (locals.errors && errors.apellido) { %>
                 <small class="error"><%= errors.apellido.msg %> </small>
-              <% } %>
+                <% } %>
               <label for="telefono">Telefono</label>
-              <input type="tel"  name="telefono" id="telefono" value="<%= locals.old && old.telefono %>" />
+              <input type="tel"  name="telefono" id="inputTelefono" value="<%= locals.old && old.telefono %>" />
               <span id="erroresTel" style="color: red;"></span> <br>
               <% if (locals.errors && errors.telefono) { %>
                 <small  class="error"><%= errors.telefono.msg %> </small>

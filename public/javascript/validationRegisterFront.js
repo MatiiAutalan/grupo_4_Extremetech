@@ -10,9 +10,9 @@ let $passwordErrors1 =qs('#erroresPass')
 let $password2 = qs('#inputRepeatPassword')
 let $passError2 = qs('#passError2')
 let $nombre = qs('#inputNombre')
-let nombreError = qs('#erroresNombre')
+let $nombreError = qs('#erroresNombre')
 let $apellido = qs('#inputApellido')
-let apellidoError = qs('#erroresApellido')
+let $apellidoError = qs('#erroresApellido')
 let $telefono = qs('#inputTelefono')
 let telefonoError = qs('#erroresTel')
 let $submitErrors = qs('#submitErrors')
@@ -46,29 +46,7 @@ window.addEventListener('load',()=>{
                  
           }
       })
-  /* $email.addEventListener('blur',function(){
-      switch(true){
-          case !$email.value.trim():
-            erroresEmail.innerHTML = `${iconError} El email es obligatorio `
-            
-            //$email.style.backgroundColor = 'red'
-            //emailErrors.push ="asdasdasdas"
-              console.log('El email es obligatorio')
-              
-              //console.log(emailErrors)
-              break;
-            case !regExEmail.test($email.value):
-                erroresEmail.innerHTML = `${iconError} Debe ingresar un email valido `
-                console.log('debes poner un email valido')
-                break;
-            default:
-                erroresEmail.innerHTML= ""
-                //erroresEmail.style.color = 'green'
-                $email.style.backgroundColor ='#70ff8b'
-             
-      }
-  }) */
-
+ 
   $password.addEventListener('blur', ()=>{
       switch (true) {
           case !$password.value.trim():
@@ -89,23 +67,7 @@ window.addEventListener('load',()=>{
       }
   })
 
-   /* $password.addEventListener('blur',function(){
-     switch(true){
-         case !$password.value.trim():
-             //passwordErrors.push = 'La contraseña es obligatoria'
-             passwordErrors1.innerHTML = 'La contraseña es obligatoria'
-             break;
-        case !regExPass.test($password.value):
-            //passwordErrors.push = 'La contraseña debe tener: entre 6 o 12 caracteres, al menos una mayúscula, una minúscula y un número';
-            passwordErrors1.innerHTML ='La contraseña debe tener: entre 6 o 12 caracteres, al menos una mayúscula, una minúscula y un número';
-            break
-        default:
-            $password.style.backgroundColor = '#70ff8b'
-            passwordErrors1.innerHTML =""
-            break;
-     }
-  })
- */
+  
   $password2.addEventListener('blur', function(){
       switch (true) {
           case !$password2.value.trim():
@@ -125,54 +87,37 @@ window.addEventListener('load',()=>{
       }
   })
 
-  /* $password2.addEventListener('blur',()=>{
-      switch (true) {
-          case !$password2.value.trim() :
-              
-              passError2.innerHTML = "Reingresa tu contraseña"
-              break;
-            case $password2.value !== $password.value:
-                
-                passError2.innerHTML = 'Las contraseñas no coinciden'
-                break;
-      
-          default:
-              $password2.style.backgroundColor = '#70ff8b'
-              
-              passError2.innerHTML = ''
-              break;
-      }
-  })  */
 
-  /* $nombre.addEventListener('blur',function(){
+
+  $nombre.addEventListener('blur',function(){
     switch (true) {
         case $nombre.value.trim().length <= 2 :
-            nombreError.innerHTML = "El nombre debe ser mayor a 2 caracteres"
+            $nombreError.innerHTML = "El nombre debe ser mayor a 2 caracteres"
             break;
         case !regExAlpha.test($nombre.value) :
-            nombreError.innerHTML = "Debes ingresar un nombre valido"
+            $nombreError.innerHTML = "Debes ingresar un nombre valido"
               break;
         default:
-            nombreError.innerHTML= ""
-            nombreError.style.backgroundColor = '#70ff8b'
+            $nombreError.innerHTML= ""
+            $nombre.style.border = "3px solid green"
             break;
     } 
-}) */
- /*  $apellido.addEventListener('change',function(){
+})
+   $apellido.addEventListener('change',function(){
     switch (true) {
         case $apellido.value.trim().length <= 2 :
-            apellidoError.innerHTML = "El apellido debe ser mayor a 2 caracteres"
+            $apellidoError.innerHTML = "El apellido debe ser mayor a 2 caracteres"
             break;
         case !regExAlpha.test($apellido.value) :
-              apellidoError.innerHTML = "Debes ingresar un apellido valido"
+              $apellidoError.innerHTML = "Debes ingresar un apellido valido"
               break;
         default:
-          apellidoError.innerHTML= ""
-          apellidoError.style.backgroundColor = '#70ff8b'
+          $apellidoError.innerHTML= ""
+          $apellido.style.border = "3px solid green"
             break;
     } 
-}) */
-/* $telefono.addEventListener('change',function(){
+}) 
+$telefono.addEventListener('change',function(){
     switch (true) {
         case $telefono.value.trim().length <= 10 :
             telefonoError.innerHTML = "Telefono invalido"
@@ -184,22 +129,24 @@ window.addEventListener('load',()=>{
             break;
     } 
 
-}) */
+})
 $form.addEventListener('submit',function(event){
     let error = false;
     event.preventDefault()
     console.log($form.elements)
-    let elementosForm = this.elements
+    let elementosForm = $form.elements
+    
 
     for (let index = 0; index < elementosForm.length-1; index++) {
-      if(elementosForm[index].value == ""){
+        console.log(elementosForm[index])
+      if(elementosForm[index].value == "" && elementosForm[index].name !== "telefono" && elementosForm[index].name !== "apellido"){
           elementosForm[index].classList.add('is-invalid');
           
-          error = true;
-      }
+        error = true
+      } 
   }
 
-    if(!error){
+    if(error == 0){
         console.log('Formulario Enviado');
         //$form.submit()
     }

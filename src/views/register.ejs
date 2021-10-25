@@ -47,7 +47,7 @@
             <div>
               <legend>Datos Personales</legend>
               <label for="nombre">Nombre</label>
-              <input type="text" name="nombre" id="inputNombre" value="<%= locals.old && old.nombre %> " />
+              <input type="text" name="nombre" id="inputNombre" value="<%= locals.old && old.nombre %>" />
               <span id="erroresNombre" style="color: red;"></span> <br>
               <% if (locals.errors && errors.nombre) { %>
                 <small class="error"><%= errors.nombre.msg %> </small>

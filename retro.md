@@ -125,3 +125,67 @@ corregir lo que sea necesario
 - Terminar la vista sobre nosotros
 
 
+Retrospectiva Sprint 5 :
+
+*Seguir haciendo:
+
+- Distribucion de tarea equitativa.
+- Compañerismo 
+- Codear juntos
+- Adelantando cosas respecto al sprint
+-Poniendo fechas limites anteriores a las entregas para luego tener tiempo de 
+corregir lo que sea necesario
+- Trabajar en los detalles de la pagina.
+
+
+
+*Hacer más:
+- Intentar buscar algo para destacarnos por sobre el resto de los proyectos
+-Leer el siguiente sprint y analizarlo antes de empezar.
+- Trabajar la comunicacion
+
+
+*Hacer menos:
+- Posponer reuniones.
+
+
+*Empezar a hacer:
+-Establecer un horario para una reunión semanal.
+- Hacer mas reuniones
+
+*Dejar de hacer:
+- Terminar la vista sobre nosotros
+
+
+Retrospectiva Sprint 6 :
+
+*Seguir haciendo:
+
+- Distribucion de tarea equitativa.
+- Compañerismo 
+- Adelantando cosas respecto al sprint
+-Poniendo fechas limites anteriores a las entregas para luego tener tiempo de 
+corregir lo que sea necesario
+- Trabajar en los detalles de la pagina.
+
+
+
+*Hacer más:
+- Intentar buscar algo para destacarnos por sobre el resto de los proyectos
+-Leer el siguiente sprint y analizarlo antes de empezar.
+- Trabajar la comunicacion
+
+
+*Hacer menos:
+- Posponer reuniones.
+
+
+*Empezar a hacer:
+-Establecer un horario para una reunión semanal.
+
+- completar la vista de nosotros
+
+*Dejar de hacer:
+
+
+

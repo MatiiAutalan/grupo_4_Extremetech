@@ -30,15 +30,32 @@
   height: 30px;
   margin-top: 10px;
 }
+#inputName{
+  box-shadow: 2px 2px 2px 1px var(--colorPrimary);
+  width: 100%;
+  padding-left: 10px;
+  border: none;
+  margin: 0 auto;
+  height: 30px;
+  margin-top: 10px;
+}
 #desc-producto-carga-productos {
   margin-top: 30px;
 }
 .desc-product-text-area {
   height: 80px;
 }
+
 .add-file-img-carga-products {
   margin-top: 30px;
 }
+.form-input{
+  display:block;
+}
+.is-invalid {
+  border: solid 2px red;
+}
+
 
 #add-file-products {
   width: 100%;

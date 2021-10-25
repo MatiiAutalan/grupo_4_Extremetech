@@ -8,39 +8,64 @@
     <main class="main-carga-productos-panel">
         <h2 class="carga-productos-panel-adm">Carga de productos</h1>
             <h4 class="nuevo-producto-panel-adm">Nuevo producto</h3>
-                <form action="/admin/agregarProducto" method="POST" enctype="multipart/form-data">
+                <form id="form" action="/admin/agregarProducto" method="POST" enctype="multipart/form-data">
                 <div class="carga-form-productos" >
                     <div class="container-productos-carga-individual">
-                        <input class="producto-individual-carga" type="text" name="name" placeholder="Modelo" />
+                        <p >
+                        <input id="inputName" class="producto-individual-carga" type="text" name="name" placeholder="Modelo" />
+                        <!--  <span id="nameErrors"></span> -->
+                    </p>
                         <input class="producto-individual-carga" type="text" name="color" placeholder="Color" />
-                        <select name="brand_id" id="categorias" class="form-input">
+                       
+                        <select name="brand_id" id="marca" class="form-input">
+                            <span id="marcaErrors"></span>
 							<option selected hidden value="">Marca</option>
                                 <% brand.forEach(element => { %>
                             <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.name %></option>
                                 <% }) %>
 						</select>
-                        <input type="text" class="producto-individual-carga" name="discount" placeholder="Descuento"/>
+                    <p>
+                        <input id="descuento" type="text" class="producto-individual-carga" name="discount" placeholder="Descuento"/>
+                        
+                    </p>
+                        
                         <select name="category_id" id="categorias" class="form-input">
+                        <span id="categoriasErrors"></span>
+                    
 							<option selected hidden value="">Categorias</option>
                                 <% category.forEach(element => { %>
                             <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.name %></option>
                                 <% }) %>
 						</select>
-                        <input type="text" class="producto-individual-carga" name="price" placeholder="Precio"/>
+                    
+                    
+                    <p>
+                        <input id="precio" type="text" class="producto-individual-carga" name="price" placeholder="Precio"/>
+                        <!--  <span id="precioErrors"></span> -->
                         
+
+                        </p>
                         
                     </div>
                     <p id="desc-producto-carga-productos">Descripcion del producto</p>
                     <textarea class="desc-product-text-area" name="description" id="" ></textarea>
                     <p class="add-file-img-carga-products">Agregar archivos de imagen</p>
                     <div class="container-img-products-carga-end">
-                        <input  class="buttonForm" type="file" id="file" name="product-image" multiple accept=".jpg,.png" /><br><br>
+                        <input  class="buttonForm" type="file" id="file"  name="product-image" multiple accept=".jpg,.png" /><br><br>
+                        <span class="error" id="fileErrors"></span>
+                        <span  class="error" id="precioErrors"></span>
+                        <span class="error" id="nameErrors"></span>
+                        <span class="error" id="descuentoErrors"></span>
+                        <span id="submitErrors"></span>
                         <div id="submit-fn">
                             <button type="submit" id="btn-submit-finalizar-edit">Finalizar</button>
                         </div>
+
                     </div>
                 </div>
             </form>
+            
                 </main>
+                <script src="/javascript/validationCargaProductos.js"></script>
             </body>
             </html>

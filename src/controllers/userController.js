@@ -96,7 +96,7 @@ module.exports = {
                     
                 })
                 .then(()=>{
-                   res.redirect('/')
+                   res.redirect('/user/login')
                 })
                 
                 //getUsers.push(nuevoUsuario);   // le estamos metiendo a la variable getproducts que es la que tiene todos los productos el nuevo producto que estamos creando

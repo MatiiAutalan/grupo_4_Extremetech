@@ -31,7 +31,7 @@
                             <small class="text-danger"><%= errors.telefono.msg %> </small>
                         <% } %>
                         
-                        <input type="text" class="producto-individual-carga" placeholder="Direccion" id="address" name="address" value="<%= locals.old ? old.address : user.address %>">
+                        <input type="text" class="producto-individual-carga" placeholder="Direccion" id="address" name="address" value="<%= locals.old ? old.address : user.address%>">
                         <% if (locals.errors && errors.address) { %>
                             <small class="text-danger"><%= errors.address.msg %> </small>
                         <% } %>
@@ -83,8 +83,9 @@
                 <span class="error" id="phoneErrors" ></span>
                 <span class="error" id="addressErrors" ></span>
                 <span class="error" id="cpErrors" ></span>
+                <span class="error" id="addressErrors" ></span>
                 <div id="submit-fn">
-                    <span id="submitErrors"></span>
+                    <span class="error" id="submitErrors"></span>
                     <button type="submit" id="btn-submit-finalizar-edit">Finalizar</button>
                 </div>
             </form>

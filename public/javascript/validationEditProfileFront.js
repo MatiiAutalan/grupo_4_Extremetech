@@ -27,18 +27,22 @@ window.addEventListener( 'load' , () => {
     regExDNI = /^[0-9]{7,8}$/,
     regExphone = /^[0-9]{10,12}$/,
     regExpCp = /^[0-9]{4,5}$/,
+    regExAddress = /^[#.0-9a-zA-Z\s,-]+$/;
     
     $inputName.addEventListener('change', function(){
         console.log($inputName.value.trim())
         switch (true) {
             case !$inputName.value.trim():
                 $nameErrors.innerHTML = `${iconError} El campo nombre es obligatorio`
+                $inputName.style.border = "3px solid red"
                 break;
             case !regExAlpha.test($inputName.value):
                 $nameErrors.innerHTML = `${iconError} Ingresa un nombre válido`
+                $inputName.style.border = "3px solid red"
                 break;    
             default:
                 $nameErrors.innerHTML = ""
+                $inputName.style.border = "3px solid green"
                 break;
         }
     })
@@ -48,14 +52,16 @@ window.addEventListener( 'load' , () => {
         switch (true) {
             case !$inputLastname.value.trim():
                 $lastnameErrors.innerHTML = `${iconError} El campo apellido es obligatorio`
+                $inputLastname.style.border = "3px solid red"
                 
                 break;
             case !regExAlpha.test($inputLastname.value):
                 $lastnameErrors.innerHTML = `${iconError} Ingresa un apellido válido`
-                
+                $inputLastname.style.border = "3px solid red"
                 break;    
             default:
                 $lastnameErrors.innerHTML = ""
+                $inputLastname.style.border = "3px solid green"
                 break;
         }
     })
@@ -64,20 +70,38 @@ window.addEventListener( 'load' , () => {
         switch (true) {
             case !regExDNI.test($dni.value):
                 $dniErrors.innerHTML = `${iconError} Ingresa un DNI válido`
+                $dni.style.border = "3px solid red"
                 break;    
             default:
                 $dniErrors.innerHTML = ""
+                $dni.style.border = "3px solid green"
                 break;
         }
     })
 
+    /* $address.addEventListener('change', function(){
+        console.log($address.value.trim())
+        switch (true) {
+            case !regExAddress.test($address.value):
+                $addressErrors.innerHTML = `${iconError} Ingresa una dirección válido`
+                $address.style.border = "3px solid red"
+                break;    
+            default:
+                $addressErrors.innerHTML = ""
+                $address.style.border = "3px solid green"
+                break;
+        }
+    }) */
+
     $cp.addEventListener('change', function(){
         switch (true) {
-            case !regExCp.test($cp.value):
+            case !regExpCp.test($cp.value):
                 $cpErrors.innerHTML = `${iconError} Ingresa un codigo postal válido`
+                $cp.style.border = "3px solid red"
                 break;    
             default:
                 $cpErrors.innerHTML = ""
+                $cp.style.border = "3px solid green"
                 break;
         }
     })
@@ -86,9 +110,11 @@ window.addEventListener( 'load' , () => {
         switch (true) {
             case !regExphone.test($phone.value):
                 $phoneErrors.innerHTML = `${iconError} Ingresa un telefono válido`
+                $phone.style.border = "3px solid red"
                 break;    
             default:
                 $phoneErrors.innerHTML = ""
+                $phone.style.border = "3px solid green"
                 break;                                                                                                                                                                             
         }
     })
@@ -124,7 +150,7 @@ window.addEventListener( 'load' , () => {
         
         for (let index = 0; index < elementosForm.length-1; index++) {
           if(elementosForm[index].value == "" && elementosForm[index].name !== "pc" && elementosForm[index].name !== "image" && elementosForm[index].name !== "address" && elementosForm[index].name !== "telefono" && elementosForm[index].name !== "dni"){
-              elementosForm[index].classList.add('is-invalid');
+              elementosForm[index].style.border = "3px solid red";
               submitErrors.innerHTML = `${iconError} Los campos seleccionados son obligatorios`;
               error = true;
           }

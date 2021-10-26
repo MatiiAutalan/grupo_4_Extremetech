@@ -81,7 +81,7 @@ window.addEventListener('load',()=>{
                 break;
           default:
               passError2.innerHTML = ""
-              $password.style.border = "3px solid green"
+              $password2.style.border = "3px solid green"
 
               break;
       }
@@ -148,7 +148,7 @@ $form.addEventListener('submit',function(event){
 
     if(error == 0){
         console.log('Formulario Enviado');
-        //$form.submit()
+        $form.submit()
     }
 
   })

@@ -30,6 +30,10 @@
   height: 30px;
   margin-top: 10px;
 }
+.img-container img{
+  width: 150px;
+  height: 150px;
+}
 #inputName{
   box-shadow: 2px 2px 2px 1px var(--colorPrimary);
   width: 100%;

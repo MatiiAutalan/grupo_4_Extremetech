@@ -18,7 +18,7 @@
                         <input class="producto-individual-carga" type="text" name="color" placeholder="Color" />
                        
                         <select name="brand_id" id="marca" class="form-input">
-                            <span id="marcaErrors"></span>
+                            
 							<option selected hidden value="">Marca</option>
                                 <% brand.forEach(element => { %>
                             <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.name %></option>
@@ -30,13 +30,13 @@
                     </p>
                         
                         <select name="category_id" id="categorias" class="form-input">
-                        <span id="categoriasErrors"></span>
-                    
-							<option selected hidden value="">Categorias</option>
-                                <% category.forEach(element => { %>
-                            <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.name %></option>
+                            
+                            
+                            <option selected hidden value="">Categorias</option>
+                            <% category.forEach(element => { %>
+                                <option value="<%- element.id %>" <%= locals.old && old.element == element.id ? "selected" : "" %> ><%- element.name %></option>
                                 <% }) %>
-						</select>
+                            </select>
                     
                     
                     <p>
@@ -52,11 +52,18 @@
                     <p class="add-file-img-carga-products">Agregar archivos de imagen</p>
                     <div class="container-img-products-carga-end">
                         <input  class="buttonForm" type="file" id="file"  name="product-image" multiple accept=".jpg,.png" /><br><br>
+                        <div class="box-2 mt-3" >
+                            <div class="img-container" id="img-preview">
+                                
+                            </div>
                         <span class="error" id="fileErrors"></span>
                         <span  class="error" id="precioErrors"></span>
                         <span class="error" id="nameErrors"></span>
                         <span class="error" id="descuentoErrors"></span>
-                        <span id="submitErrors"></span>
+                        <span class="error" id="categoriasErrors"></span>
+                        <span class="error" id="marcaErrors"></span>
+                        <span class="error" id="fileErrors"></span>
+                        <span class="error" id="submitErrors"></span>
                         <div id="submit-fn">
                             <button type="submit" id="btn-submit-finalizar-edit">Finalizar</button>
                         </div>

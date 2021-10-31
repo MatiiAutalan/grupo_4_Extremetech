@@ -4,6 +4,7 @@ function qs(element) {
 } 
 
 let iconError = '<i class="fas fa-times-circle"></i>'
+let validationsErrors = false
 
 window.addEventListener( 'load' , () => {
   let $categorias = qs("#categorias"),
@@ -35,16 +36,19 @@ window.addEventListener( 'load' , () => {
       case !$inputName.value.trim():
       $nameErrors.innerHTML = `${iconError} El campo modelo es obligatorio`;
       $inputName.style.border = "3px solid red"
+      validationsErrors = true;
       
       break;
       case !regExAlpha.test($inputName.value):
       $nameErrors.innerHTML = `${iconError} Ingrese un modelo valido`;
       $inputName.style.border = "3px solid red"
+      validationsErrors = true;
       break; 
       default:
       $nameErrors.innerHTML = ''
       $inputName.removeAttribute('class')
       $inputName.style.border ="3px solid green"
+      validationsErrors = false;
       break;
     }
   })
@@ -53,20 +57,24 @@ window.addEventListener( 'load' , () => {
     if(!$categorias.value.trim()){
       $categoriasErrors.innerHTML = `${iconError} La categoria es obligatoria`;
       $categorias.style.border = "3px solid red"
+      validationsErrors = true;
     }else {
       
       $categorias.style.border ="3px solid green"
       $categoriasErrors.innerHTML = ''
+      validationsErrors = false;
     }
   })
   $marca.addEventListener('blur', function(){
     if(!$marca.value.trim()){
       $marcaErrors.innerHTML = `${iconError} La marca es obligatoria`;
       $marca.style.border = "3px solid red"
+      validationsErrors = true;
     }else {
       
       $marca.style.border ="3px solid green"
       $marcaErrors.innerHTML = ''
+      validationsErrors = false;
     }
   })
   
@@ -75,15 +83,18 @@ window.addEventListener( 'load' , () => {
       case !$precio.value.trim():
       $precioErrors.innerHTML= `${iconError} El precio es obligatorio`
       $precio.style.border = "3px solid red"
+      validationsErrors = true;
       break;
       case !regExNumber.test($precio.value):
       $precioErrors.innerHTML ='ingrese un precio valido';
       $precio.style.border = "3px solid red"
+      validationsErrors = true;
       break
       
       default:
       $precioErrors.innerHTML= ""    
       $precio.style.border = "3px solid green"
+      validationsErrors = false;
       
       break;
     }
@@ -94,11 +105,13 @@ window.addEventListener( 'load' , () => {
       case !regExNumberrr.test($descuento.value):
       $descuentoErrors.innerHTML =`${iconError} Ingrese un descuento valido`;
       $descuento.style.border = "3px solid red"
+      validationsErrors = true;
       break
       
       default:
       $descuentoErrors.innerHTML= ""    
       $descuento.style.border = "3px solid green"
+      validationsErrors = false;
       
       break;
     }
@@ -112,6 +125,7 @@ window.addEventListener( 'load' , () => {
       $fileErrors.innerHTML = 'Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png - .gif)';
       $file.value = '';
       $imgPreview.innerHTML = '';
+      validationsErrors = true;
       return false;
     }else{
       // Image preview 
@@ -124,6 +138,7 @@ window.addEventListener( 'load' , () => {
         reader.readAsDataURL($file.files[0]);
         $fileErrors.innerHTML = '';
         $file.classList.remove('is-invalid')
+        validationsErrors = false;
       }
     }    
   })
@@ -145,7 +160,7 @@ window.addEventListener( 'load' , () => {
       //console.log(elementosForm[index])
     }
     
-    if(!error){
+    if(!error && !validationsErrors){
       console.log('Formulario Enviado');
       $form.submit()
     }

@@ -3,6 +3,7 @@ function qs(element) {
 } 
 
 let iconError = '<i class="fas fa-times-circle"></i>'
+let validationsErrors = false
 
 window.addEventListener( 'load' , () => {
     let $email = qs("#email"),
@@ -18,13 +19,16 @@ $email.addEventListener("blur", function () {
     switch (true) {
       case !$email.value.trim():
         $emailErrors.innerHTML = `${iconError} El campo email es obligatorio`;
+        validationsErrors = true;
         break;
   
       case !regExEmail.test($email.value):
         $emailErrors.innerHTML = `${iconError} Debe ingresar un email válido`;
+        validationsErrors = true;
         break;
       default:
         $emailErrors.innerHTML = "";
+        validationsErrors = false;
         break;
     }
   });
@@ -34,10 +38,11 @@ $email.addEventListener("blur", function () {
     switch (true) {
       case !$pass.value.trim():
         $passErrors.innerHTML = `${iconError} El campo contraseña es obligatorio`;
-        break;
+        validationsErrors = true;
   
       default:
         $passErrors.innerHTML = "";
+        validationsErrors = false;
         break;
     }
   });
@@ -56,9 +61,9 @@ $email.addEventListener("blur", function () {
       }
   }
   
-    if(!error){
+    if(!error && !validationsErrors){
         console.log('Formulario Enviado');
-        $form.submit()
+       $form.submit()
     }
   
   });

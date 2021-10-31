@@ -3,6 +3,7 @@ function qs(element) {
 } 
 
 let iconError = '<i class="fas fa-times-circle"></i>';
+let validationsErrors = false
 
 window.addEventListener( 'load' , () => {
     let $inputName = qs('#first_name'),
@@ -36,14 +37,17 @@ window.addEventListener( 'load' , () => {
             case !$inputName.value.trim():
                 $nameErrors.innerHTML = `${iconError} El campo nombre es obligatorio`
                 $inputName.style.border = "3px solid red"
+                validationsErrors = true;
                 break;
             case !regExAlpha.test($inputName.value):
                 $nameErrors.innerHTML = `${iconError} Ingresa un nombre válido`
                 $inputName.style.border = "3px solid red"
+                validationsErrors = true;
                 break;    
             default:
                 $nameErrors.innerHTML = ""
                 $inputName.style.border = "3px solid green"
+                validationsErrors = false;
                 break;
         }
     })
@@ -54,15 +58,18 @@ window.addEventListener( 'load' , () => {
             case !$inputLastname.value.trim():
                 $lastnameErrors.innerHTML = `${iconError} El campo apellido es obligatorio`
                 $inputLastname.style.border = "3px solid red"
+                validationsErrors = true;
                 
                 break;
             case !regExAlpha.test($inputLastname.value):
                 $lastnameErrors.innerHTML = `${iconError} Ingresa un apellido válido`
                 $inputLastname.style.border = "3px solid red"
+                validationsErrors = true;
                 break;    
             default:
                 $lastnameErrors.innerHTML = ""
                 $inputLastname.style.border = "3px solid green"
+                validationsErrors = false;
                 break;
         }
     })
@@ -72,10 +79,12 @@ window.addEventListener( 'load' , () => {
             case !regExDNI.test($dni.value):
                 $dniErrors.innerHTML = `${iconError} Ingresa un DNI válido`
                 $dni.style.border = "3px solid red"
+                validationsErrors = true;
                 break;    
             default:
                 $dniErrors.innerHTML = ""
                 $dni.style.border = "3px solid green"
+                validationsErrors = false;
                 break;
         }
     })
@@ -99,10 +108,12 @@ window.addEventListener( 'load' , () => {
             case !regExpCp.test($cp.value):
                 $cpErrors.innerHTML = `${iconError} Ingresa un codigo postal válido`
                 $cp.style.border = "3px solid red"
+                validationsErrors = true;
                 break;    
             default:
                 $cpErrors.innerHTML = ""
                 $cp.style.border = "3px solid green"
+                validationsErrors = false;
                 break;
         }
     })
@@ -112,10 +123,12 @@ window.addEventListener( 'load' , () => {
             case !regExphone.test($phone.value):
                 $phoneErrors.innerHTML = `${iconError} Ingresa un telefono válido`
                 $phone.style.border = "3px solid red"
+                validationsErrors = true;
                 break;    
             default:
                 $phoneErrors.innerHTML = ""
                 $phone.style.border = "3px solid green"
+                validationsErrors = false;
                 break;                                                                                                                                                                             
         }
     })
@@ -128,6 +141,7 @@ window.addEventListener( 'load' , () => {
             $fileErrors.innerHTML = `${iconError} Carga un archivo de imagen válido, con las extensiones (.jpg - .jpeg - .png)`;
             $file.value = '';
             $imgPreview.innerHTML = '';
+            validationsErrors = true;
             return false;
         }else{
             console.log($file.files);
@@ -139,6 +153,7 @@ window.addEventListener( 'load' , () => {
                 reader.readAsDataURL($file.files[0]);
                 $fileErrors.innerHTML = '';
                 $file.classList.remove('is-invalid')
+                validationsErrors = false;
             }
         }
     });
@@ -157,7 +172,7 @@ window.addEventListener( 'load' , () => {
           }
       }
       
-        if(!error){
+        if(!error && !validationsErrors){
             console.log('Formulario Enviado');
             $form.submit()
         }

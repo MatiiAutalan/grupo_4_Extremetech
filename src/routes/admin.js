@@ -8,13 +8,14 @@ let uploadAvatar = require('../middlewares/uploadAvatar')
 let userAdmin = require('../middlewares/userAdmin')
 let userSession = require('../middlewares/userSession')
 let cookieCheck = require('../middlewares/cookieCheck')
+let validationProducts = require('../validations/validationProduct')
 
 
 
 /* GET  donde requerimos el formulario para agregar nuevo producto */
 router.get('/agregarProducto',cookieCheck,userAdmin, formAgregar)
 /* Metodo POST ,Captura los datos para agregar un producto*/
-router.post('/agregarProducto',upload.array('product-image') ,agregarProducto)
+router.post('/agregarProducto',upload.array('product-image'),validationProducts ,agregarProducto)
 
 /* Metodo para manipular  una marca */
 router.get('/agregarProducto',cookieCheck,userAdmin, formAgregar)

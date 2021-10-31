@@ -1,4 +1,5 @@
 const db = require('../database/models')
+const {validationResult} = require('express-validator');
 
 module.exports = {
     formAgregar:(req,res) =>{                   // Metodo de renderizar la vista y mandarle los datos que requiere
@@ -17,6 +18,8 @@ module.exports = {
         
         
         agregarProducto:(req,res) => {     // Metodo de agregar producto
+            let errors = validationResult(req)
+            if(errors.isEmpty()){
             let arrayImages = [];           // creo un array vacio para almacenar las imagenes
             if(req.files){                      // si existen archivos en el req.files que es del input tipo file
                 req.files.forEach(imagen => {       // que haga un foreach de eso que me llega y que recorra y pushe en el array cde cada imagen el filename que es el nombre de la imagen
@@ -63,7 +66,23 @@ module.exports = {
                         .catch(err => console.log(err))
                     }
                 })
-            },
+                .catch(error =>{
+                    console.log(error)
+                })
+        }else{
+            let brand =db.Brand.findAll()
+            let category = db.Category.findAll()
+            Promise.all([category,brand])
+            .then( ([category, brand ])=>{
+                es.render('cargaProducts', {       
+                    title:"carga-productos",
+                    category,
+                    brand,
+                    errors : errors.errors
+                })}
+                )
+                .catch(err => console.log(err))    
+            }},
             listProducts:(req,res) =>{                          //Metodo de listar productos
                 db.Product.findAll({
                     include:[{association:'images_product'}]         //asocio la tabla imagenes , este es el alias que le asigne en el modelo de productos

@@ -4,23 +4,21 @@
     <%- include('partials/head') %> 
 </head>
 <body>
-    <header class="headerEdit">
-        <img class="logoAdmin" src="/images/logo-principal.png" alt="logo" />
-        <div class="userAdmin">
-            <p>Usuario: Nombre Usuario</p>
-            <p>Cerrar Sesión</p>
-        </div>
-    </header>
+    <%- include('partials/header-admin') %> 
     <main class="main-carga-productos-panel">
-        <h2 class="carga-productos-panel-adm">Editando producto <%= product.id  %> </h1>
-            <h4 class="nuevo-producto-panel-adm">producto</h3>
+        <h2 class="carga-productos-panel-adm">Editando producto <%= product.name  %> </h1>
+            <h4 class="nuevo-producto-panel-adm">Producto</h3>
                 <form action="/admin/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="carga-form-productos" >
                     <div class="container-productos-carga-individual">
+                        <label class="producto-individual-label" for="name">Nombre</label>
                         <input class="producto-individual-carga" type="text" placeholder="Modelo" name="name" value="<%= product.name %>" />
+                        <label class="producto-individual-label" for="brand_id">Marca</label>
                         <input class="producto-individual-carga"type="text" placeholder="Marca" name="brand_id" value="<%= product.brand_id %>">
+                        <label class="producto-individual-label" for="discount">Descuento</label>
                         <input type="text" class="producto-individual-carga" placeholder="Descuento" name="discount" value="<%= product.discount %>">
                         <!--  -->
+                        <label class="producto-individual-label" for="price">Precio</label>
                         <input type="text" class="producto-individual-carga" placeholder="Precio" name="price" value="<%= product.price%>">
                     </div>
                     <p id="desc-producto-carga-productos">Descripcion del producto</p>

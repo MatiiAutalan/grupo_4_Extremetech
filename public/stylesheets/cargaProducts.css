@@ -1,6 +1,7 @@
 .main-carga-productos-panel {
   width: 90%;
   margin: 0 auto;
+  text-align: center;
 }
 .carga-productos-panel-adm {
   display: flex;
@@ -55,7 +56,14 @@
 }
  
 .desc-product-text-area {
-  height: 80px;
+  height: 100px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.container-text-area {
+  width: 100%;
+  text-align: center;
 }
 
 .add-file-img-carga-products,

@@ -21,8 +21,10 @@
                         <label class="producto-individual-label" for="price">Precio</label>
                         <input type="text" class="producto-individual-carga" placeholder="Precio" name="price" value="<%= product.price%>">
                     </div>
-                    <p id="desc-producto-carga-productos">Descripcion del producto</p>
-                    <textarea class="desc-product-text-area" name="description" id="descripcion" ><%= product.description %></textarea>
+                    <div class="container-text-area">
+                        <p id="desc-producto-carga-productos">Descripcion del producto</p>
+                        <textarea class="desc-product-text-area" name="description" id="descripcion" ><%= product.description %></textarea>
+                    </div>
                     <p class="add-file-img-carga-products">Agregar archivos de imagen</p>
                     <div class="container-img-products-carga-end">
                         <input  class="buttonForm" type="file" id="file" name="product-image" multiple /><br><br>

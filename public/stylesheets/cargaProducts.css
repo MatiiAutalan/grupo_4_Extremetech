@@ -1,5 +1,5 @@
 .main-carga-productos-panel {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
 }
 .carga-productos-panel-adm {
@@ -62,10 +62,23 @@
 #desc-producto-carga-productos {
   margin: 15px 0 10px 0 ;
   font-weight: bold;
+  text-align: center;
 }
 .form-input{
-  display:block;
+  height: 25px;
+  width: 50px;
+  margin-top: 12px;
 }
+
+.container-img-products-carga-end{
+  text-align: center;
+}
+
+.container-img-products-carga-end img {
+  border-radius: 50%;
+  border: solid 3px var(--colorPrimary);
+}
+
 .is-invalid {
   border: solid 2px red;
 }
@@ -98,12 +111,17 @@
   padding: 8px;
   margin: 0 auto;
 }
+
+#provinceSelect {
+  margin-top: 17px;
+}
+
 @media (min-width: 576px) {
   .container-productos-carga-individual {
     display: grid;
     grid-template-columns: repeat(4, 2fr);
     grid-gap: 5px;
-    width: 85%;
+    width: 90%;
   }
 
   .producto-individual-label {
@@ -121,5 +139,10 @@
 
   .producto-individual-carga {
     width: 140%;
+  }
+
+  .container-productos-carga-individual {
+    position: relative;
+    right: 30px;
   }
 }

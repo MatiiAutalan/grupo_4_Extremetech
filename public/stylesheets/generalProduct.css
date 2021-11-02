@@ -214,6 +214,7 @@
 @media (min-width: 576px) {
   .main-product {
     flex-direction: row;
+    min-height: 300px;
   }
   .simil-body {
     display: none;
@@ -261,6 +262,11 @@
   
   .btn-product {
     padding: 8px;
+  }
+
+  .main-result {
+    display: flex;
+    justify-content: center;
   }
 
 }

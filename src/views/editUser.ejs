@@ -11,13 +11,17 @@
                 <form action="/admin/user/<%= users.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
                 <div class="carga-form-productos" >
                     <div class="container-productos-carga-individual">
+                        <label class="producto-individual-label" for="nombre">Nombre</label>
                         <input class="producto-individual-carga" type="text" placeholder="Nombre" disabled name="nombre" value="<%= users.nombre %>" />
+                        <label class="producto-individual-label" for="apellido">Apellido</label>
                         <input class="producto-individual-carga"type="text" placeholder="Apellido" disabled name="apellido" value="<%= users.apellido %>">
+                        <label class="producto-individual-label" for="email">Email</label>
                         <input type="email" class="producto-individual-carga" placeholder="Email" disabled name="email" value="<%= users.email %>">
-                        <label for="administrador">Admin: <select name="admin" id="administrador" class="form-input">
+                        <label class="producto-individual-label" for="administrador">Admin: </label>
+                        <select aria-placeholder="admin" name="admin" id="administrador" class="form-input">
 							<option value="1" <%= users.rol_user === true ? "selected" : ""%> >Si</option>
 							<option value="0"<%= users.rol_user === false ? "selected" : ""%> >No</option>	
-						</select></label>
+						</select>
                         
                        
                     </div>
@@ -26,10 +30,10 @@
                     <p class="add-file-img-carga-products">Avatar del usuario</p>
                     <div class="container-img-products-carga-end">
                         <img src="/images/<%= users.image %> " width="200px" height="200px" alt="">
-                        <div id="submit-fn">
-                            <button type="submit" id="btn-submit-finalizar-edit">Finalizar</button>
-                        </div>
-                    </div>                  
+                    </div>    
+                    <div id="submit-fn">
+                        <button type="submit" id="btn-submit-finalizar-edit">Finalizar</button>
+                    </div>              
                 </div>
             </form>
                 </main>

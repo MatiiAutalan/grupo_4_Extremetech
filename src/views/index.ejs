@@ -38,17 +38,17 @@
       
       <% pcsArmadas.forEach(product => { %>
         
+        <a href="/products/detalle/<%= product.id %> ">
         <article>
-          <a href="/products/15">
           <div class="img-product-main">
-            <img src="/images/<%- product.images_product ? product.images_product[0].name : 'default.png' %>" alt="">
+            <img src="/images/<%- product.images_product ? product.images_product[0].name : 'default.png' %>" width="300px" height="200px" alt="">
             <p><%= product.name %></p>
             <p>$<%= product.price %> </p>
             <p>Descuento: <%= product.discount %> </p>
             <h3>Ver Producto</h3>
           </div>
-        </a>
         </article> 
+      </a>
       <% }) %>
         
      

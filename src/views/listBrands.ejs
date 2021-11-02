@@ -8,10 +8,12 @@
     <div class="containerEdit">
       <div class="titleSearch">
         <h1>Editar o eliminar producto</h1>
-        <div class="searchContainer">
-          <input type="search" name="buscador" id="search" placeholder="Buscar" />
-          <a href="#"><i class="fas fa-search"></i></a>
-        </div>
+       
+          <form class="search-container" action="/admin/search3" method="GET">
+            <input type="search" name="search" id="" placeholder="Buscar productos"/>
+            <button type="submit"> <i class="fas fa-search"></i></button>
+          </form>
+        
       </div>
       <% brands.forEach(brand => { %>
        

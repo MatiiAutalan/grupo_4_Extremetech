@@ -9,19 +9,12 @@
         <h2 class="carga-productos-panel-adm">Carga de productos</h1>
             <h4 class="nuevo-producto-panel-adm">Nuevo producto</h3>
                 <form id="form" action="/admin/agregarProducto" method="POST" enctype="multipart/form-data">
-                    <div class="errores">
-                        <% if (typeof errors != 'undefined') { %>
-                            <ul>
-                                <% for( let i = 0; i < errors.length; i++ ) { %>
-                                    <li style="color: red; list-style: circle;"><%= errors[i ].msg %> </li>                                                  
-                                <% } %>
-                            </ul>
-                            <% } %> 
-                    </div>
+                    
                 <div class="carga-form-productos" >
                     <div class="container-productos-carga-individual">
                         <p >
                         <input id="inputName" class="producto-individual-carga" type="text" name="name" placeholder="Modelo" />
+                          
                         <!--  <span id="nameErrors"></span> -->
                     </p>
                         <input class="producto-individual-carga" type="text" name="color" placeholder="Color" />
@@ -77,6 +70,11 @@
                             <button type="submit" id="btn-submit-finalizar-edit">Finalizar</button>
                         </div>
 
+                    </div>
+                <div class="errores">
+                    <% if (locals.errors && errors.name) { %>
+                        <small  class="error"><%= errors.name.msg %> </small>
+                    <% } %>
                     </div>
                 </div>
             </form>

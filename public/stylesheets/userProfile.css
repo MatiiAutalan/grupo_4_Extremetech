@@ -92,6 +92,7 @@
     margin: 10px;
     text-align: center;
     cursor: pointer;
+    padding-top: 13px;
 }
 
 .btnProfile:hover {

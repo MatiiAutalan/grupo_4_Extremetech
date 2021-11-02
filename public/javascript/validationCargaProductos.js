@@ -161,6 +161,7 @@ window.addEventListener( 'load' , () => {
     }
     
     if(!error && !validationsErrors){
+      submitErrors.innerHTML = ""
       console.log('Formulario Enviado');
       $form.submit()
     }

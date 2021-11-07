@@ -2,10 +2,10 @@
 /* carrousel home */
 .containerCarrouselHome {
     overflow: hidden;
-    box-shadow: 0 0 30px #44b8fc,
-                0 15px 50px;
+    /* box-shadow: 0 0 30px #44b8fc,
+                0 15px 50px; */
     position: relative;
-    margin: 10px;
+    
 }
 
 .containerCarrouselHome .slider {
@@ -138,7 +138,7 @@
     color: #fff;
     text-transform: uppercase;
     border-top: 4px solid var(--colorSecundary);
-    margin-top: 25px;
+    /* margin-top: 25px; */
     padding: 10px;
 }
 .productos-recomendados {

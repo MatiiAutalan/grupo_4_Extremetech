@@ -24,19 +24,19 @@
           <form class="containerForm" id="form" action="/user/register" method="POST">
             <div>
               <legend>Datos de cuenta</legend>
-              <label for="email">E-mail</label>
+              <label for="email">E-mail *</label>
               <input type="email" name="email" id="inputEmail" value="<%= locals.old && old.email %>"/>
               <span id="erroresEmail" style="color: red;"></span> <br>
               <% if (locals.errors && errors.email) { %>
                 <small class="error"><%= errors.email.msg %> </small>
               <% } %>
-              <label for="contraseña">Contraseña</label>
+              <label for="contraseña">Contraseña *</label>
               <input type="password" name="password" id="inputPassword" autocomplete="on"/>
               <span id="erroresPass" style="color: red;"></span> <br>
               <% if (locals.errors && errors.password) { %>
                 <small class="error"><%= errors.password.msg %> </small>
               <% } %>
-              <label for="repetir contraseña">Repetir contraseña</label>
+              <label for="repetir contraseña">Repetir contraseña *</label>
               <input type="password" name="repeatPassword" id="inputRepeatPassword" autocomplete="on"/>
               <span id="passError2" style="color: red;"></span> <br>
               <% if (locals.errors && errors.repeatPassword) { %>
@@ -46,7 +46,7 @@
             <hr />
             <div>
               <legend>Datos Personales</legend>
-              <label for="nombre">Nombre</label>
+              <label for="nombre">Nombre *</label>
               <input type="text" name="nombre" id="inputNombre" value="<%= locals.old && old.nombre %>" />
               <span id="erroresNombre" style="color: red;"></span> <br>
               <% if (locals.errors && errors.nombre) { %>
@@ -66,6 +66,7 @@
               <% } %>
               <span id="submitErrors"></span>
             </div>
+            <span style="color: red;">Los campos seleccionados con * son obligatorios</span>
             <div class="containerBtn">
               <button class="buttonForm" type="submit">Registrarme</button>
             </div>

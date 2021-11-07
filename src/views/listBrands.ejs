@@ -27,14 +27,15 @@
 
         <div class="containerBtns">
           
-          <form action="/admin/deleteBrand/<%= brand.id %>?_method=DELETE" method="POST">
-            <button type="submit">Eliminar</button>
+          <form   action="/admin/deleteBrand/<%= brand.id %>?_method=DELETE" method="POST">
+            <button onclick="if (!confirm('Desea eliminar la marca: <%= brand.name %> ?')) { return false }" type="submit">Eliminar</button>
           </form>
-         
+          
         </div>
       </div>
-        <% }) %>
+      <% }) %>
       
     </div>
+    <script src='/javascript/validadorEliminaciones.js'></script>
   </body>
 </html>

@@ -58,7 +58,10 @@
         </div>
 
         <a href="/user/edit/<%= user.id %> " class="btnProfile">Editar perfil</a>
-        <a href="/user/edit/<%= user.id %> " class="btnProfile">Editar perfil</a>
+        <form   action="/user/deleteUser/<%= user.id %>?_method=DELETE" method="POST">
+            <button class="btnProfile" style="padding-top: 0; background-color: red;"  onclick="if (!confirm('Desea eliminar su cuenta?')) { return false }" type="submit">Eliminar</button>
+          </form>
+        
     </main>
 
     <%- include('partials/footer') %>

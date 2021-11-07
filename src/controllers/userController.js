@@ -79,7 +79,6 @@ module.exports = {
     userRegister:(req,res) => {
         let errors = validationResult(req);
         
-       
             if(errors.isEmpty()){
 
                 let {nombre,apellido,telefono,email,password} =req.body
@@ -96,6 +95,7 @@ module.exports = {
                     
                 })
                 .then(()=>{
+                    
                    res.redirect('/user/login')
                 })
                 
@@ -174,7 +174,15 @@ module.exports = {
                 res.cookie('cookieTech','', {maxAge: -1})
             }
             res.redirect('/')
-        }
+        },
+        deleteUser : (req, res) => {    //metodo delete de sequelize
+            db.User.destroy({               // del modelo usuario destruye/borra 
+                where:{id:req.params.id}    // lo que recibe por url
+            })
+            req.session.destroy();
+            
+            res.redirect('/')
+        },
         
         
     }

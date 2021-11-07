@@ -165,7 +165,7 @@ $form.addEventListener('submit',function(event){
 
     if(error == false && !validationsErrors){
         console.log('Formulario Enviado');
-        //$form.submit()
+        $form.submit()
     }
 
   })

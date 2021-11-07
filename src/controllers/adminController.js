@@ -265,7 +265,7 @@ module.exports = {
                             res.redirect('/admin/marca')
                         },
                         search: (req,res) =>{
-                            db.User.findAll({
+                            db.User.findAll({include:[{association:'images_product'}],
                                 where:{
                                     first_name: {[Op.like]: `%${req.query.search.trim()}%`},
                                 }

@@ -37,7 +37,7 @@
         <div class="containerBtns">
           <a href="/admin/user/<%= user.id %> ">Editar</a>
           <form action="/admin/deleteUser/<%= user.id %>?_method=DELETE" method="POST">
-            <button type="submit">Eliminar</button>
+            <button onclick="if (!confirm('Desea eliminar el usuario: <%= user.email %> ?')) { return false }" type="submit">Eliminar</button>
           </form>
          
         </div>

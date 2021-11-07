@@ -32,7 +32,7 @@
         <div class="containerBtns">
           <a href="/admin/edit/<%- product.id %> ">Editar</a>
           <form action="/admin/delete/<%= product.id %>?_method=DELETE" method="POST">
-            <button type="submit">Eliminar</button>
+            <button onclick="if (!confirm('Desea eliminar el producto: <%= product.name %> ?')) { return false }" type="submit">Eliminar</button>
           </form>
          
         </div>

@@ -45,20 +45,13 @@
   width: 150px;
   height: 150px;
 }
-#inputName{
-  box-shadow: 2px 2px 2px 1px var(--colorPrimary);
-  width: 100%;
-  padding-left: 10px;
-  border: none;
-  margin: 0 auto;
-  height: 30px;
-  margin-top: 10px;
-}
+
  
 .desc-product-text-area {
   height: 100px;
   width: 100%;
   max-width: 600px;
+  margin: 0 auto;
 }
 
 .container-text-area {
@@ -73,9 +66,8 @@
   text-align: center;
 }
 .form-input{
-  height: 25px;
-  width: 50px;
-  margin-top: 12px;
+  width: 200px;
+  margin: 16px auto;
 }
 
 .container-img-products-carga-end{
@@ -139,6 +131,8 @@
   .producto-individual-carga {
     width: 125%;
   }
+
+
 }
 @media (min-width: 768px) {
   #btn-submit-finalizar-edit {
@@ -151,6 +145,6 @@
 
   .container-productos-carga-individual {
     position: relative;
-    right: 30px;
+    right: 65px;
   }
 }

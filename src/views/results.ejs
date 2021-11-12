@@ -10,7 +10,8 @@
                     <% results.forEach(product => { %>
                         <article class="product-item">
                         <div class="img-article">
-                            <img src="/images/<%- product.image ? product.image : 'default.png' %>" alt="">
+                            <img src="/images/<%- product.images_product ? product.images_product[0].name : 'default.png' %>" alt="">
+                            <!-- <img src="/images/<%= product.images_product[0]?product.images_product[0].name:'default.png' %>" alt="<%= product.modelo %> " /> --> 
                         </div>
                         <div class="description-product">
                             <h4><% if(product.name.length > 19){ %>

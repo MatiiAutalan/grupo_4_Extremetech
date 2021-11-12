@@ -12,7 +12,7 @@ var indexRouter = require('../src/routes/index');
 var productRouter = require('../src/routes/product');
 var usersRouter = require('../src/routes/users');
 var adminRouter = require('../src/routes/admin');
-
+const apiRoutes = require('../src/routes/apiRoutes')
 
 
 
@@ -35,12 +35,19 @@ app.use(session({
   saveUninitialized: true 
 }));
 app.use(categoriesProduct)
+app.use(function(req, res, next) {      // PARA QUE FUNCIONE EL PROYECTO
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 /* Routes*/
 app.use('/', indexRouter);
 app.use('/products', productRouter);
 app.use('/user', usersRouter)
 app.use('/admin', adminRouter)
+app.use('/api',apiRoutes)
+
 
 
 

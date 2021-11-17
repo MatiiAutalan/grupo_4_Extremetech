@@ -29,5 +29,3 @@ module.exports = [
             })
         }) 
 ]
-
-//AIME SUFRE VERGUENZA POR SUS COMPAÑEROS

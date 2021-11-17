@@ -38,8 +38,11 @@ module.exports = {
             telefono,
             address,
             pc,
-            province
+            province,
+            password,
+            repeatpassword
         } = req.body
+      
         
         if(errors.isEmpty()){
             db.User.update({
@@ -50,10 +53,11 @@ module.exports = {
                 document:documento,
                 pc:pc,
                 province:province,
-                image: req.file && req.file.filename
+                image: req.file && req.file.filename,
+                
             },
             {where:{id:req.params.id}})
-            .then(()=>{
+            .then(()=>{   
                  db.User.findByPk(req.params.id)
                 .then((user)=>{ 
                     res.redirect('/user')

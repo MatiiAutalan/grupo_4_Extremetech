@@ -11,7 +11,8 @@ module.exports = {
             res.render('userProfile', {
                 title:"Cuenta",
                 session: req.session,
-                user
+                user,
+                error:false
             })
         })
         
@@ -201,6 +202,17 @@ module.exports = {
                        
                 })
                 res.redirect('/')
+            }else{
+                db.User.findByPk(req.params.id)
+                .then((user)=>{ 
+
+                    res.render('userProfile',{ 
+                        title:"Cuenta",
+                        errors: errors.mapped(),
+                        session: req.session,
+                        user,
+                        error : true})
+                 }) 
             }
     }
 }

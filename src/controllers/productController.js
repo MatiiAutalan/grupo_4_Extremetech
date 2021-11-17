@@ -10,6 +10,9 @@ module.exports = {
         db.Product.findAll({
             include:[{association:'images_product'}]
             
+        },{
+            limit:3,
+            offset:10
         })
         .then(products => {
             

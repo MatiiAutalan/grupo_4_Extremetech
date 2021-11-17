@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head')%>
+<body class="body-product">
+    <%- include('partials/header')  %> 
+        <main class="main-product main-result">
+            <section class="cards-product">
+              <h1 class="titleSearch">Resultados de la busqueda</h1>
+                <% if (results.length > 0) { %>
+                    <% results.forEach(user => { %>
+                        <div class="cardProduct">
+                          <div class="image">
+                            <img src="/images/users/<%= user.image%> " alt=""/>
+                          </div>
+                  
+                          <div class="description">
+                            <p>Nombre: <%= user.first_name%></p>
+                            <p>Apellido : <%= user.last_name %></p>
+                            <p>email: <%= user.email.slice(0,20) %> </p>
+                            <% if (user.rol_user == 0) { %>
+                              <p>Admin : No</p>
+                            <% }else{%>
+                               <p>Admin : si</p>
+                               <% } %>
+                           
+                          </div>
+                   <% }) %> 
+                <% } else { %>
+                    <div><h1 class="title-results">No se encontraron resultados de la busqueda</h1></div>
+                <% } %> 
+            </section>
+        </main>
+        <%- include('partials/footer')  %> 
+    </body>
+    </html>

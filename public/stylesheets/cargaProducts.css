@@ -1,6 +1,7 @@
 .main-carga-productos-panel {
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
+  text-align: center;
 }
 .carga-productos-panel-adm {
   display: flex;
@@ -23,22 +24,65 @@
 }
 .producto-individual-carga {
   box-shadow: 2px 2px 2px 1px var(--colorPrimary);
-  width: 100%;
+  width: 75%;
   padding-left: 10px;
   border: none;
   margin: 0 auto;
   height: 30px;
   margin-top: 10px;
 }
-#desc-producto-carga-productos {
-  margin-top: 30px;
+
+
+.producto-individual-label {
+  text-align: center;
+  padding: 15px 3px 0 ;
+  height: 25px;
+  font-weight: bold;
 }
+
+
+.img-container img{
+  width: 150px;
+  height: 150px;
+}
+
+ 
 .desc-product-text-area {
-  height: 80px;
+  height: 100px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
-.add-file-img-carga-products {
-  margin-top: 30px;
+
+.container-text-area {
+  width: 100%;
+  text-align: center;
 }
+
+.add-file-img-carga-products,
+#desc-producto-carga-productos {
+  margin: 15px 0 10px 0 ;
+  font-weight: bold;
+  text-align: center;
+}
+.form-input{
+  width: 200px;
+  margin: 16px auto;
+}
+
+.container-img-products-carga-end{
+  text-align: center;
+}
+
+.container-img-products-carga-end img {
+  border-radius: 50%;
+  border: solid 3px var(--colorPrimary);
+}
+
+.is-invalid {
+  border: solid 2px red;
+}
+
 
 #add-file-products {
   width: 100%;
@@ -67,15 +111,40 @@
   padding: 8px;
   margin: 0 auto;
 }
+
+#provinceSelect {
+  margin-top: 17px;
+}
+
 @media (min-width: 576px) {
   .container-productos-carga-individual {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(4, 2fr);
+    grid-gap: 5px;
+    width: 90%;
   }
+
+  .producto-individual-label {
+    text-align: end;
+  }
+
+  .producto-individual-carga {
+    width: 125%;
+  }
+
+
 }
 @media (min-width: 768px) {
   #btn-submit-finalizar-edit {
     width: 30%;
+  }
+
+  .producto-individual-carga {
+    width: 140%;
+  }
+
+  .container-productos-carga-individual {
+    position: relative;
+    right: 65px;
   }
 }

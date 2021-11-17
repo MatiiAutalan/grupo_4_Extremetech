@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head')%>
+<body class="body-product">
+    <%- include('partials/header')  %> 
+    <main class="main-product main-result">
+            <section class="cards-product">
+              <h1 class="titleSearch">Resultados de la busqueda</h1>
+                <% if (results.length > 0) { %>
+                    <% results.forEach(brand => { %>
+       
+                        <div class="cardProduct">
+                         
+                  
+                          <div class="description">
+                            <p>Marca: <%= brand.name%></p>
+                            
+                          </div>
+                  
+                          <div class="containerBtns">
+                            
+                            <form action="/admin/deleteBrand/<%= brand.id %>?_method=DELETE" method="POST">
+                              <button type="submit">Eliminar</button>
+                            </form>
+                           
+                          </div>
+                        </div>
+                          <% }) %>
+                <% } else { %>
+                    <div><h1 class="title-results">No se encontraron resultados de la busqueda</h1></div>
+                <% } %> 
+            </section>
+        </main>
+        <%- include('partials/footer')  %> 
+    </body>
+    </html>

@@ -40,6 +40,7 @@
 #btn-modal:checked ~ .modalBurgerAdmin {
   opacity: 1;
   visibility: visible;
+  z-index: 9999 ;
 }
 
 .contenedorBurgerAdmin {
@@ -146,6 +147,10 @@
   width: 33%;
   text-align: end;
   padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .userAdmin p,
@@ -156,7 +161,48 @@
 }
 
 .userAdmin a:hover {
+  color: var(--colorSecundary);
+}
+
+.user-icono {
+  border-radius: 50%;
+  border: 4px solid white;
+  height: 50px;
+  width: 50px;
+}
+
+.user-icono:hover {
+  border: 4px solid var(--colorSecundary);
+}
+
+.search-container-admin {
+    position: relative;
+    margin: 0 auto;
+    margin-left: 20px;
+}
+
+.searchAdmin {
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 30px;
+  border: 2px solid var(--colorSecundary);
+  padding: 0 25px 0 10px;
+  border-radius: 55px;
   color: var(--colorTertiary);
+  font-weight: 600;
+  outline: none;
+}
+
+.buttonSearchAdmin {
+  color: var(--colorPrimaryC);
+  position: relative;
+  right: 30px;
+  background-color: transparent;
+  border: none;
+}
+
+.buttonSearchAdmin:hover i { 
+  color: var(--colorSecundary);
+  cursor: pointer;
 }
 
 /*header*/

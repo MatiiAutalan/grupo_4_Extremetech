@@ -38,8 +38,11 @@ module.exports = {
             telefono,
             address,
             pc,
-            province
+            province,
+            password,
+            repeatpassword
         } = req.body
+      
         
         if(errors.isEmpty()){
             db.User.update({
@@ -50,10 +53,11 @@ module.exports = {
                 document:documento,
                 pc:pc,
                 province:province,
-                image: req.file && req.file.filename
+                image: req.file && req.file.filename,
+                
             },
             {where:{id:req.params.id}})
-            .then(()=>{
+            .then(()=>{   
                  db.User.findByPk(req.params.id)
                 .then((user)=>{ 
                     res.redirect('/user')
@@ -78,7 +82,7 @@ module.exports = {
     },
     userRegister:(req,res) => {
         let errors = validationResult(req);
-        res.send(errors)
+        
             if(errors.isEmpty()){
 
                 let {nombre,apellido,telefono,email,password} =req.body
@@ -94,10 +98,14 @@ module.exports = {
                     
                 })
                 .then(()=>{
-                   res.redirect('/')
-                }).catch(error =>console.log(error))
-     
-            }else{               
+                    
+                   res.redirect('/user/login')
+                })
+                
+                //getUsers.push(nuevoUsuario);   // le estamos metiendo a la variable getproducts que es la que tiene todos los productos el nuevo producto que estamos creando
+                
+                //addUsers(getUsers);  // esta funcion escribe el json  y recibe como parametro la base de datos donde va a ser escrito      
+            }else{
                 res.render('register', {
                     title : "Registro",
                     errors: errors.mapped(),
@@ -167,7 +175,15 @@ module.exports = {
                 res.cookie('cookieTech','', {maxAge: -1})
             }
             res.redirect('/')
-        }
+        },
+        deleteUser : (req, res) => {    //metodo delete de sequelize
+            db.User.destroy({               // del modelo usuario destruye/borra 
+                where:{id:req.params.id}    // lo que recibe por url
+            })
+            req.session.destroy();
+            
+            res.redirect('/')
+        },
         
         
     }

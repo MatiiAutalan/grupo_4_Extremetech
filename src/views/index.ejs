@@ -6,7 +6,7 @@
     
     <main class="main-content">
       <!-- CARROUSEL -->
-      <div class="containerCarrouselHome">
+      <div class="containerCarrouselHome maxwidth">
         <!-- comienzo imagenes slider -->
         <div class="slider" id="slider">
           <div class="sliderSection">
@@ -28,7 +28,7 @@
           <div class="sliderBtn btnIzq" id="btnIzq"> < </div>
         <!-- botones slider -->
       </div>
-
+<div class="maxwidth">
     <!-- pc recommended -->
     <div class="pc-recommended">
       <h2>Pc Recomendadas</h2>
@@ -38,17 +38,17 @@
       
       <% pcsArmadas.forEach(product => { %>
         
+        <a href="/products/detalle/<%= product.id %> ">
         <article>
-          <a href="/products/15">
           <div class="img-product-main">
-            <img src="/images/<%- product.images_product ? product.images_product[0].name : 'default.png' %>" alt="">
+            <img src="/images/<%- product.images_product ? product.images_product[0].name : 'default.png' %>" width="300px" height="200px" alt="">
             <p><%= product.name %></p>
             <p>$<%= product.price %> </p>
             <p>Descuento: <%= product.discount %> </p>
             <h3>Ver Producto</h3>
           </div>
-        </a>
         </article> 
+      </a>
       <% }) %>
         
      
@@ -61,7 +61,7 @@
     </div>
     <section>
       <article>
-        <a href="/products">
+        <a href="/products/1">
         <div class="img-product-main">
           <img class="img-product-main" src="/images/homeauriculares.svg" alt="">
           <p class="parrafo-products">AURICULARES</p>
@@ -69,7 +69,7 @@
       </a>
       </article>
       <article>
-        <a href="/products/monitores">
+        <a href="/products/13">
           <div class="img-product-main">
           <img src="/images/homemonitor.svg" alt="" >
           <a href="/products/monitores"><p class="parrafo-products">MONITORES</p>
@@ -77,7 +77,7 @@
       </a>
       </article>
       <article>
-        <a href="/products/notebooks">
+        <a href="/products/14">
         <div class="img-product-main">
           <img src="/images/homenotebook.svg" alt="" >
           <p class="parrafo-products">NOTEBOOKS</p>
@@ -85,7 +85,7 @@
       </a>
       </article>
       <article>
-        <a href="/products">
+        <a href="/products/1">
         <div class="img-product-main">
           <img src="/images/homejoystick.svg" alt="" >
           <p class="parrafo-products">JOYSTICK</p>
@@ -101,6 +101,7 @@
     <div class="container-img-logitech-background">
       <img class="img-banner-logitech-back" src="/images/about-us/5.jpg" alt="">
   </div>
+</div>
 <div class="rgba"></div>
   <%- include('partials/footer') %> 
 </main>

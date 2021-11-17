@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head')%>
+<body class="body-product">
+    <%- include('partials/header')  %> 
+    <main class="main-product main-result">
+            <section class="cards-product">
+              <h1 class="titleSearch">Resultados de la busqueda</h1>
+                <% if (results.length > 0) { %>
+                    <% results.forEach(product => { %>
+       
+      
+                        <div class="cardProduct">
+                          <div class="image">
+                            <img src="/images/<%- product.images_product ? product.images_product[0].name : 'default.png' %>" alt="">
+                          </div>
+                  
+                          <div class="description">
+                            <p>Modelo: <%= product.name.slice(0,19) %></p>
+                            <p>Marca: <%= product.brand_id %></p>
+                            <p>Precio: <%= product.price %></p>
+                            <p>Descuento: <%= product.discount %> </p>
+                  
+                          </div>
+                  
+                          <div class="containerBtns">
+                            <a href="/admin/edit/<%- product.id %> ">Editar</a>
+                            <form action="/admin/delete/<%= product.id %>?_method=DELETE" method="POST">
+                              <button type="submit">Eliminar</button>
+                            </form>
+                           
+                          </div>
+                        </div>
+                          <% }) %>
+                <% } else { %>
+                    <div><h1 class="title-results">No se encontraron resultados de la busqueda</h1></div>
+                <% } %> 
+            </section>
+        </main>
+        <%- include('partials/footer')  %> 
+    </body>
+    </html>

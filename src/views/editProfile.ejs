@@ -8,71 +8,96 @@
     <main class="main-carga-productos-panel">
         <h2 class="carga-productos-panel-adm">Editando Usuario <%= user.email%></h1>
             <h4 class="nuevo-producto-panel-adm">Usuario</h3>
-                <form action="/user/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data" >
+                <form action="/user/edit/<%= user.id %>?_method=PUT" id="form" method="POST" enctype="multipart/form-data" >
                 <div class="carga-form-productos" >
                     <div class="container-productos-carga-individual">
-                        <input class="producto-individual-carga" type="text" placeholder="Nombre" name="nombre" value="<%= locals.old ? old.nombre : user.first_name %>" />
+                        <label class="producto-individual-label" for="nombre">Nombre</label>
+                        <input class="producto-individual-carga" type="text" placeholder="Nombre" id="first_name" name="nombre" value="<%= locals.old ? old.nombre : user.first_name %>" />
                         <% if (locals.errors && errors.nombre) { %>
                             <small class="text-danger"><%= errors.nombre.msg %> </small>
                         <% } %>
-                        <input class="producto-individual-carga"type="text" placeholder="Apellido" name="apellido" value="<%= locals.old ? old.apellido : user.last_name %>">
+                        
+                        <label class="producto-individual-label" for="apellido">Apellido</label>
+                        <input class="producto-individual-carga"type="text" placeholder="Apellido" id="last_name" name="apellido" value="<%= locals.old ? old.apellido : user.last_name %>">
                         <% if (locals.errors && errors.apellido) { %>
                             <small class="text-danger"><%= errors.apellido.msg %> </small>
                         <% } %>
-                        <input class="producto-individual-carga"type="text" placeholder="documento" name="documento" value="<%= locals.old ? old.documento : user.document %>">
+                        
+                        <label class="producto-individual-label" for="documento">DNI</label>
+                        <input class="producto-individual-carga"type="text" placeholder="documento" id="dni" name="documento" value="<%= locals.old ? old.documento : user.document %>">
                         <% if (locals.errors && errors.documento) { %>
                             <small class="text-danger"><%= errors.documento.msg %> </small>
                         <% } %>
-                           
-                        <input type="text" class="producto-individual-carga" placeholder="Telefono" name="telefono" value="<%= locals.old ? old.telefono : user.phone %>">
+                        
+                        <label class="producto-individual-label" for="telefono">Telefono</label>
+                        <input type="text" class="producto-individual-carga" placeholder="Telefono" id="phone" name="telefono" value="<%= locals.old ? old.telefono : user.phone %>">
                         <% if (locals.errors && errors.telefono) { %>
                             <small class="text-danger"><%= errors.telefono.msg %> </small>
                         <% } %>
-                        <input type="text" class="producto-individual-carga" placeholder="Direccion" name="address" value="<%= locals.old ? old.telefono : user.address %>">
-                        <% if (locals.errors && errors.telefono) { %>
-                            <small class="text-danger"><%= errors.telefono.msg %> </small>
+                        
+                        <label class="producto-individual-label" for="address">DIrección</label>
+                        <input type="text" class="producto-individual-carga" placeholder="Direccion" id="address" name="address" value="<%= locals.old ? old.address : user.address%>">
+                        <% if (locals.errors && errors.address) { %>
+                            <small class="text-danger"><%= errors.address.msg %> </small>
                         <% } %>
-                        <input type="text" class="producto-individual-carga" placeholder="Codigo Postal" name="pc" value="<%= locals.old ? old.telefono : user.pc %>">
-                        <% if (locals.errors && errors.telefono) { %>
-                            <small class="text-danger"><%= errors.telefono.msg %> </small>
-                        <% } %>
-                        <select name="province" id="">
-                            <option value="Buenos Aires">Buenos Aires</option>
-                            <option value="Santa Cruz">Santa Cruz</option>
-                            <option value="Misiones">Misiones</option>
-                            <option value="Chaco">Chaco</option>
-                            <option value="Tierra del Fuego">Tierra del Fuego</option>
-                            <option value="Entre Rios">Entre Rios</option>
-                            <option value="La Pampa">La Pampa</option>
-                            <option value="Cordoba">Cordoba</option>
-                            <option value="Santa Fe">Santa Fe</option>
-                            <option value="Chubut">Chubut</option>
-                            <option value="Mendoza">Mendoza</option>
-                            <option value="Tucuman">Tucuman</option>
-                            <option value="Corrientes">Corrientes</option>
-                            <option value="Jujuy">Jujuy</option>
-                            <option value="Rio Negro">Rio Negro</option>
-                            <option value="Neuquen">Neuquen</option>
-                            <option value="San Luis">San Luis</option>
-                            <option value="San Juan">San Juan</option>
-                            <option value="Formosa">Formosa</option>
-                            <option value="La Rioja">La Rioja</option>
-                            <option value="Catamarca">Catamarca</option>
-                            <option value="Santiago del Estero">Santiago del Estero</option>
-                        </select>
+                        
+                        <label class="producto-individual-label" for="pc">CP</label>
+                        <input type="text" class="producto-individual-carga" placeholder="Codigo Postal" id="cp" name="pc" value="<%= locals.old ? old.pc : user.pc %>">
+                        <% if (locals.errors && errors.pc) { %>
+                            <small class="text-danger"><%= errors.pc.msg %> </small>
+                            <% } %>
+                            <label class="producto-individual-label" for="province">Provincia</label>
+                            <select name="province" id="provinceSelect">
+                                <option value="Buenos Aires">Buenos Aires</option>
+                                <option value="Santa Cruz">Santa Cruz</option>
+                                <option value="Misiones">Misiones</option>
+                                <option value="Chaco">Chaco</option>
+                                <option value="Tierra del Fuego">Tierra del Fuego</option>
+                                <option value="Entre Rios">Entre Rios</option>
+                                <option value="La Pampa">La Pampa</option>
+                                <option value="Cordoba">Cordoba</option>
+                                <option value="Santa Fe">Santa Fe</option>
+                                <option value="Chubut">Chubut</option>
+                                <option value="Mendoza">Mendoza</option>
+                                <option value="Tucuman">Tucuman</option>
+                                <option value="Corrientes">Corrientes</option>
+                                <option value="Jujuy">Jujuy</option>
+                                <option value="Rio Negro">Rio Negro</option>
+                                <option value="Neuquen">Neuquen</option>
+                                <option value="San Luis">San Luis</option>
+                                <option value="San Juan">San Juan</option>
+                                <option value="Formosa">Formosa</option>
+                                <option value="La Rioja">La Rioja</option>
+                                <option value="Catamarca">Catamarca</option>
+                                <option value="Santiago del Estero">Santiago del Estero</option>
+                            </select>
                         
                     </div>
                     <!-- <p id="desc-producto-carga-productos">Descripcion del producto</p>
                     <textarea class="desc-product-text-area" name="descripcion" id="descripcion" ></textarea> -->
                     <p class="add-file-img-carga-products">Imagen de perfil</p>
                     <div class="container-img-products-carga-end">
-                        <input  class="buttonForm" type="file" id="file" name="image" multiple /><br><br>
-                        <div id="submit-fn">
-                            <button type="submit" id="btn-submit-finalizar-edit">Finalizar</button>
+                        <div class="img-container" id="img-preview">
+                        
                         </div>
+                        <input  class="buttonForm" type="file" id="file" name="image" multiple /><br><br>
+                        <span class="error" id="fileErrors"></span>
                     </div>                  
+                </div>
+                <span class="error" id="nameErrors" ></span>
+                <span class="error" id="lastnameErrors" ></span>
+                <span class="error" id="dniErrors" ></span>
+                <span class="error" id="phoneErrors" ></span>
+                <span class="error" id="addressErrors" ></span>
+                <span class="error" id="cpErrors" ></span>
+                <span class="error" id="addressErrors" ></span>
+                <div id="submit-fn">
+                    <span class="error" id="submitErrors"></span>
+                    <button type="submit" id="btn-submit-finalizar-edit">Finalizar</button>
+                    
                 </div>
             </form>
                 </main>
+                <script src="/javascript/validationEditProfileFront.js"></script>
             </body>
             </html>

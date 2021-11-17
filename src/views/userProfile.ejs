@@ -52,12 +52,20 @@
                 <p><%= user.pc %></p>
             </div>
             <div>
+                <p>Contraseña</p>
+                <p>***********</p>
+            </div>
+            <div>
                 <p>Provincia</p>
                 <p><%= user.province %></p>
             </div>
         </div>
 
         <a href="/user/edit/<%= user.id %> " class="btnProfile">Editar perfil</a>
+        <form   action="/user/deleteUser/<%= user.id %>?_method=DELETE" method="POST">
+            <button class="btnProfile" style="padding-top: 0; background-color: red;"  onclick="if (!confirm('Desea eliminar su cuenta?')) { return false }" type="submit">Eliminar</button>
+          </form>
+        
     </main>
 
     <%- include('partials/footer') %>

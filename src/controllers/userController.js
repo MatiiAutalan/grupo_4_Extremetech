@@ -184,6 +184,23 @@ module.exports = {
             
             res.redirect('/')
         },
-        
-        
+        updatePass:(req,res) =>{
+            let errors = validationResult(req)
+            
+            if(errors.isEmpty()){
+                db.User.update({
+                    password: bcrypt.hashSync(req.body.newpassword,10) 
+                    
+                },
+                {where:{id:req.params.id}})
+                .then(()=>{   
+                     db.User.findByPk(req.params.id)
+                    .then((user)=>{ 
+                        res.redirect('/user')
+                     }) 
+                       
+                })
+                res.redirect('/')
+            }
     }
+}

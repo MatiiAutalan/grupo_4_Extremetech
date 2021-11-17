@@ -4,7 +4,21 @@
 <body>
   <%- include('partials/header') %>
     <main class="containerUserProfile">
+        <form action="/user/update/<%= user.id %>" method="post">
+            <div class="cambiar-password" style="display: none; z-index: 999;">
+            <input type="email" name="email" placeholder="ingrese su email">
+            <input type="text" name="password" placeholder="Password antigua">
+            <small>nueva contraseña</small>
+            <input type="text" name="newpassword" placeholder="Ingrese su nueva contraseña">
+            <input type="text" name="repeat" placeholder="Repita su nueva contraseña">
+            <button id="close">X</button>
+            <button type="submit">Actualizar</button>
+        </div>
+    </form>
+    
+        <div id="datos" >
         <h1>Mis datos</h1>
+        
 
         <div class="imageProfile">
             <div class="avatar">
@@ -64,9 +78,14 @@
         <a href="/user/edit/<%= user.id %> " class="btnProfile">Editar perfil</a>
         <form   action="/user/deleteUser/<%= user.id %>?_method=DELETE" method="POST">
             <button class="btnProfile" style="padding-top: 0; background-color: red;"  onclick="if (!confirm('Desea eliminar su cuenta?')) { return false }" type="submit">Eliminar</button>
-          </form>
+        </form>
+        <button class="btnPass" style="padding-top: 0; background-color: greenyellow;"  type="submit">Editar Password</button>
         
+    
+    
+</div>
     </main>
+    <script src="javascript/cambiar.js"></script>
 
     <%- include('partials/footer') %>
 </body>

@@ -180,6 +180,9 @@
     display: none;
 }
 
+.logoWsp {
+    display: none;
+}
 
 /* tablet */
 @media (min-width: 576px) {
@@ -243,6 +246,27 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
+    }
+
+    .logoWsp {
+        display: block;
+    position: fixed;
+    right: 20px;
+    bottom: 90px;
+    width: 100px;
+    height: 50px;
+    z-index: 99999;
+    text-align: center;
+    color: var(--colorSecundaryWhite);
+    font-weight: bold;
+    }
+
+    .logoWsp:visited {
+        color: var(--colorSecundaryWhite);
+    }
+
+    .imgWsp {
+        width: 60%;
     }
 }
 

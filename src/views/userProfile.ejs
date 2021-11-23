@@ -11,11 +11,11 @@
             <div class="cambiar-password" style="display: none; z-index: 999;">
                 <label for="">Email</label>
             <input type="email" name="email" placeholder="Ingrese su email" >
-            <input type="text" name="password" placeholder="Password antigua">
+            <input type="text" name="password" placeholder="Contraseña antigua">
             <% if (errors.custom) { %>
                 <small class="error"><%= errors.custom.msg %> </small>
               <% } %>
-            <small>nueva contraseña</small>
+            <small>Nueva contraseña</small>
             <input type="text" name="newpassword" placeholder="Ingrese su nueva contraseña" id="newpassword">
             <input type="text" name="repeat" placeholder="Repita su nueva contraseña" id="repeat">
             <span id="errorPass"></span>
@@ -30,13 +30,13 @@
                 <label for="">Email</label>
             <input type="email" name="email" placeholder="Ingrese su email" >
             <input type="text" name="password" placeholder="Password antigua">
-            <small>nueva contraseña</small>
+            <small>Nueva contraseña</small>
             <input type="text" name="newpassword" placeholder="Ingrese su nueva contraseña" id="newpassword">
             <input type="text" name="repeat" placeholder="Repita su nueva contraseña" id="repeat">
             <span id="errorPass"></span>
             <br>
             <button id="close">X</button>
-            <button type="submit">Actualizar</button>
+            <button type="submit" id="sendNewPass">Actualizar</button>
         </div>
     </form>
         <%  } %>
@@ -99,19 +99,23 @@
                 <p><%= user.province %></p>
             </div>
         </div>
-
+        <div class="containerEditPass">
         <a href="/user/edit/<%= user.id %> " class="btnProfile">Editar perfil</a>
-        <form   action="/user/deleteUser/<%= user.id %>?_method=DELETE" method="POST">
-            <button class="btnProfile" style="padding-top: 0; background-color: red;"  onclick="if (!confirm('Desea eliminar su cuenta?')) { return false }" type="submit">Eliminar</button>
+        <form   action="/user/deleteUser/<%= user.id %>?_method=DELETE" method="POST" class="formDelete">
+            <button class="btnDelete"  onclick="if (!confirm('Desea eliminar su cuenta?')) { return false }" type="submit">Eliminar</button>
         </form>
-        <button class="btnPass" style="padding-top: 0; background-color: greenyellow;"  type="submit">Editar Password</button>
+        <!-- <div class="containerEditPass"> -->
+            <button class="btnPass"  type="submit">Editar Password</button>
+        </div>
+       
         
     
     
 </div>
     </main>
-    <script src="/javascript/cambiar.js"></script>
+    
 
     <%- include('partials/footer') %>
+    <script src="/javascript/cambiar.js"></script>
 </body>
 </html>

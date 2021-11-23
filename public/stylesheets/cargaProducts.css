@@ -116,6 +116,10 @@
   margin-top: 17px;
 }
 
+#submit-fn {
+  margin-top: 5px;
+}
+
 @media (min-width: 576px) {
   .container-productos-carga-individual {
     display: grid;

@@ -116,6 +116,10 @@
     font-size: 12px;
 }
 
+.btnDelete:hover {
+    background-color: darkred;
+}
+
 .formDelete {
     display: flex;
     width: 32%;
@@ -131,6 +135,10 @@
     width: 32%;
     height: 33px;
     font-size: 12px;
+}
+
+.btnPass:hover {
+    background-color: yellow;
 }
 
 .containerEditPass {

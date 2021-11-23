@@ -52,5 +52,12 @@ module.exports = (sequelize,DataTypes)=>{
     }
     const User = sequelize.define(alias,cols,config)
 
+    User.associate = models => {
+        User.hasOne(models.Orders, {
+            as: "order",
+            foreignKey:"userId" 
+        })
+    }
+
     return User;
 }

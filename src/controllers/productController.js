@@ -4,6 +4,9 @@ const db= require('../database/models');
 const {
     Op
 } = require("sequelize");
+let axios = require('axios')
+
+const BASE_URL = "http://localhost:3040/api/";
 
 module.exports = {
     index: (req,res) => {
@@ -92,4 +95,21 @@ module.exports = {
         })
        
     },
+    cart: (req, res) => {
+        axios.get(`${BASE_URL}/cart`)
+        .then(response =>{
+          let products = response.data.data?.order_items.map(item => {
+            return {
+              ...item.products,
+              quantity: item.quantity
+            }
+          })
+          res.render('productCart', {
+            session: req.session,
+            products: products !== undefined ? products : []
+          })}
+          
+        )
+        .catch(err => res.send(err))
+      }
 }

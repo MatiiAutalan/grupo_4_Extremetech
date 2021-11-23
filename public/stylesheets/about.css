@@ -131,3 +131,9 @@ main .content-about-us p {
     border-right: 12px solid #3393FE;
     border-left: none;
   }
+  .form{
+    display: flex;
+    background-color: black;
+    color: white;
+    flex-direction: row;
+  }

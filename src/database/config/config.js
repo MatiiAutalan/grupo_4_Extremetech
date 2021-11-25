@@ -1,9 +1,9 @@
 module.exports ={
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "extreme_tech",
-    "host": "127.0.0.1",
+    "username": "ubwlaeg6trkqha0a",
+    "password": "jTSyJFgbySRO7EeeVIyR",
+    "database": "brwmo0xt7jcm1knlj6bv",
+    "host": "brwmo0xt7jcm1knlj6bv-mysql.services.clever-cloud.com",
     "dialect": "mysql"
   },
   "test": {
